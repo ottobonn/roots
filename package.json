@@ -1,0 +1,19 @@
+{
+  "name": "roots",
+  "version": "1.0.0",
+  "description": "Roots mobile app",
+  "author": "Cheenar Banerjee, Travis Geis, Guhan Venkataraman, Max Wolff",
+  "private": true,
+  "main": "main.js",
+  "dependencies": {
+    "@exponent/vector-icons": "~2.0.3",
+    "exponent": "~11.0.2",
+    "react": "~15.3.2",
+    "react-native": "git+https://github.com/exponentjs/react-native#sdk-11.0.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.0",
+    "eslint": "^3.10.0",
+    "eslint-plugin-react": "^6.6.0"
+  }
+}
