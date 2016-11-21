@@ -6,10 +6,16 @@ import {
   Image
 } from "react-native";
 
+import GlobalStyles from "../styles";
+
 /**
-* Each EventCard has the following props:
-* - title
-* - des
+Example use:
+<EventCard
+  title="Tree Planting"
+  image={require("./static/images/placeholder.jpg")}
+  date="16 Nov 2016"
+  location="Henry Coe Park"
+/>
 */
 export default class EventCard extends Component {
   render() {
@@ -23,7 +29,7 @@ export default class EventCard extends Component {
               source={this.props.image}
             />
           </View>
-          <Text style={styles.title}>
+          <Text style={[GlobalStyles.titleFont, styles.title]}>
             {this.props.title}
           </Text>
         </View>
@@ -44,33 +50,37 @@ export default class EventCard extends Component {
 
 const styles = StyleSheet.create({
   card: {
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: "black",
-    borderWidth: 2,
-    backgroundColor: "#eee",
     flex: 1,
-    margin: 20,
-    height: 300
+    margin: 10,
+    height: 250,
+    backgroundColor: "black",
+    elevation: 10
   },
   cardHeader: {
-    flex: 1
+    flex: 5
   },
   image: {
     flex: 1,
-    resizeMode: Image.resizeMode.cover
+    width: 1 /* Hack? Required to get image to resize to container. */
   },
   title: {
     // marginTop: -10,
     color: "white",
-    backgroundColor: "#333",
-    fontSize: 30,
-    padding: 20,
+    backgroundColor: "#333c",
+    fontSize: 25,
+    padding: 10,
     textAlign: "center",
-    flex: 1
+    /* Position at bottom and fill width */
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    left: 0
   },
   eventDetail: {
     flex: 1,
-    flexDirection: "row"
+    flexDirection: "row",
+    backgroundColor: "white",
+    marginBottom: -1
   },
   date: {
     flex: 1,
@@ -83,6 +93,6 @@ const styles = StyleSheet.create({
   detailText: {
     // for location and date
     margin: 10,
-    fontSize: 20
+    fontSize: 15
   }
 });
