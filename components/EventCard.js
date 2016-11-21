@@ -6,6 +6,7 @@ import {
   Image
 } from "react-native";
 
+import ChatHeads from "./ChatHeads";
 import GlobalStyles from "../styles";
 
 /**
@@ -19,6 +20,11 @@ Example use:
 */
 export default class EventCard extends Component {
   render() {
+    var chatHeads = null;
+    if (this.props.people) {
+      chatHeads = <ChatHeads people={this.props.people} />;
+    }
+
     return (
       <View style={styles.card}>
 
@@ -43,6 +49,12 @@ export default class EventCard extends Component {
           </Text>
         </View>
 
+        <View style={styles.chatHeadsContainer}>
+          <Text style={styles.chatHeadsLabel}>Who's Going:</Text>
+          {chatHeads}
+        </View>
+
+
       </View>
     );
   }
@@ -52,12 +64,11 @@ const styles = StyleSheet.create({
   card: {
     flex: 1,
     margin: 10,
-    height: 250,
     backgroundColor: "black",
     elevation: 10
   },
   cardHeader: {
-    flex: 5
+    height: 200
   },
   image: {
     flex: 1,
@@ -94,5 +105,12 @@ const styles = StyleSheet.create({
     // for location and date
     margin: 10,
     fontSize: 15
+  },
+  chatHeadsLabel: {
+    paddingLeft: 10,
+    fontSize: 10
+  },
+  chatHeadsContainer: {
+    backgroundColor: "white"
   }
 });

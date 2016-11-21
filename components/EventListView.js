@@ -30,6 +30,7 @@ export default class EventListView extends Component {
                 image={rowData.image}
                 date={rowData.date}
                 location={rowData.location}
+                people={rowData.people}
               />
           }
         />
