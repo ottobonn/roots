@@ -31,9 +31,16 @@ export default class ChatHeads extends Component {
       return (<ChatHead name={person.name} image={person.image} key={i} />);
     });
     return (
-      <ScrollView horizontal={true}>
+      <ScrollView style={styles.container} horizontal={true}>
         {elements}
       </ScrollView>
     );
   }
 };
+
+const styles = StyleSheet.create({
+  container: {
+    paddingLeft: 7,
+    paddingRight: 7
+  }
+});
