@@ -40,11 +40,11 @@ for (var i = 0; i < 10; i++) {
 var nature = {
   name: "Nature",
   image: require("./static/images/nature-crop.jpg"),
-}
+};
 
 var categories = [];
 for (var i = 0; i < 6; i++) {
-  categories.push(nature)
+  categories.push(nature);
 }
 
 // <Text>Testing the editor</Text>
@@ -73,8 +73,8 @@ class App extends React.Component {
     //   location="Smartway"
     //   people={people}
     // />;
-    
-    // var content = <DiscoverCategory 
+
+    // var content = <DiscoverCategory
     //   name="Nature"
     //   image={require("./static/images/nature-crop.jpg")}
     // />;
@@ -83,7 +83,9 @@ class App extends React.Component {
     />;
     return (
       <View style={styles.container}>
-        <PageFrame title="Discover" content={content} />
+        <PageFrame title="Discover">
+          {content}
+        </PageFrame>
       </View>
     );
   }

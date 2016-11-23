@@ -15,7 +15,7 @@ export default class PageFrame extends Component {
           <Text style={styles.title}>{this.props.title}</Text>
         </View>
         <View style={{flex: 1}}>
-          {this.props.content}
+          {this.props.children}
         </View>
       </View>
     );
