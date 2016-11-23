@@ -12,13 +12,12 @@ export default class DiscoverCategory extends Component {
   render() {
     return (
       <View style={styles.category}>
-      <View style={{flex: 1, flexDirection: "row"}}>
+        <View style={{flex: 1}}>
           <Image
             style={styles.image}
             source={this.props.image}
-            resizeMode={Image.resizeMode.contain} 
           />
-       </View>
+        </View>
         <Text style={[GlobalStyles.titleFont, styles.name]}>
           {this.props.name}
         </Text>
@@ -27,18 +26,18 @@ export default class DiscoverCategory extends Component {
   }
 }
 
+DiscoverCategory.propTypes = {
+  image: React.PropTypes.any.isRequired,
+  name: React.PropTypes.string.isRequired
+};
+
 const styles = StyleSheet.create({
   category: {
-    margin: 10,
-    elevation: 10,
-    height: 160,
-    width: 160,
+    flex: 1
   },
   image: {
     flex: 1,
-    height: 160,
-    width: 160,
-    resizeMode: "contain"
+    height: 0 /* Hack to trigger image resize to container height */
   },
   name: {
     color: "white",

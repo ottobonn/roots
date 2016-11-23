@@ -3,34 +3,41 @@ import {
   StyleSheet,
   View,
   Text,
-  ListView,
+  ScrollView
 } from "react-native";
 import DiscoverCategory from "./DiscoverCategory";
 
 export default class DiscoverView extends Component {
   constructor(props) {
     super(props);
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
-    });
-    this.state = {
-      dataSource: ds.cloneWithRows(this.props.categories)
-    };
   }
 
   render() {
+    var rows = [];
+    var categories = this.props.categories;
+    for (var i = 0; i < categories.length; i += 2) {
+      leftCategory = <DiscoverCategory
+        name={categories[i].name}
+        image={categories[i].image}
+      />;
+      rightCategory = (i+1 == categories.length) ? null :
+      <DiscoverCategory
+        name={categories[i+1].name}
+        image={categories[i+1].image}
+      />;
+      rows.push(
+        <View style={styles.row}>
+          {/* Row container */}
+          {leftCategory}
+          {rightCategory}
+        </View>
+      );
+    }
     return (
       <View style={{flex: 1}}>
-        <ListView contentContainerStyle={styles.list}
-          dataSource={this.state.dataSource}
-          renderRow={
-            (rowData) =>
-              <DiscoverCategory
-                name={rowData.name}
-                image={rowData.image}
-              />
-          }
-        />
+        <ScrollView>
+          {rows}
+        </ScrollView>
       </View>
     );
   }
@@ -38,11 +45,13 @@ export default class DiscoverView extends Component {
 
 const styles = StyleSheet.create({
   list: {
-        justifyContent: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap'
-    },
-  container: {
-   
+    flexDirection: "column"
+  },
+  row: {
+    flex: 1,
+    height: 200,
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row"
   }
 });
