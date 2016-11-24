@@ -6,35 +6,73 @@ import {
   Image,
   ScrollView
 } from "react-native";
+import {Ionicons} from "@exponent/vector-icons";
 import Button from "react-native-button";
 import ChatHeads from "./ChatHeads";
 
 export default class EventDetail extends Component {
-  constructor() {
-    super();
-    this.state = {
-      signupEnabled: true
-    };
+  constructor(props) {
+    super(props);
+    this.toggleSignup = this.toggleSignup.bind(this);
   }
 
-  signup() {
-    this.setState({signupEnabled: false});
+  toggleSignup() {
+    this.props.onSignUpChange(!this.props.signedUp);
+    console.log("toggle signup");
   }
 
   render() {
+    /* The footer holds either the signup button or the chat heads. */
+    var footer = null;
+    if (this.props.signedUp) {
+      footer = (
+        <View style={styles.chatHeadsBar}>
+          <ChatHeads style={styles.chatHeads} title="Who's going:" people={this.props.people} />
+        </View>
+      );
+    } else {
+      footer = (
+        <View style={styles.buttonBar}>
+          <Button
+            containerStyle={styles.buttonContainer}
+            style={styles.button}
+            onPress={this.toggleSignup}
+          >
+            Sign up
+          </Button>
+        </View>
+      );
+    }
+
+    var cancelView = null;
+    if (this.props.signedUp) {
+      cancelView = (
+        <View style={styles.cancelView}>
+          <Ionicons name="md-checkmark-circle-outline" style={styles.cancelViewText} />
+          <Text style={styles.cancelViewText}>I'm going</Text>
+          <Button
+            onPress={this.toggleSignup}
+          >
+            Cancel
+          </Button>
+        </View>
+      );
+    }
+
     return (
       <View style={{flex: 1}}>
         <ScrollView style={{flex: 1}}>
           <View style={styles.header}>
-          {/* Header */}
+            {/* Header */}
             <Image source={this.props.image} style={styles.bannerImage} />
             <Text style={styles.title}>{this.props.title}</Text>
           </View>
           <View style={styles.body}>
-            <View>
-              <Text>{this.props.date}</Text>
-              <Text>{this.props.location}</Text>
+            <View style={styles.meta}>
+              <Text style={[styles.metaText, styles.date]}>{this.props.date}</Text>
+              <Text style={[styles.metaText, styles.location]}>{this.props.location}</Text>
             </View>
+            {cancelView}
             <View>
               {/* Event details */}
               <Text style={styles.eventDetail}>{this.props.description}</Text>
@@ -46,26 +84,42 @@ export default class EventDetail extends Component {
             </View>
           </View>
         </ScrollView>
-        {
-        this.state.signupEnabled ?
-          <View style={styles.buttonBar}>
-            <Button
-              containerStyle={styles.buttonContainer}
-              style={styles.button}
-              onPress={() => this.signup()}
-            >
-              Sign up
-            </Button>
-          </View>
-        :
-        <View style={styles.buttonBar}>
-          <Text>Who's going:</Text>
-          <ChatHeads people={this.props.people} />
-        </View>
-        }
+        {footer}
       </View>
     );
   }
+};
+
+EventDetail.propTypes = {
+  /* True when the user is signed up for this event and false otherwise */
+  signedUp: React.PropTypes.bool,
+  /* Called with new signup status when the user alters the signup */
+  onSignUpChange: React.PropTypes.func.isRequired,
+  /* Event title */
+  title: React.PropTypes.string.isRequired,
+  /* Event description */
+  description: React.PropTypes.string.isRequired,
+  /* Information about the event organizer */
+  organizer: React.PropTypes.shape({
+    /* The name of the organizer */
+    name: React.PropTypes.string.isRequired,
+    /* The biography or description of the organizer */
+    bio: React.PropTypes.string.isRequired,
+    /* `image` should be an image as returned by require("image-uri") */
+    image: React.PropTypes.number
+  }).isRequired,
+  /* `image` should be an image as returned by require("image-uri") */
+  image: React.PropTypes.number.isRequired,
+  /* The human-formatted date string to be displayed for the event */
+  date: React.PropTypes.string.isRequired,
+  /* The human-formatted location string to be displayed for the event */
+  location: React.PropTypes.string.isRequired,
+  /* The attendees of the event */
+  people: React.PropTypes.arrayOf(React.PropTypes.shape({
+    name: React.PropTypes.string.isRequired,
+    /* `image` should be an image as returned by require("image-uri") */
+    image: React.PropTypes.number.isRequired
+  })).isRequired
 };
 
 const styles = StyleSheet.create({
@@ -94,8 +148,33 @@ const styles = StyleSheet.create({
     padding: 5,
     backgroundColor: "#333c"
   },
+  cancelView: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  cancelViewText: {
+    fontSize: 20,
+    padding: 5
+  },
   eventDetail: {
     fontSize: 18
+  },
+  meta: {
+    flex: 1,
+    flexDirection: "row",
+    padding: 5
+  },
+  metaText: {
+    fontSize: 15
+  },
+  date: {
+    flex: 1
+  },
+  location: {
+    flex: 1,
+    textAlign: "right"
   },
   organizerName: {
     paddingTop: 20,
@@ -114,5 +193,11 @@ const styles = StyleSheet.create({
   button: {
     fontSize: 20,
     color: "white"
+  },
+  chatHeadsBar: {
+    backgroundColor: "white",
+    paddingTop: 5,
+    paddingBottom: 5,
+    elevation: 5
   }
 });
