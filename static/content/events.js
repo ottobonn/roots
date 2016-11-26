@@ -10,6 +10,7 @@ export default [
 	    organizerBio: "I’ve been a ranger at Henry Coe Park for the past 3 years. In that time, I’ve seen many trees die, but none ever planted, hence the motivation for reconstructing the park. I’m a mother of three and proud of it.",
 	    organizerImg: "../images/people/organizers/fenna_abraham.jpg"
 	},
+	eventID: 0,
   },
   {
     category: "nature",
@@ -22,6 +23,7 @@ export default [
 	    organizerBio: "I am a homemaker, and I love volunteering and the outdoors. I have been getting my hands dirty with many restoration projects for the past two years.",
 	    organizerImg: "../images/people/organizers/elissa_alserda.jpg"
 	},
+	eventID: 1,
   },
   {
     category: "nature",
@@ -34,6 +36,7 @@ export default [
 	    organizerBio:  "I am an outspoken climate change activist. I staged many climate change walkouts and other events for the past four years in Republican states, and decided to move to a place where I think I could exact better change (where I didn’t need to fight uphill to get people to believe me). I write for the Helium News.",
 	    organizerImg: "../images/people/organizers/rustam_spijker.jpg"
 	},
+	eventID: 2,
   },
   {
     category: "nature",
@@ -46,6 +49,7 @@ export default [
 	    organizerBio: "I moved from Norway in 2007. I read up on global warming there, and have felt its drastic effects. Since moving, I have been doing everything I can to help. I am currently in high school and am planning on a career in alternative energy.",
 	    organizerImg: "../images/people/organizers/alanna_ihejirika.jpg"
 	},
+	eventID: 3,
   },
   {
     category: "nature",
@@ -58,6 +62,7 @@ export default [
 	    organizerBio: "50-year dog lover. I own 3 tiny lapdogs at home and I really wish I could afford more. Their names are Bobo, Fofo, and Popo, and I usually bring them to all of my events. If all other incentives don’t work, think of my events as opportunities to play with three adorable lapdogs. That’s right. You’re swooning from the cuteness.",
 	    organizerImg: "../images/people/organizers/vilfredo_buckley.jpg"
 	},
+	eventID: 4,
   },
   {
     category: "health",
@@ -70,6 +75,7 @@ export default [
 	    organizerBio: "I have been involved with the Good Sam Hospital for four years now, as a part-time nurse as well as a volunteer. I take part in most of their community service events.",
 	    organizerImg: "../images/people/organizers/akio_nakashima.jpg"
 	},
+	eventID: 5,
   },
   {
     category: "health",
@@ -82,6 +88,7 @@ export default [
 	    organizerBio: "I have been a nurse at the JMF for the past year. While I am relatively new at the job, I have been put on the Volunteer Advisory Board. I find ways to make sure that the hospital is running smoothly by organize volunteering efforts to make sure that there are enough staff for every job.",
 	    organizerImg: "../images/people/organizers/lionel_garcia.jpg"
 	},
+	eventID: 6,
   },
   {
     category: "health",
@@ -94,6 +101,7 @@ export default [
 	    organizerBio: "Served as Mayor for two years. I have been involved in policy since, participating in city hall meetings and making sure grassroots campaigning is alive and well.",
 	    organizerImg: "../images/people/organizers/miloke_borgogni.jpg"
 	},
+	eventID: 7,
   },
   {
     category: "health",
@@ -106,6 +114,7 @@ export default [
 	    organizerBio: "Doctor at SMCTH for the past 5 years, specializing in pediatric oncology. I live at home with my wife and 4 children.",
 	    organizerImg: "../images/people/organizers/raja_balakrishnan.jpg"
 	},
+	eventID: 8,
   },
   {
     category: "health",
@@ -118,6 +127,7 @@ export default [
 	    organizerBio: "46 years old, unemployed. Hold a Psychology degree. Wife and child were lost to a disease that could not be diagnosed. I have since dedicated my life to helping the nearby hospitals and clinics via volunteering efforts, mental health counseling, and fundraising.",
 	    organizerImg: "../images/people/organizers/reynoldo_suarez.jpg"
 	},
+	eventID: 9,
   },
   {
     category: "government",
@@ -130,6 +140,7 @@ export default [
 	    organizerBio: "34, work in government as a campaign worker. I love gardening and reading books, and I live at home with my grandmother, Nandita.",
 	    organizerImg: "../images/people/organizers/agata_badrini.jpg"
 	},
+	eventID: 10,
   },
   {
     category: "government",
@@ -142,6 +153,7 @@ export default [
 	    organizerBio: "I work at the local paper company as a sales assistant. I have been a part of the BLM movement for quite a while. I love reading and writing and politicking.",
 	    organizerImg: "../images/people/organizers/john_cotton.jpg"
 	},
+	eventID: 11,
   },
   {
     category: "government",
@@ -154,6 +166,7 @@ export default [
 	    organizerBio: "Full-time volunteer since my company went IPO in 2007. I hope to make people happy through my efforts in this app :) Loving it so far!",
 	    organizerImg: "../images/people/organizers/hesiod_ybarra.jpg"
 	},
+	eventID: 12,
   },
   {
     category: "government",
@@ -166,6 +179,7 @@ export default [
 	    organizerBio: "I work at the DMV on weekdays and at BK on the weekends. I love hiking and other outdoor activities. I’m also a big cat lover, so if my birthday comes around, get me a cat!",
 	    organizerImg: "../images/people/organizers/karina_tracey.jpg"
 	},
+	eventID: 13,
   },
   {
     category: "government",
@@ -178,6 +192,7 @@ export default [
 	    organizerBio: "I am a Marine Biologist that works at the nearby aquarium. I’m a mother of two young children and volunteer for their school often. I’m a self-proclaimed politics junkie.",
 	    organizerImg: "../images/people/organizers/efua_brankovic.jpg"
 	},
+	eventID: 14,
   },
   {
     category: "arts",
@@ -190,6 +205,7 @@ export default [
 	    organizerBio: "I am a part-time painter and a full-time musician at the Subterranean Art House. I have a heavy volunteering background that stretches back 40 years.",
 	    organizerImg: "../images/people/organizers/monica_dietrich.jpg"
 	},
+	eventID: 15,
   },
   {
     category: "arts",
@@ -202,6 +218,7 @@ export default [
 	    organizerBio: "I am a teacher at the Cába Elementary School, and have worked there for for two years; prior to that, I was a graduate education student at Clarkson University in Upstate New York.",
 	    organizerImg: "../images/people/organizers/lawahiz_moon.jpg"
 	},
+	eventID: 16,
   },
   {
     category: "arts",
@@ -214,6 +231,7 @@ export default [
 	    organizerBio: "Teacher at Villalobos Middle. Prior to this, I have been a burger-flipper, a zookeeper, and a pilot.",
 	    organizerImg: "../images/people/organizers/léandre_dumitru.jpg"
 	},
+	eventID: 17,
   },
   {
     category: "arts",
@@ -226,6 +244,7 @@ export default [
 	    organizerBio: "I have been the head of the Department of Music for the Medio District Elementary Schools. I occasionally do extreme sports like whitewater rafting for fun.",
 	    organizerImg: "../images/people/organizers/zahi_muhammad.jpg"
 	},
+	eventID: 18,
   },
   {
     category: "arts",
@@ -238,6 +257,7 @@ export default [
 	    organizerBio: "I work at GuitarCenter as a sales rep. I am an avid consumer of all types of music, ranging from Afro-Cuban to classic rock.",
 	    organizerImg: "../images/people/organizers/mariana_riber.jpg"
 	},
+	eventID: 19,
   },
   {
     category: "aid",
@@ -250,6 +270,7 @@ export default [
 	    organizerBio: "I have been a cook at the Hambledon Homeless Shelter for the past 10 years, and also been the full-time caretaker of two infants (my husband and my actual infant).  My husband also occasionally helps out at the Shelter.",
 	    organizerImg: "../images/people/organizers/elyzabeth_sidney.jpg"
 	},
+	eventID: 20,
   },
   {
     category: "aid",
@@ -262,6 +283,7 @@ export default [
 	    organizerBio: "I am a librarian at the Mottershead, which has seen quite a decline in book quality and numbers lately. I also work at the nearby car dealership as a salesman.",
 	    organizerImg: "../images/people/organizers/njord_bauers.jpg"
 	},
+	eventID: 21,
   },
   {
     category: "aid",
@@ -274,6 +296,7 @@ export default [
 	    organizerBio: "I am a Software Engineer at HeadTome. I volunteer on weekends and weeknights for nearby homeless shelters and also organize community events that I can head myself.",
 	    organizerImg: "../images/people/organizers/konrad_yankovic.jpg"
 	},
+	eventID: 22,
   },
   {
     category: "aid",
@@ -286,6 +309,7 @@ export default [
 	    organizerBio: "I am an eighth grader attending Villalobos Middle School. I am trying to get the requisite community service hours I need while being a valuable member of society :)",
 	    organizerImg: "../images/people/organizers/elias_beatty.jpg"
 	},
+	eventID: 23,
   },
   {
     category: "arts",
@@ -298,6 +322,7 @@ export default [
 	    organizerBio: "I am a house painter by profession (I do both indoor and outdoor painting). I work two other jobs at McDonald’s and a carpet cleaning company of my own founding.",
 	    organizerImg: "../images/people/organizers/qing_hu.jpg"
 	},
+	eventID: 24,
   },
   {
     category: "education",
@@ -310,6 +335,7 @@ export default [
 	    organizerBio: "I am a chef at Keegan Middle School cafeteria. I work around 8 hours a day for prepping and serving food.",
 	    organizerImg: "../images/people/organizers/diocletianus_kanellakopolos.jpg"
 	},
+	eventID: 25,
   },
   {
     category: "education",
@@ -322,6 +348,7 @@ export default [
 	    organizerBio: "I have been an educator at Pasternak Special Needs Academy for 14 years, and have loved every bit of it. I live at home with my pet parrot, Jarvis, who repeats everything I say and makes sure I don’t forget anything.",
 	    organizerImg: "../images/people/organizers/robert_myerick.jpg"
 	},
+	eventID: 26,
   },
   {
     category: "education",
@@ -334,6 +361,7 @@ export default [
 	    organizerBio: "I have worked as a Pre-K teacher at Paulissen, but have also taught at Pasternak and Villalobos. I’m a single mom of a small 1 year old, who never ceases to bring me joy.",
 	    organizerImg: "../images/people/organizers/renée_david.jpg"
 	},
+	eventID: 27,
   },
   {
     category: "education",
@@ -346,6 +374,7 @@ export default [
 	    organizerBio: "I am a Band teacher at Romilly High and a salesman at YerbaBuena Florists.",
 	    organizerImg: "../images/people/organizers/daniel_dorsey.jpg"
 	},
+	eventID: 28,
   },
   {
     category: "education",
@@ -358,5 +387,6 @@ export default [
 	    organizerBio: "I’ve been a 3rd-grade teacher at Davison Elementary for the past 3 years. It’s been a very rewarding experience. I usually volunteer at the church on weekends.",
 	    organizerImg: "../images/people/organizers/fred_maddox.jpg"
 	},
+	eventID: 29,
   },
 ];
