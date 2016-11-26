@@ -19,11 +19,15 @@ export default class DiscoverView extends Component {
       leftCategory = <DiscoverCategory
         name={categories[i].name}
         image={categories[i].image}
+        id={categories[i].id}
+        key={categories[i].id}
       />;
       rightCategory = (i+1 == categories.length) ? null :
       <DiscoverCategory
         name={categories[i+1].name}
         image={categories[i+1].image}
+        id={categories[i+1].id}
+        key={categories[i+1].id}
       />;
       rows.push(
         <View style={styles.row}>

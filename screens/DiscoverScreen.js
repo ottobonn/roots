@@ -7,13 +7,13 @@ import {
 import DiscoverView from "../components/DiscoverView";
 import PageFrame from "../components/PageFrame";
 
-var nature = {
-  name: "Nature",
-  image: require("../static/images/nature-crop.jpg"),
-};
-
 var categories = [];
 for (var i = 0; i < 6; i++) {
+  var nature = {
+    name: "Nature",
+    image: require("../static/images/nature-crop.jpg"),
+    id: i + 0
+  };
   categories.push(nature);
 }
 
@@ -31,7 +31,6 @@ export default class DiscoverScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: 20,
+    flex: 1
   },
 });

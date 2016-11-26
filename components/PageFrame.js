@@ -2,17 +2,33 @@ import React, {Component} from "react";
 import {
   StyleSheet,
   View,
-  Text
+  Text,
+  TouchableHighlight
 } from "react-native";
-import { Ionicons } from "@exponent/vector-icons";
+import {Ionicons} from "@exponent/vector-icons";
+import {withNavigation} from "@exponent/ex-navigation";
 
+@withNavigation
 export default class PageFrame extends Component {
+  constructor(props) {
+    super(props);
+    this.goBack = this.goBack.bind(this);
+  }
+
+  goBack() {
+    if (this.props.navigator.getCurrentIndex() > 0) {
+      this.props.navigator.pop();
+    }
+  }
+
   render() {
     overlayStyle = this.props.overlay ? styles.overlay : null;
     return (
       <View style={{flex: 1}}>
         <View style={[styles.titleBar, overlayStyle]}>
-          <Ionicons name="md-arrow-round-back" size={32} color="white" />
+          <TouchableHighlight onPress={this.goBack} style={styles.backButton}>
+            <Ionicons name="md-arrow-round-back" size={32} color="white" />
+          </TouchableHighlight>
           <Text style={styles.title}>{this.props.title}</Text>
         </View>
         <View style={{flex: 1}}>
@@ -34,7 +50,7 @@ var titleBarHeight = 60;
 const styles = StyleSheet.create({
   titleBar: {
     height: titleBarHeight,
-    padding: 10,
+    paddingLeft: 10,
     backgroundColor: "#4b4b4b",
     flexDirection: "row",
     alignItems: "center",
@@ -52,7 +68,6 @@ const styles = StyleSheet.create({
     paddingLeft: 10
   },
   backButton: {
-    color: "white",
-    width: 50
+    padding: 10
   }
 });
