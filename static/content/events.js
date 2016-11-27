@@ -336,7 +336,7 @@ export default [
     id: 23
   },
   {
-    category: "arts",
+    category: "aid",
     title: "Low-income house painting",
     date: "2017-01-11T00:27:38.116Z",
     description: "With the permission of the owners of the houses on MacFarlane Road, I am going to paint their houses for them, which is a service these people can’t afford. I would love to get help from other altruistic members of the community such as you all.",
@@ -365,7 +365,7 @@ export default [
   },
   {
     category: "education",
-    title: "Special Needs Field Trip",
+    title: "Special Needs field trip",
     date: "2017-01-22T04:55:42.693Z",
     description: "We need all the help we can get for our first-ever field trip for the special needs kids at Pasternak. Most of these kids have some sort of attention deficiency disorders, so we will need patient chaperones who will be willing to put in a lot of patience and care. Sign up if you are interested in helping out, and we’ll send you a Google Form with all of the details and preferences of assignments.",
     location: "Pasternak Special Needs Academy",
