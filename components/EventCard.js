@@ -33,7 +33,12 @@ export default class EventCard extends Component {
 
     var chatHeads = null;
     if (this.props.eventInfo.people) {
-      chatHeads = <ChatHeads people={this.props.eventInfo.people} />;
+      chatHeads = (
+        <View style={styles.chatHeadsContainer}>
+          <Text style={styles.chatHeadsLabel}>{"Who's Going:"}</Text>
+          <ChatHeads people={this.props.eventInfo.people} />;
+        </View>
+      );
     }
 
     return (
@@ -59,11 +64,7 @@ export default class EventCard extends Component {
             {this.props.eventInfo.location}
           </Text>
         </View>
-
-        <View style={styles.chatHeadsContainer}>
-          <Text style={styles.chatHeadsLabel}>{"Who's Going:"}</Text>
-          {chatHeads}
-        </View>
+        {chatHeads}
       </View>
       </TouchableHighlight>
     );
