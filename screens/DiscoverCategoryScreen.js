@@ -7,31 +7,32 @@ import {
 import PageFrame from "../components/PageFrame";
 import EventListView from "../components/EventListView";
 
-treeEvent = {
-  id: 0,
-  title: "Tree Planting",
-  image: require("../static/images/placeholder.jpg"),
-  date: "16 Nov 2016",
-  location: "Henry Coe Park",
-  description: "Plant trees",
-  organizer: {
-  	name: "Ranger Max",
-  	bio: "I like trees",
-  },
-  people: [],
-};
+import events from "../static/content/events.js";
 
-var events = [];
-for (var i = 0; i < 10; i++) {
-  events.push(treeEvent);
-}
+var eventList = [];
 
 export default class DiscoverCategoryScreen extends Component {
+
+  componentWillMount() {
+    categoryName = this.props.route.params.name.toLowerCase();
+    console.log(categoryName)
+    for (let i = 0; i < events.length; i++) {
+      if (events[i].category === categoryName) {
+        console.log(events[i].category)
+        eventList.push(events[i]);
+      } 
+    }
+  }
+
+  componentWillUnmount() {
+    eventList = [];
+  }
+
   render() {
     return (
       <PageFrame title={this.props.route.params.name}>
         <EventListView
-          events = {events}
+          events = {eventList}
         />
       </PageFrame>
     );
