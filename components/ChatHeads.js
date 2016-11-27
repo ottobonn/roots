@@ -30,17 +30,26 @@ export default class ChatHeads extends Component {
     var elements = this.props.people.map((person, i) => {
       return (<ChatHead name={person.name} image={person.image} key={i} />);
     });
+    var titleText = this.props.title ?
+      <Text style={styles.title}>{this.props.title}</Text>
+      : null;
     return (
-      <ScrollView style={styles.container} horizontal={true}>
-        {elements}
-      </ScrollView>
+      <View>
+        {titleText}
+        <ScrollView horizontal={true}>
+          {elements}
+        </ScrollView>
+      </View>
     );
   }
 };
 
+ChatHeads.propTypes = {
+  title: React.PropTypes.string
+};
+
 const styles = StyleSheet.create({
-  container: {
-    paddingLeft: 7,
-    paddingRight: 7
+  title: {
+    paddingLeft: 7
   }
 });
