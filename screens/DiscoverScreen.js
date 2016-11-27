@@ -12,7 +12,6 @@ for (var i = 0; i < 6; i++) {
   var nature = {
     name: "Nature",
     image: require("../static/images/nature-crop.jpg"),
-    id: i + 0
   };
   categories.push(nature);
 }
@@ -21,7 +20,7 @@ export default class DiscoverScreen extends React.Component {
   render(){
     return (
       <View style={styles.container}>
-        <PageFrame title="Discover">
+        <PageFrame title="Discover" backButton={false}>
           <DiscoverView categories={categories} />
         </PageFrame>
       </View>

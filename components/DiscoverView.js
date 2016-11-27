@@ -30,7 +30,7 @@ export default class DiscoverView extends Component {
         key={categories[i+1].id}
       />;
       rows.push(
-        <View style={styles.row}>
+        <View style={styles.row} key={categories[i].id}>
           {/* Row container */}
           {leftCategory}
           {rightCategory}

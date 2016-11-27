@@ -3,62 +3,99 @@ import {
   StyleSheet,
   View,
   Text,
-  Image
+  Image,
+  TouchableHighlight
 } from "react-native";
 
-import ChatHeads from "./ChatHeads";
+import ChatHeads from "../components/ChatHeads";
 import GlobalStyles from "../styles";
+import Router from "../navigation/Router";
+import {withNavigation} from "@exponent/ex-navigation";
 
-/**
-Example use:
-<EventCard
-  title="Tree Planting"
-  image={require("./static/images/placeholder.jpg")}
-  date="16 Nov 2016"
-  location="Henry Coe Park"
-/>
-*/
+@withNavigation
 export default class EventCard extends Component {
-  render() {
-    var chatHeads = null;
-    if (this.props.people) {
-      chatHeads = <ChatHeads people={this.props.people} />;
+  constructor(props) {
+    super(props);
+    this.showDetails = this.showDetails.bind(this);
+    this.chatHeads = null;
+    if (this.props.eventInfo.people) {
+      this.chatHeads = <ChatHeads people={this.props.eventInfo.people} />;
     }
+  }
 
+  showDetails() {
+    this.props.navigator.push(Router.getRoute("eventDetails", {
+      eventInfo: this.props.eventInfo
+    }));
+  }
+
+  render() {
     return (
+      <TouchableHighlight style={{flex: 1}} onPress={this.showDetails}>
       <View style={styles.card}>
-
         <View style={styles.cardHeader}>
           <View style={{flex: 1, flexDirection: "row"}}>
             <Image
               style={styles.image}
-              source={this.props.image}
+              source={this.props.eventInfo.image}
             />
           </View>
           <Text style={[GlobalStyles.titleFont, styles.title]}>
-            {this.props.title}
+            {this.props.eventInfo.title}
           </Text>
         </View>
 
         <View style={styles.eventDetail}>
           <Text style={[styles.detailText, styles.date]}>
-            {this.props.date}
+            {this.props.eventInfo.date}
           </Text>
           <Text style={[styles.detailText, styles.location]}>
-            {this.props.location}
+            {this.props.eventInfo.location}
           </Text>
         </View>
 
         <View style={styles.chatHeadsContainer}>
-          <Text style={styles.chatHeadsLabel}>Who's Going:</Text>
-          {chatHeads}
+          <Text style={styles.chatHeadsLabel}>{"Who's Going:"}</Text>
+          {this.chatHeads}
         </View>
-
-
       </View>
-    );
+      </TouchableHighlight>
+    );  
   }
 }
+
+EventCard.propTypes = {
+  /* Event object */ 
+  eventInfo: React.PropTypes.shape({
+    /* Event id */
+    id: React.PropTypes.number.isRequired,
+    /* Event title */
+    title: React.PropTypes.string.isRequired,
+    /* Event description */
+    description: React.PropTypes.string.isRequired,
+    /* Information about the event organizer */
+    organizer: React.PropTypes.shape({
+      /* The name of the organizer */
+      name: React.PropTypes.string.isRequired,
+      /* The biography or description of the organizer */
+      bio: React.PropTypes.string.isRequired,
+      /* `image` should be an image as returned by require("image-uri") */
+      image: React.PropTypes.number
+    }).isRequired,
+    /* `image` should be an image as returned by require("image-uri") */
+    image: React.PropTypes.number.isRequired,
+    /* The human-formatted date string to be displayed for the event */
+    date: React.PropTypes.string.isRequired,
+    /* The human-formatted location string to be displayed for the event */
+    location: React.PropTypes.string.isRequired,
+    /* The attendees of the event */
+    people: React.PropTypes.arrayOf(React.PropTypes.shape({
+      name: React.PropTypes.string.isRequired,
+      /* `image` should be an image as returned by require("image-uri") */
+      image: React.PropTypes.number.isRequired
+    })).isRequired
+  }).isRequired,
+};
 
 const styles = StyleSheet.create({
   card: {

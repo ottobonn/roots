@@ -23,12 +23,16 @@ export default class PageFrame extends Component {
 
   render() {
     overlayStyle = this.props.overlay ? styles.overlay : null;
+    console.log(this.props.backButton)
+    backButton = this.props.backButton == null ? true : this.props.backButton;
+    console.log(backButton)
     return (
       <View style={{flex: 1}}>
         <View style={[styles.titleBar, overlayStyle]}>
-          <TouchableHighlight onPress={this.goBack} style={styles.backButton}>
-            <Ionicons name="md-arrow-round-back" size={32} color="white" />
-          </TouchableHighlight>
+          {backButton && 
+            <TouchableHighlight onPress={this.goBack} style={styles.backButton}>
+              <Ionicons name="md-arrow-round-back" size={32} color="white" />
+            </TouchableHighlight> }
           <Text style={styles.title}>{this.props.title}</Text>
         </View>
         <View style={{flex: 1}}>
@@ -43,7 +47,9 @@ PageFrame.propTypes = {
   /* True if the frame should sit over the content */
   overlay: React.PropTypes.bool,
   /* The title to display in the title bar */
-  title: React.PropTypes.string
+  title: React.PropTypes.string,
+  /* Boolean, whether or not to display back button */
+  backButton: React.PropTypes.bool
 };
 
 var titleBarHeight = 60;

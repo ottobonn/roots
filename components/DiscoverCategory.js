@@ -21,7 +21,8 @@ export default class DiscoverCategory extends Component {
   showCategory() {
     console.log("showCategory " + this.props.id);
     this.props.navigator.push(Router.getRoute("discoverCategory", {
-      categoryId: this.props.id
+      categoryId: this.props.id,
+      name: this.props.name
     }));
   }
 
@@ -46,7 +47,7 @@ export default class DiscoverCategory extends Component {
 
 DiscoverCategory.propTypes = {
   image: React.PropTypes.any.isRequired,
-  name: React.PropTypes.string.isRequired
+  name: React.PropTypes.string.isRequired,
 };
 
 const styles = StyleSheet.create({
