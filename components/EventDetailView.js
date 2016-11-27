@@ -60,6 +60,11 @@ export default class EventDetailView extends Component {
       );
     }
 
+    var dateObj = new Date(this.props.eventInfo.date);
+    var date = dateObj.toDateString();
+    var time = dateObj.toLocaleTimeString();
+    var dateDisplay = date + " " + time;
+
     return (
       <View style={{flex: 1}}>
         <ScrollView style={{flex: 1}}>
@@ -70,7 +75,7 @@ export default class EventDetailView extends Component {
           </View>
           <View style={styles.body}>
             <View style={styles.meta}>
-              <Text style={[styles.metaText, styles.date]}>{this.props.eventInfo.date}</Text>
+              <Text style={[styles.metaText, styles.date]}>{dateDisplay}</Text>
               <Text style={[styles.metaText, styles.location]}>{this.props.eventInfo.location}</Text>
             </View>
             {cancelView}
