@@ -41,31 +41,35 @@ export default class EventCard extends Component {
       );
     }
 
+    var imageWidth, imageHeight;
+
     return (
       <TouchableHighlight style={{flex: 1}} onPress={this.showDetails}>
-      <View style={styles.card}>
-        <View style={styles.cardHeader}>
-          <View style={{flex: 1}}>
-            <Image
-              style={styles.image}
-              source={this.props.eventInfo.image}
-            />
+        <View style={styles.card}>
+          <View style={styles.cardHeader}>
+            <View style={styles.imageContainer} onLayout={(event) => {
+                var {_, _, imageWidth, imageHeight} = event.nativeEvent.layout;
+              }}>
+              <Image
+                style={[styles.image, {width: imageWidth, height: imageHeight}]}
+                source={this.props.eventInfo.image}
+              />
+            </View>
+            <Text style={[GlobalStyles.titleFont, styles.title]}>
+              {this.props.eventInfo.title}
+            </Text>
           </View>
-          <Text style={[GlobalStyles.titleFont, styles.title]}>
-            {this.props.eventInfo.title}
-          </Text>
-        </View>
 
-        <View style={styles.eventDetail}>
-          <Text style={[styles.detailText, styles.date]}>
-            {dateDisplay}
-          </Text>
-          <Text style={[styles.detailText, styles.location]}>
-            {this.props.eventInfo.location}
-          </Text>
+          <View style={styles.eventDetail}>
+            <Text style={[styles.detailText, styles.date]}>
+              {dateDisplay}
+            </Text>
+            <Text style={[styles.detailText, styles.location]}>
+              {this.props.eventInfo.location}
+            </Text>
+          </View>
+          {chatHeads}
         </View>
-        {chatHeads}
-      </View>
       </TouchableHighlight>
     );
   }
@@ -112,11 +116,17 @@ const styles = StyleSheet.create({
     elevation: 10
   },
   cardHeader: {
+    flex: 1,
     height: 200
+  },
+  imageContainer: {
+    flex: 1,
+    backgroundColor: "black"
   },
   image: {
     flex: 1,
-    height: 1 /* Hack? Required to get image to resize to container. */
+    resizeMode: "cover"
+    // Image dimensions are set by onLayout callback of imageContainer
   },
   title: {
     // marginTop: -10,
