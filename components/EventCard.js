@@ -30,6 +30,11 @@ export default class EventCard extends Component {
   }
 
   render() {
+    var dateObj = new Date(this.props.eventInfo.date);
+    var date = dateObj.toDateString();
+    var time = dateObj.toLocaleTimeString();
+    var dateDisplay = date + " " + time;
+
     return (
       <TouchableHighlight style={{flex: 1}} onPress={this.showDetails}>
       <View style={styles.card}>
@@ -47,7 +52,7 @@ export default class EventCard extends Component {
 
         <View style={styles.eventDetail}>
           <Text style={[styles.detailText, styles.date]}>
-            {this.props.eventInfo.date}
+            {dateDisplay}
           </Text>
           <Text style={[styles.detailText, styles.location]}>
             {this.props.eventInfo.location}
