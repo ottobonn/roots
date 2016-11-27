@@ -17,10 +17,6 @@ export default class EventCard extends Component {
   constructor(props) {
     super(props);
     this.showDetails = this.showDetails.bind(this);
-    this.chatHeads = null;
-    if (this.props.eventInfo.people) {
-      this.chatHeads = <ChatHeads people={this.props.eventInfo.people} />;
-    }
   }
 
   showDetails() {
@@ -35,11 +31,16 @@ export default class EventCard extends Component {
     var time = dateObj.toLocaleTimeString();
     var dateDisplay = date + " " + time;
 
+    var chatHeads = null;
+    if (this.props.eventInfo.people) {
+      chatHeads = <ChatHeads people={this.props.eventInfo.people} />;
+    }
+
     return (
       <TouchableHighlight style={{flex: 1}} onPress={this.showDetails}>
       <View style={styles.card}>
         <View style={styles.cardHeader}>
-          <View style={{flex: 1, flexDirection: "row"}}>
+          <View style={{flex: 1}}>
             <Image
               style={styles.image}
               source={this.props.eventInfo.image}
@@ -61,16 +62,16 @@ export default class EventCard extends Component {
 
         <View style={styles.chatHeadsContainer}>
           <Text style={styles.chatHeadsLabel}>{"Who's Going:"}</Text>
-          {this.chatHeads}
+          {chatHeads}
         </View>
       </View>
       </TouchableHighlight>
-    );  
+    );
   }
 }
 
 EventCard.propTypes = {
-  /* Event object */ 
+  /* Event object */
   eventInfo: React.PropTypes.shape({
     /* Event id */
     id: React.PropTypes.number.isRequired,
@@ -114,7 +115,7 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    width: 1 /* Hack? Required to get image to resize to container. */
+    height: 1 /* Hack? Required to get image to resize to container. */
   },
   title: {
     // marginTop: -10,
