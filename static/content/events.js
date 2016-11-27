@@ -11,7 +11,24 @@ export default [
       bio: "I’ve been a ranger at Henry Coe Park for the past 3 years. In that time, I’ve seen many trees die, but none ever planted, hence the motivation for reconstructing the park. I’m a mother of three and proud of it.",
       image: "../images/people/organizers/fenna_abraham.jpg"
     },
-    id: 0
+    id: 0,
+    people: [
+      {
+        name: "Sara Douglas",
+        id: 1,
+        image: "../images/people/users/01_sara_douglas.jpg",
+      },
+      {
+        name: "Joann Brown",
+        id: 5,
+        image: "../images/people/users/05_joann_brown.jpg",
+      },
+      {
+        name: "Marshall Ferguson",
+        id: 9,
+        image: "../images/people/users/09_marshall_ferguson.jpg",
+      },
+    ]
   },
   {
     category: "nature",
@@ -25,7 +42,29 @@ export default [
       bio: "I am a homemaker, and I love volunteering and the outdoors. I have been getting my hands dirty with many restoration projects for the past two years.",
       image: "../images/people/organizers/elissa_alserda.jpg"
     },
-    id: 1
+    id: 1,
+    people: [
+      {
+        name: "Russell Lynch",
+        id: 37,
+        image: "../images/people/users/37_russell_lynch.jpg",
+      },
+      {
+        name: "Edgar Perez",
+        id: 38,
+        image: "../images/people/users/38_edgar_perez.jpg",
+      },
+      {
+        name: "Eric Lambert",
+        id: 39,
+        image: "../images/people/users/39_eric_lambert.jpg",
+      },
+      {
+        name: "Norman Ramos",
+        id: 40,
+        image: "../images/people/users/40_norman_ramos.jpg",
+      },
+    ]
   },
   {
     category: "nature",
@@ -39,7 +78,24 @@ export default [
       bio:  "I am an outspoken climate change activist. I staged many climate change walkouts and other events for the past four years in Republican states, and decided to move to a place where I think I could exact better change (where I didn’t need to fight uphill to get people to believe me). I write for the Helium News.",
       image: "../images/people/organizers/rustam_spijker.jpg"
     },
-    id: 2
+    id: 2,
+    people: [
+      {
+        name: "Louella Boyd",
+        id: 16,
+        image: "../images/people/users/16_louella_boyd.jpg",
+      },
+      {
+        name: "Minnie Sanders",
+        id: 29,
+        image: "../images/people/users/29_minnie_sanders.jpg",
+      },
+      {
+        name: "Isaac Turner",
+        id: 30,
+        image: "../images/people/users/30_isaac_turner.jpg",
+      },
+    ]
   },
   {
     category: "nature",
@@ -53,7 +109,29 @@ export default [
       bio: "I moved from Norway in 2007. I read up on global warming there, and have felt its drastic effects. Since moving, I have been doing everything I can to help. I am currently in high school and am planning on a career in alternative energy.",
       image: "../images/people/organizers/alanna_ihejirika.jpg"
     },
-    id: 3
+    id: 3,
+    people: [
+      {
+        name: "Ronnie Gonzales",
+        id: 21,
+        image: "../images/people/users/21_ronnie_gonzales.jpg",
+      },
+      {
+        name: "Jesse Coleman",
+        id: 24,
+        image: "../images/people/users/24_jesse_coleman.jpg",
+      },
+      {
+        name: "Heather Coleman",
+        id: 25,
+        image: "../images/people/users/25_heather_coleman.jpg",
+      },
+      {
+        name: "Isaac Turner",
+        id: 30,
+        image: "../images/people/users/30_isaac_turner.jpg",
+      },
+    ]
   },
   {
     category: "nature",
@@ -67,7 +145,24 @@ export default [
       bio: "50-year dog lover. I own 3 tiny lapdogs at home and I really wish I could afford more. Their names are Bobo, Fofo, and Popo, and I usually bring them to all of my events. If all other incentives don’t work, think of my events as opportunities to play with three adorable lapdogs. That’s right. You’re swooning from the cuteness.",
       image: "../images/people/organizers/vilfredo_buckley.jpg"
     },
-    id: 4
+    id: 4,
+    people: [
+      {
+        name: "Sheela Xu",
+        id: 8,
+        image: "../images/people/users/08_sheela_xu.jpg",
+      },
+      {
+        name: "Brandie Grant",
+        id: 14,
+        image: "../images/people/users/14_brandie_grant.jpg",
+      },
+      {
+        name: "Ivan Nichols",
+        id: 15,
+        image: "../images/people/users/15_ivan_nichols.jpg",
+      },
+    ]
   },
   {
     category: "health",
@@ -81,7 +176,24 @@ export default [
       bio: "I have been involved with the Good Sam Hospital for four years now, as a part-time nurse as well as a volunteer. I take part in most of their community service events.",
       image: "../images/people/organizers/akio_nakashima.jpg"
     },
-    id: 5
+    id: 5,
+    people: [
+      {
+        name: "April Jacobs",
+        id: 26,
+        image: "../images/people/users/26_april_jacobs.jpg",
+      },
+      {
+        name: "Lonnie Hughes",
+        id: 27,
+        image: "../images/people/users/27_lonnie_hughes.jpg",
+      },
+      {
+        name: "Janet Lucas",
+        id: 28,
+        image: "../images/people/users/28_janet_lucas.jpg",
+      },
+    ]
   },
   {
     category: "health",
@@ -95,7 +207,24 @@ export default [
       bio: "I have been a nurse at the JMF for the past year. While I am relatively new at the job, I have been put on the Volunteer Advisory Board. I find ways to make sure that the hospital is running smoothly by organize volunteering efforts to make sure that there are enough staff for every job.",
       image: "../images/people/organizers/lionel_garcia.jpg"
     },
-    id: 6
+    id: 6,
+    people: [
+      {
+        name: "Hugh Neel",
+        id: 2,
+        image: "../images/people/users/02_hugh_neel.jpg",
+      },
+      {
+        name: "Felix Douglas",
+        id: 3,
+        image: "../images/people/users/03_felix_douglas.jpg",
+      },
+      {
+        name: "Hilda Neal",
+        id: 4,
+        image: "../images/people/users/04_hilda_neal.jpg",
+      },
+    ]
   },
   {
     category: "health",
@@ -109,7 +238,24 @@ export default [
       bio: "Served as Mayor for two years. I have been involved in policy since, participating in city hall meetings and making sure grassroots campaigning is alive and well.",
       image: "../images/people/organizers/miloke_borgogni.jpg"
     },
-    id: 7
+    id: 7,
+    people: [
+      {
+        name: "John Sanders",
+        id: 6,
+        image: "../images/people/users/06_john_sanders.jpg",
+      },
+      {
+        name: "Jared Pearson",
+        id: 7,
+        image: "../images/people/users/07_jared_pearson.jpg",
+      },
+      {
+        name: "Sheela Xu",
+        id: 8,
+        image: "../images/people/users/08_sheela_xu.jpg",
+      },
+    ]
   },
   {
     category: "health",
@@ -123,7 +269,29 @@ export default [
       bio: "Doctor at SMCTH for the past 5 years, specializing in pediatric oncology. I live at home with my wife and 4 children.",
       image: "../images/people/organizers/raja_balakrishnan.jpg"
     },
-    id: 8
+    id: 8,
+    people: [
+      {
+        name: "Lonnie Hughes",
+        id: 10,
+        image: "../images/people/users/10_lonnie_hughes.jpg",
+      },
+      {
+        name: "Hector Sanchez",
+        id: 11,
+        image: "../images/people/users/11_hector_sanchez.jpg",
+      },
+      {
+        name: "Dawn Turner",
+        id: 12,
+        image: "../images/people/users/12_dawn_turner.jpg",
+      },
+      {
+        name: "Steven Alexander",
+        id: 13,
+        image: "../images/people/users/13_steven_alexander.jpg",
+      },
+    ]
   },
   {
     category: "health",
@@ -137,7 +305,29 @@ export default [
       bio: "46 years old, unemployed. Hold a Psychology degree. Wife and child were lost to a disease that could not be diagnosed. I have since dedicated my life to helping the nearby hospitals and clinics via volunteering efforts, mental health counseling, and fundraising.",
       image: "../images/people/organizers/reynoldo_suarez.jpg"
     },
-    id: 9
+    id: 9,
+    people: [
+      {
+        name: "Louella Boyd",
+        id: 16,
+        image: "../images/people/users/16_louella_boyd.jpg",
+      },
+      {
+        name: "Jessica Wu",
+        id: 17,
+        image: "../images/people/users/17_jessica_wu.jpg",
+      },
+      {
+        name: "Sriram Ramanan",
+        id: 18,
+        image: "../images/people/users/18_sriram_ramanan.jpg",
+      },
+      {
+        name: "Chloe May",
+        id: 19,
+        image: "../images/people/users/19_chloe_may.jpg",
+      },
+    ]
   },
   {
     category: "government",
@@ -152,6 +342,23 @@ export default [
       image: "../images/people/organizers/agata_badrini.jpg"
     },
     id: 10,
+    people: [
+      {
+        name: "Lorraine Alvarez",
+        id: 20,
+        image: "../images/people/users/20_lorraine_alvarez.jpg",
+      },
+      {
+        name: "Ronnie Gonzales",
+        id: 21,
+        image: "../images/people/users/21_ronnie_gonzales.jpg",
+      },
+      {
+        name: "Emma Snyder",
+        id: 22,
+        image: "../images/people/users/22_emma_snyder.jpg",
+      },
+    ]
   },
   {
     category: "government",
@@ -165,7 +372,24 @@ export default [
       bio: "I work at the local paper company as a sales assistant. I have been a part of the BLM movement for quite a while. I love reading and writing and politicking.",
       image: "../images/people/organizers/john_cotton.jpg"
     },
-    id: 11
+    id: 11,
+    people: [
+      {
+        name: "Felix Douglas",
+        id: 3,
+        image: "../images/people/users/03_felix_douglas.jpg",
+      },
+      {
+        name: "Lonnie Hughes",
+        id: 27,
+        image: "../images/people/users/27_lonnie_hughes.jpg",
+      },
+      {
+        name: "Janet Lucas",
+        id: 28,
+        image: "../images/people/users/28_janet_lucas.jpg",
+      },
+    ]
   },
   {
     category: "government",
@@ -179,7 +403,29 @@ export default [
       bio: "Full-time volunteer since my company went IPO in 2007. I hope to make people happy through my efforts in this app :) Loving it so far!",
       image: "../images/people/organizers/hesiod_ybarra.jpg"
     },
-    id: 12
+    id: 12,
+    people: [
+      {
+        name: "Kristen Garrett",
+        id: 23,
+        image: "../images/people/users/23_kristen_garrett.jpg",
+      },
+      {
+        name: "Isaac Turner",
+        id: 30,
+        image: "../images/people/users/30_isaac_turner.jpg",
+      },
+      {
+        name: "Russell Lynch",
+        id: 37,
+        image: "../images/people/users/37_russell_lynch.jpg",
+      },
+      {
+        name: "Edgar Perez",
+        id: 38,
+        image: "../images/people/users/38_edgar_perez.jpg",
+      },
+    ]
   },
   {
     category: "government",
@@ -193,7 +439,34 @@ export default [
       bio: "I work at the DMV on weekdays and at BK on the weekends. I love hiking and other outdoor activities. I’m also a big cat lover, so if my birthday comes around, get me a cat!",
       image: "../images/people/organizers/karina_tracey.jpg"
     },
-    id: 13
+    id: 13,
+    people: [
+      {
+        name: "Kristen Garrett",
+        id: 23,
+        image: "../images/people/users/23_kristen_garrett.jpg",
+      },
+      {
+        name: "Ricky Jensen",
+        id: 31,
+        image: "../images/people/users/31_ricky_jensen.jpg",
+      },
+      {
+        name: "Matthew Hart",
+        id: 32,
+        image: "../images/people/users/32_matthew_hart.jpg",
+      },
+      {
+        name: "Byron White",
+        id: 33,
+        image: "../images/people/users/33_byron_white.jpg",
+      },
+      {
+        name: "Norman Ramos",
+        id: 40,
+        image: "../images/people/users/40_norman_ramos.jpg",
+      },
+    ]
   },
   {
     category: "government",
@@ -207,7 +480,29 @@ export default [
       bio: "I am a Marine Biologist that works at the nearby aquarium. I’m a mother of two young children and volunteer for their school often. I’m a self-proclaimed politics junkie.",
       image: "../images/people/organizers/efua_brankovic.jpg"
     },
-    id: 14
+    id: 14,
+    people: [
+      {
+        name: "Jessica Wu",
+        id: 17,
+        image: "../images/people/users/17_jessica_wu.jpg",
+      },
+      {
+        name: "Sriram Ramanan",
+        id: 18,
+        image: "../images/people/users/18_sriram_ramanan.jpg",
+      },
+      {
+        name: "Matthew Hart",
+        id: 32,
+        image: "../images/people/users/32_matthew_hart.jpg",
+      },
+      {
+        name: "Byron White",
+        id: 33,
+        image: "../images/people/users/33_byron_white.jpg",
+      },
+    ]
   },
   {
     category: "arts",
@@ -221,7 +516,29 @@ export default [
       bio: "I am a part-time painter and a full-time musician at the Subterranean Art House. I have a heavy volunteering background that stretches back 40 years.",
       image: "../images/people/organizers/monica_dietrich.jpg"
     },
-    id: 15
+    id: 15,
+    people: [
+      {
+        name: "Sara Douglas",
+        id: 1,
+        image: "../images/people/users/01_sara_douglas.jpg",
+      },
+      {
+        name: "Hugh Neel",
+        id: 2,
+        image: "../images/people/users/02_hugh_neel.jpg",
+      },
+      {
+        name: "Ivan Nichols",
+        id: 15,
+        image: "../images/people/users/15_ivan_nichols.jpg",
+      },
+      {
+        name: "Lorraine Alvarez",
+        id: 20,
+        image: "../images/people/users/20_lorraine_alvarez.jpg",
+      },
+    ]
   },
   {
     category: "arts",
@@ -235,7 +552,34 @@ export default [
       bio: "I am a teacher at the Cába Elementary School, and have worked there for for two years; prior to that, I was a graduate education student at Clarkson University in Upstate New York.",
       image: "../images/people/organizers/lawahiz_moon.jpg"
     },
-    id: 16
+    id: 16,
+    people: [
+      {
+        name: "Sriram Ramanan",
+        id: 18,
+        image: "../images/people/users/18_sriram_ramanan.jpg",
+      },
+      {
+        name: "Kristen Garrett",
+        id: 23,
+        image: "../images/people/users/23_kristen_garrett.jpg",
+      },
+      {
+        name: "Ricky Jensen",
+        id: 31,
+        image: "../images/people/users/31_ricky_jensen.jpg",
+      },
+      {
+        name: "Morris Morgan",
+        id: 35,
+        image: "../images/people/users/35_morris_morgan.jpg",
+      },
+      {
+        name: "Gregory Simpson",
+        id: 36,
+        image: "../images/people/users/36_gregory_simpson.jpg",
+      },
+    ]
   },
   {
     category: "arts",
@@ -249,7 +593,24 @@ export default [
       bio: "Teacher at Villalobos Middle. Prior to this, I have been a burger-flipper, a zookeeper, and a pilot.",
       image: "../images/people/organizers/léandre_dumitru.jpg"
     },
-    id: 17
+    id: 17,
+    people: [
+      {
+        name: "Minnie Sanders",
+        id: 29,
+        image: "../images/people/users/29_minnie_sanders.jpg",
+      },
+      {
+        name: "Isaac Turner",
+        id: 30,
+        image: "../images/people/users/30_isaac_turner.jpg",
+      },
+      {
+        name: "Edgar Perez",
+        id: 38,
+        image: "../images/people/users/38_edgar_perez.jpg",
+      },
+    ]
   },
   {
     category: "arts",
@@ -263,7 +624,29 @@ export default [
       bio: "I have been the head of the Department of Music for the Medio District Elementary Schools. I occasionally do extreme sports like whitewater rafting for fun.",
       image: "../images/people/organizers/zahi_muhammad.jpg"
     },
-    id: 18
+    id: 18,
+    people: [
+      {
+        name: "Felix Douglas",
+        id: 3,
+        image: "../images/people/users/03_felix_douglas.jpg",
+      },
+      {
+        name: "Emma Snyder",
+        id: 22,
+        image: "../images/people/users/22_emma_snyder.jpg",
+      },
+      {
+        name: "Eric Lambert",
+        id: 39,
+        image: "../images/people/users/39_eric_lambert.jpg",
+      },
+      {
+        name: "Norman Ramos",
+        id: 40,
+        image: "../images/people/users/40_norman_ramos.jpg",
+      },
+    ]
   },
   {
     category: "arts",
@@ -277,7 +660,24 @@ export default [
       bio: "I work at GuitarCenter as a sales rep. I am an avid consumer of all types of music, ranging from Afro-Cuban to classic rock.",
       image: "../images/people/organizers/mariana_riber.jpg"
     },
-    id: 19
+    id: 19,
+    people :[
+      {
+        name: "Dawn Turner",
+        id: 12,
+        image: "../images/people/users/12_dawn_turner.jpg",
+      },
+      {
+        name: "Ivan Nichols",
+        id: 15,
+        image: "../images/people/users/15_ivan_nichols.jpg",
+      },
+      {
+        name: "Eric Lambert",
+        id: 39,
+        image: "../images/people/users/39_eric_lambert.jpg",
+      },
+    ]
   },
   {
     category: "aid",
@@ -292,6 +692,33 @@ export default [
       image: "../images/people/organizers/elyzabeth_sidney.jpg"
     },
     id: 20,
+    people: [
+      {
+        name: "Joann Brown",
+        id: 5,
+        image: "../images/people/users/05_joann_brown.jpg",
+      },
+      {
+        name: "John Sanders",
+        id: 6,
+        image: "../images/people/users/06_john_sanders.jpg",
+      },
+      {
+        name: "Ivan Nichols",
+        id: 15,
+        image: "../images/people/users/15_ivan_nichols.jpg",
+      },
+      {
+        name: "Janet Lucas",
+        id: 28,
+        image: "../images/people/users/28_janet_lucas.jpg",
+      },
+      {
+        name: "Ricky Jensen",
+        id: 31,
+        image: "../images/people/users/31_ricky_jensen.jpg",
+      },
+    ]
   },
   {
     category: "aid",
@@ -305,7 +732,24 @@ export default [
       bio: "I am a librarian at the Mottershead, which has seen quite a decline in book quality and numbers lately. I also work at the nearby car dealership as a salesman.",
       image: "../images/people/organizers/njord_bauers.jpg"
     },
-    id: 21
+    id: 21,
+    people: [
+      {
+        name: "Chloe May",
+        id: 19,
+        image: "../images/people/users/19_chloe_may.jpg",
+      },
+      {
+        name: "Lorraine Alvarez",
+        id: 20,
+        image: "../images/people/users/20_lorraine_alvarez.jpg",
+      },
+      {
+        name: "Ronnie Gonzales",
+        id: 21,
+        image: "../images/people/users/21_ronnie_gonzales.jpg",
+      },
+    ]
   },
   {
     category: "aid",
@@ -319,7 +763,29 @@ export default [
       bio: "I am a Software Engineer at HeadTome. I volunteer on weekends and weeknights for nearby homeless shelters and also organize community events that I can head myself.",
       image: "../images/people/organizers/konrad_yankovic.jpg"
     },
-    id: 22
+    id: 22,
+    people: [
+      {
+        name: "Hector Sanchez",
+        id: 11,
+        image: "../images/people/users/11_hector_sanchez.jpg",
+      },
+      {
+        name: "Dawn Turner",
+        id: 12,
+        image: "../images/people/users/12_dawn_turner.jpg",
+      },
+        {
+        name: "Emma Snyder",
+        id: 22,
+        image: "../images/people/users/22_emma_snyder.jpg",
+      },
+        {
+        name: "Lonnie Hughes",
+        id: 27,
+        image: "../images/people/users/27_lonnie_hughes.jpg",
+      },
+    ]
   },
   {
     category: "aid",
@@ -333,7 +799,29 @@ export default [
       bio: "I am an eighth grader attending Villalobos Middle School. I am trying to get the requisite community service hours I need while being a valuable member of society :)",
       image: "../images/people/organizers/elias_beatty.jpg"
     },
-    id: 23
+    id: 23,
+    people: [
+      {
+        name: "Ivan Nichols",
+        id: 15,
+        image: "../images/people/users/15_ivan_nichols.jpg",
+      },
+      {
+        name: "Jesse Coleman",
+        id: 24,
+        image: "../images/people/users/24_jesse_coleman.jpg",
+      },
+      {
+        name: "Heather Coleman",
+        id: 25,
+        image: "../images/people/users/25_heather_coleman.jpg",
+      },
+      {
+        name: "Desean Johnson",
+        id: 34,
+        image: "../images/people/users/34_deSean_johnson.jpg",
+      },
+    ]
   },
   {
     category: "aid",
@@ -347,7 +835,29 @@ export default [
       bio: "I am a house painter by profession (I do both indoor and outdoor painting). I work two other jobs at McDonald’s and a carpet cleaning company of my own founding.",
       image: "../images/people/organizers/qing_hu.jpg"
     },
-    id: 24
+    id: 24,
+    people: [
+      {
+        name: "Jared Pearson",
+        id: 7,
+        image: "../images/people/users/07_jared_pearson.jpg",
+      },
+      {
+        name: "Dawn Turner",
+        id: 12,
+        image: "../images/people/users/12_dawn_turner.jpg",
+      },
+      {
+        name: "Eric Lambert",
+        id: 39,
+        image: "../images/people/users/39_eric_lambert.jpg",
+      },
+      {
+        name: "Norman Ramos",
+        id: 40,
+        image: "../images/people/users/40_norman_ramos.jpg",
+      },
+    ]
   },
   {
     category: "education",
@@ -361,7 +871,24 @@ export default [
       bio: "I am a chef at Keegan Middle School cafeteria. I work around 8 hours a day for prepping and serving food.",
       image: "../images/people/organizers/diocletianus_kanellakopolos.jpg"
     },
-    id: 25
+    id: 25,
+    people: [
+      {
+        name: "Janet Lucas",
+        id: 28,
+        image: "../images/people/users/28_janet_lucas.jpg",
+      },
+      {
+        name: "Byron White",
+        id: 33,
+        image: "../images/people/users/33_byron_white.jpg",
+      },  
+      {
+        name: "Russell Lynch",
+        id: 37,
+        image: "../images/people/users/37_russell_lynch.jpg",
+      },
+    ]
   },
   {
     category: "education",
@@ -375,7 +902,29 @@ export default [
       bio: "I have been an educator at Pasternak Special Needs Academy for 14 years, and have loved every bit of it. I live at home with my pet parrot, Jarvis, who repeats everything I say and makes sure I don’t forget anything.",
       image: "../images/people/organizers/robert_myerick.jpg"
     },
-    id: 26
+    id: 26,
+    people: [
+      {
+        name: "Marshall Ferguson",
+        id: 9,
+        image: "../images/people/users/09_marshall_ferguson.jpg",
+      },
+      {
+        name: "Lonnie Hughes",
+        id: 10,
+        image: "../images/people/users/10_lonnie_hughes.jpg",
+      },
+      {
+        name: "Hector Sanchez",
+        id: 11,
+        image: "../images/people/users/11_hector_sanchez.jpg",
+      },
+      {
+        name: "Dawn Turner",
+        id: 12,
+        image: "../images/people/users/12_dawn_turner.jpg",
+      },
+    ]
   },
   {
     category: "education",
@@ -389,7 +938,24 @@ export default [
       bio: "I have worked as a Pre-K teacher at Paulissen, but have also taught at Pasternak and Villalobos. I’m a single mom of a small 1 year old, who never ceases to bring me joy.",
       image: "../images/people/organizers/renée_david.jpg"
     },
-    id: 27
+    id: 27,
+    people: [
+      {
+        name: "Louella Boyd",
+        id: 16,
+        image: "../images/people/users/16_louella_boyd.jpg",
+      },
+      {
+        name: "Kristen Garrett",
+        id: 23,
+        image: "../images/people/users/23_kristen_garrett.jpg",
+      },
+      {
+        name: "Russell Lynch",
+        id: 37,
+        image: "../images/people/users/37_russell_lynch.jpg",
+      },
+    ]
   },
   {
     category: "education",
@@ -403,7 +969,34 @@ export default [
       bio: "I am a Band teacher at Romilly High and a salesman at YerbaBuena Florists.",
       image: "../images/people/organizers/daniel_dorsey.jpg"
     },
-    id: 28
+    id: 28,
+    people: [
+      {
+        name: "Joann Brown",
+        id: 5,
+        image: "../images/people/users/05_joann_brown.jpg",
+      },
+      {
+        name: "John Sanders",
+        id: 6,
+        image: "../images/people/users/06_john_sanders.jpg",
+      },
+      {
+        name: "Jared Pearson",
+        id: 7,
+        image: "../images/people/users/07_jared_pearson.jpg",
+      },
+      {
+        name: "Sheela Xu",
+        id: 8,
+        image: "../images/people/users/08_sheela_xu.jpg",
+      },
+      {
+        name: "Marshall Ferguson",
+        id: 9,
+        image: "../images/people/users/09_marshall_ferguson.jpg",
+      },
+    ]
   },
   {
     category: "education",
@@ -417,6 +1010,28 @@ export default [
       bio: "I’ve been a 3rd-grade teacher at Davison Elementary for the past 3 years. It’s been a very rewarding experience. I usually volunteer at the church on weekends.",
       image: "../images/people/organizers/fred_maddox.jpg"
     },
-    id: 29
+    id: 29,
+    people: [
+      {
+        name: "Sriram Ramanan",
+        id: 18,
+        image: "../images/people/users/18_sriram_ramanan.jpg",
+      },
+      {
+        name: "Chloe May",
+        id: 19,
+        image: "../images/people/users/19_chloe_may.jpg",
+      },
+          {
+        name: "Ricky Jensen",
+        id: 31,
+        image: "../images/people/users/31_ricky_jensen.jpg",
+      },
+      {
+        name: "Matthew Hart",
+        id: 32,
+        image: "../images/people/users/32_matthew_hart.jpg",
+      },
+    ]
   },
 ];
