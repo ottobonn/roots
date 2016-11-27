@@ -7,10 +7,12 @@ import {
   TouchableHighlight
 } from "react-native";
 
+import {withNavigation} from "@exponent/ex-navigation";
+
 import ChatHeads from "../components/ChatHeads";
 import GlobalStyles from "../styles";
 import Router from "../navigation/Router";
-import {withNavigation} from "@exponent/ex-navigation";
+import FlexibleImage from "./FlexibleImage";
 
 @withNavigation
 export default class EventCard extends Component {
@@ -41,20 +43,11 @@ export default class EventCard extends Component {
       );
     }
 
-    var imageWidth, imageHeight;
-
     return (
       <TouchableHighlight style={{flex: 1}} onPress={this.showDetails}>
         <View style={styles.card}>
           <View style={styles.cardHeader}>
-            <View style={styles.imageContainer} onLayout={(event) => {
-                var {_, _, imageWidth, imageHeight} = event.nativeEvent.layout;
-              }}>
-              <Image
-                style={[styles.image, {width: imageWidth, height: imageHeight}]}
-                source={this.props.eventInfo.image}
-              />
-            </View>
+            <FlexibleImage source={this.props.eventInfo.image} />
             <Text style={[GlobalStyles.titleFont, styles.title]}>
               {this.props.eventInfo.title}
             </Text>
@@ -118,15 +111,6 @@ const styles = StyleSheet.create({
   cardHeader: {
     flex: 1,
     height: 200
-  },
-  imageContainer: {
-    flex: 1,
-    backgroundColor: "black"
-  },
-  image: {
-    flex: 1,
-    resizeMode: "cover"
-    // Image dimensions are set by onLayout callback of imageContainer
   },
   title: {
     // marginTop: -10,

@@ -9,6 +9,7 @@ import {
 import {Ionicons} from "@exponent/vector-icons";
 import Button from "react-native-button";
 import ChatHeads from "../components/ChatHeads";
+import FlexibleImage from "./FlexibleImage";
 
 export default class EventDetailView extends Component {
   constructor(props) {
@@ -70,7 +71,7 @@ export default class EventDetailView extends Component {
         <ScrollView style={{flex: 1}}>
           <View style={styles.header}>
             {/* Header */}
-            <Image source={this.props.eventInfo.image} style={styles.bannerImage} />
+            <FlexibleImage source={this.props.eventInfo.image} />
             <Text style={styles.title}>{this.props.eventInfo.title}</Text>
           </View>
           <View style={styles.body}>
@@ -101,7 +102,7 @@ EventDetailView.propTypes = {
   signedUp: React.PropTypes.bool,
   /* Called with new signup status when the user alters the signup */
   onSignUpChange: React.PropTypes.func.isRequired,
-  /* Event object */ 
+  /* Event object */
   eventInfo: React.PropTypes.shape({
     /* Event id */
     id: React.PropTypes.number.isRequired,
@@ -143,10 +144,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     backgroundColor: "#f3efef"
-  },
-  bannerImage: {
-    flex: 1,
-    resizeMode: "cover"
   },
   title: {
     position: "absolute",
