@@ -7,13 +7,21 @@ import {
 import DiscoverView from "../components/DiscoverView";
 import PageFrame from "../components/PageFrame";
 
+var categoryNames = ["Aid", "Arts", "Education", "Government", "Health", "Nature"];
+// React is stupid and doesn't let me dynamically generate path names with require so hardcoding
+var pathNames = [require("../static/images/categories/aid/category_pic.jpg"),
+     require("../static/images/categories/arts/category_pic.jpg"),
+     require("../static/images/categories/education/category_pic.jpg"),
+     require("../static/images/categories/government/category_pic.jpg"),
+     require("../static/images/categories/health/category_pic.jpg"),
+     require("../static/images/categories/nature/category_pic.jpg")];
 var categories = [];
 for (var i = 0; i < 6; i++) {
-  var nature = {
-    name: "Nature",
-    image: require("../static/images/nature-crop.jpg"),
+  var category = {
+    name: categoryNames[i],
+    image: pathNames[i],
   };
-  categories.push(nature);
+  categories.push(category);
 }
 
 export default class DiscoverScreen extends React.Component {
