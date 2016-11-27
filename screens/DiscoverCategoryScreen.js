@@ -15,12 +15,10 @@ export default class DiscoverCategoryScreen extends Component {
 
   componentWillMount() {
     categoryName = this.props.route.params.name.toLowerCase();
-    console.log(categoryName)
     for (let i = 0; i < events.length; i++) {
       if (events[i].category === categoryName) {
-        console.log(events[i].category)
         eventList.push(events[i]);
-      } 
+      }
     }
   }
 
