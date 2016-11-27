@@ -30,7 +30,7 @@ export default class DiscoverCategory extends Component {
     return (
       <TouchableHighlight style={{flex: 1}} onPress={this.showCategory}>
         <View style={{flex: 1}}>
-          <View style={{flex: 1}}>
+          <View style={styles.imageContainer}>
             <Image
               style={styles.image}
               source={this.props.image}
@@ -51,9 +51,16 @@ DiscoverCategory.propTypes = {
 };
 
 const styles = StyleSheet.create({
+  imageContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "black"
+  },
   image: {
     flex: 1,
-    height: 0 /* Hack to trigger image resize to container height */
+    height: 0, /* Hack to trigger image resize to container height */
+    resizeMode: "contain"
   },
   name: {
     color: "white",
