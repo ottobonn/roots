@@ -38,32 +38,34 @@ export default class EventCard extends Component {
       chatHeads = (
         <View style={styles.chatHeadsContainer}>
           <Text style={styles.chatHeadsLabel}>{"Who's Going:"}</Text>
-          <ChatHeads people={this.props.eventInfo.people} />;
+          <ChatHeads people={this.props.eventInfo.people} />
         </View>
       );
     }
 
     return (
-      <TouchableHighlight style={{flex: 1}} onPress={this.showDetails}>
-        <View style={styles.card}>
-          <View style={styles.cardHeader}>
-            <FlexibleImage source={this.props.eventInfo.image} />
-            <Text style={[GlobalStyles.titleFont, styles.title]}>
-              {this.props.eventInfo.title}
-            </Text>
-          </View>
+      <View style={styles.card}>
+        <TouchableHighlight style={{flex: 1}} onPress={this.showDetails}>
+          <View style={{flex: 1}}>
+            <View style={styles.cardHeader}>
+              <FlexibleImage source={this.props.eventInfo.image} />
+              <Text style={[GlobalStyles.titleFont, styles.title]}>
+                {this.props.eventInfo.title}
+              </Text>
+            </View>
 
-          <View style={styles.eventDetail}>
-            <Text style={[styles.detailText, styles.date]}>
-              {dateDisplay}
-            </Text>
-            <Text style={[styles.detailText, styles.location]}>
-              {this.props.eventInfo.location}
-            </Text>
+            <View style={styles.eventDetail}>
+              <Text style={[styles.detailText, styles.date]}>
+                {dateDisplay}
+              </Text>
+              <Text style={[styles.detailText, styles.location]}>
+                {this.props.eventInfo.location}
+              </Text>
+            </View>
           </View>
-          {chatHeads}
-        </View>
-      </TouchableHighlight>
+        </TouchableHighlight>
+        {chatHeads}
+      </View>
     );
   }
 }
@@ -105,7 +107,7 @@ const styles = StyleSheet.create({
   card: {
     flex: 1,
     margin: 10,
-    backgroundColor: "black",
+    backgroundColor: "white",
     elevation: 10
   },
   cardHeader: {
