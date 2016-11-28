@@ -38,7 +38,8 @@ export default class EventCard extends Component {
       chatHeads = (
         <ChatHeads
           title="Who's going:"
-          people={this.props.eventInfo.people}
+          attendees={this.props.eventInfo.people}
+          organizer={this.props.eventInfo.organizer}
         />
       );
     }

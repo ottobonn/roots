@@ -29,7 +29,7 @@ export default class EventDetailView extends Component {
     if (this.props.signedUp) {
       footer = (
         <View style={styles.chatHeadsBar}>
-          <ChatHeads style={styles.chatHeads} title="Who's going:" people={this.props.eventInfo.people} />
+          <ChatHeads style={styles.chatHeads} title="Who's going:" attendees={this.props.eventInfo.people} />
         </View>
       );
     } else {

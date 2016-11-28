@@ -9,7 +9,7 @@ import ChatHead from "./ChatHead";
 
 /*
 Example usage:
-<ChatHeadListView people={[
+<ChatHeads attendees={[
   {
     name: "Travis",
     image: require("../static/images/travis.jpg")
@@ -27,9 +27,14 @@ export default class ChatHeads extends Component {
   }
 
   render() {
-    var elements = this.props.people.map((person, i) => {
+    // Add attendees
+    var elements = this.props.attendees.map((person, i) => {
       return (<ChatHead name={person.name} image={person.image} key={i} />);
     });
+    var organizer = this.props.organizer;
+    // Prepend organizer
+    elements.unshift(<ChatHead name={organizer.name} image={organizer.image} key={"organizer"} organizer={true} />);
+    // Configure title
     var titleText = this.props.title ?
       <Text style={styles.title}>{this.props.title}</Text>
       : null;
@@ -45,7 +50,15 @@ export default class ChatHeads extends Component {
 };
 
 ChatHeads.propTypes = {
-  title: React.PropTypes.string
+  title: React.PropTypes.string,
+  organizer: React.PropTypes.shape({
+    name: React.PropTypes.string.isRequired,
+    image: React.PropTypes.number.isRequired
+  }),
+  attendees: React.PropTypes.arrayOf(React.PropTypes.shape({
+    name: React.PropTypes.string.isRequired,
+    image: React.PropTypes.number.isRequired
+  }))
 };
 
 const styles = StyleSheet.create({

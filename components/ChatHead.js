@@ -5,18 +5,27 @@ import {
   Text,
   Image
 } from "react-native";
+import Colors from "../constants/Colors";
 
 export default class ChatHead extends Component {
   render() {
     var image = this.props.image;
-    var name = this.props.name;
+    // First-name basis
+    var name = this.props.name.split(" ")[0];
+    if (this.props.organizer) {
+      name += "\n(organizer)";
+    }
+    var imageStyles = [styles.image];
+    if (this.props.organizer) {
+      imageStyles.push(styles.organizerImage);
+    }
     return (
       <View style={styles.chatHead}>
         <Image
-          style={styles.image}
+          style={imageStyles}
           source={image}
         />
-        <Text style={styles.text}>
+        <Text style={styles.name}>
           {name}
         </Text>
       </View>
@@ -36,6 +45,10 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25
+  },
+  organizerImage: {
+    borderWidth: 5,
+    borderColor: Colors.accent
   },
   name: {
     flex: 1,
