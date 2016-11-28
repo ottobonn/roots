@@ -28,10 +28,8 @@ export default class EventCard extends Component {
   }
 
   render() {
-    var dateObj = new Date(this.props.eventInfo.date);
-    var date = dateObj.toDateString();
-    var time = dateObj.toLocaleTimeString();
-    var dateDisplay = date + " " + time;
+    var dateFormat = require('dateformat');
+    var dateDisplay = dateFormat(this.props.eventInfo.date, "mmmm dd");
 
     var chatHeads = null;
     if (this.props.eventInfo.people) {

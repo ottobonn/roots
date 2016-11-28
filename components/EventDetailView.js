@@ -61,10 +61,8 @@ export default class EventDetailView extends Component {
       );
     }
 
-    var dateObj = new Date(this.props.eventInfo.date);
-    var date = dateObj.toDateString();
-    var time = dateObj.toLocaleTimeString();
-    var dateDisplay = date + " " + time;
+    var dateFormat = require('dateformat');
+    var dateDisplay = dateFormat(this.props.eventInfo.date, "mmmm dd, h:MM tt");
 
     return (
       <View style={{flex: 1}}>
