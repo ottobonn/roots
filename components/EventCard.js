@@ -36,10 +36,10 @@ export default class EventCard extends Component {
     var chatHeads = null;
     if (this.props.eventInfo.people) {
       chatHeads = (
-        <View style={styles.chatHeadsContainer}>
-          <Text style={styles.chatHeadsLabel}>{"Who's Going:"}</Text>
-          <ChatHeads people={this.props.eventInfo.people} />
-        </View>
+        <ChatHeads
+          title="Who's going:"
+          people={this.props.eventInfo.people}
+        />
       );
     }
 
@@ -149,8 +149,5 @@ const styles = StyleSheet.create({
   chatHeadsLabel: {
     paddingLeft: 10,
     fontSize: 10
-  },
-  chatHeadsContainer: {
-    backgroundColor: "white"
   }
 });
