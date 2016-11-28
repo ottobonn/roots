@@ -591,7 +591,7 @@ export default [
     organizer: {
       name: "Léandre Dumitru",
       bio: "Teacher at Villalobos Middle. Prior to this, I have been a burger-flipper, a zookeeper, and a pilot.",
-      image: require("../images/people/organizers/léandre_dumitru.jpg")
+      image: require("../images/people/organizers/lionel_garcia.jpg")
     },
     id: 17,
     people: [
