@@ -1,14 +1,14 @@
-const tintColor = '#2f95dc';
+const base = "#4b4b4b";
+const baseConstrast = "white";
+const accent = "#4c960e";
 
 export default {
-  tintColor,
-  tabIconDefault: '#888',
-  tabIconSelected: tintColor,
-  tabBar: '#fefefe',
-  errorBackground: 'red',
-  errorText: '#fff',
-  warningBackground: '#EAEB5E',
-  warningText: '#666804',
-  noticeBackground: tintColor,
-  noticeText: '#fff',
+  base,
+  baseConstrast,
+  accent,
+  tabBar: base,
+  tabDefault: base,
+  tabSelected: accent,
+  tabText: base,
+  tabTextSelected: base
 };

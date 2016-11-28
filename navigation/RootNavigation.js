@@ -1,5 +1,7 @@
 import React from "react";
 import {
+  View,
+  Text,
   StyleSheet
 } from "react-native";
 import {
@@ -7,55 +9,77 @@ import {
   TabNavigation,
   TabNavigationItem,
 } from "@exponent/ex-navigation";
-import {
-  FontAwesome,
-} from "@exponent/vector-icons";
+import {Ionicons} from "@exponent/vector-icons";
 import Colors from "../constants/Colors.js";
 
 export default class RootNavigation extends React.Component {
   render() {
     return (
-      <TabNavigation
-        tabBarHeight={56}
-        initialTab="home">
-        <TabNavigationItem
-          id="home"
-          renderIcon={isSelected => this._renderIcon("home", isSelected)}>
-          <StackNavigation initialRoute="discover" />
-        </TabNavigationItem>
+      <View style={styles.tabBar}>
+        <TabNavigation
+          tabBarHeight={56}
+          initialTab="home"
+        >
+          <TabNavigationItem
+            id="home"
+            selectedStyle={styles.selectedTab}
+            renderIcon={isSelected => this.renderTab("md-globe", "Discover", isSelected)}>
+            <StackNavigation initialRoute="discover" />
+          </TabNavigationItem>
 
-        <TabNavigationItem
-          id="links"
-          renderIcon={isSelected => this._renderIcon("book", isSelected)}>
-          <StackNavigation initialRoute="events" />
-        </TabNavigationItem>
+          <TabNavigationItem
+            id="links"
+            selectedStyle={styles.selectedTab}
+            renderIcon={isSelected => this.renderTab("md-calendar", "Upcoming", isSelected)}>
+            <StackNavigation initialRoute="events" />
+          </TabNavigationItem>
 
-        <TabNavigationItem
-          id="settings"
-          renderIcon={isSelected => this._renderIcon("cog", isSelected)}>
-          <StackNavigation initialRoute="memories" />
-        </TabNavigationItem>
-      </TabNavigation>
+          <TabNavigationItem
+            id="settings"
+            selectedStyle={styles.selectedTab}
+            renderIcon={isSelected => this.renderTab("md-contacts", "Memories", isSelected)}>
+            <StackNavigation initialRoute="memories" />
+          </TabNavigationItem>
+        </TabNavigation>
+      </View>
     );
   }
 
-  _renderIcon(name, isSelected) {
+  renderTab(iconName, tabTitle, isSelected) {
+    var textStyle = [styles.tabTitleText];
+    if (isSelected) {
+      textStyle.push(styles.tabTitleTextSelected);
+    }
     return (
-      <FontAwesome
-        name={name}
-        size={32}
-        color={isSelected ? Colors.tabIconSelected : Colors.tabIconDefault}
-      />
+      <View style={styles.tabContainer}>
+        <Ionicons
+          name={iconName}
+          size={32}
+          color={isSelected ? Colors.tabSelected : Colors.tabDefault}
+        />
+      <Text style={textStyle} numberOfLines={1}>
+          {tabTitle}
+        </Text>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
+  tabBar: {
+    flex: 1
+  },
+  tabContainer: {
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  tabTitleText: {
+    color: Colors.tabText
+  },
+  tabTitleTextSelected: {
+    color: Colors.accent
   },
   selectedTab: {
-    color: Colors.tabIconSelected,
+    //backgroundColor: Colors.tabSelected,
   },
 });
