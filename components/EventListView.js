@@ -44,7 +44,6 @@ export default class EventListView extends Component {
     }
   }
 
-
   render() {
     return (
       <View>
