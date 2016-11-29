@@ -23,17 +23,23 @@ export default class PageFrame extends Component {
 
   render() {
     overlayStyle = this.props.overlay ? styles.overlay : null;
-    console.log(this.props.backButton)
     backButton = this.props.backButton == null ? true : this.props.backButton;
-    console.log(backButton)
     return (
       <View style={{flex: 1}}>
         <View style={[styles.titleBar, overlayStyle]}>
-          {backButton && 
-            <TouchableHighlight onPress={this.goBack} style={styles.backButton}>
-              <Ionicons name="md-arrow-round-back" size={32} color="white" />
-            </TouchableHighlight> }
-          <Text style={styles.title}>{this.props.title}</Text>
+          <View style={styles.leftContainer}>
+            {backButton && 
+              <TouchableHighlight onPress={this.goBack} style={styles.backButton}>
+                <Ionicons name="md-arrow-round-back" size={32} color="white" />
+              </TouchableHighlight> }
+            <Text style={styles.title}>{this.props.title}</Text>
+          </View>
+          <View style={styles.rightContainer}>
+            {this.props.searchButton && 
+              <TouchableHighlight onPress={this.goBack} style={styles.search}>
+                <Ionicons name="md-search" size={32} color="white" />
+              </TouchableHighlight> }
+            </View>
         </View>
         <View style={{flex: 1}}>
           {this.props.children}
@@ -49,7 +55,9 @@ PageFrame.propTypes = {
   /* The title to display in the title bar */
   title: React.PropTypes.string,
   /* Boolean, whether or not to display back button */
-  backButton: React.PropTypes.bool
+  backButton: React.PropTypes.bool,
+  /* Boolean, whether or not to display search button */
+  searchButton: React.PropTypes.bool,
 };
 
 var titleBarHeight = 60;
@@ -73,7 +81,22 @@ const styles = StyleSheet.create({
     fontSize: 20,
     paddingLeft: 10
   },
+  leftContainer: {
+    alignItems: "center",
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "flex-start",
+  },
+  rightContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "center",
+  },
   backButton: {
     padding: 10
+  },
+  search: {
+    paddingRight: 20, 
   }
 });
