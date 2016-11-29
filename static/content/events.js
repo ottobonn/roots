@@ -682,7 +682,7 @@ export default [
   {
     category: "aid",
     title: "Homeless shelter dinner",
-    date: "2017-01-02T17:40.765Z",
+    date: "2017-01-02T17:40:44.765Z",
     description: "I am the cook at the Hambledon Homeless Shelter, and I need your help. Lately, I’ve had to leave earlier and earlier from the Shelter due to family needs, and I have not been able to keep the kitchen adequately clean. Any help you can provide - whether that be cleaning, cooking, getting supplies, or serving - would be much, much appreciated.",
     location: "Hambledon Homeless Shelter Room 3B",
     image: require("../images/categories/aid/dinner.jpg"),
