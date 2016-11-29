@@ -8,17 +8,24 @@ import {
 import {Ionicons} from "@exponent/vector-icons";
 import {withNavigation} from "@exponent/ex-navigation";
 
+import Router from "../navigation/Router";
+
 @withNavigation
 export default class PageFrame extends Component {
   constructor(props) {
     super(props);
     this.goBack = this.goBack.bind(this);
+    this.gotoSearch = this.gotoSearch.bind(this);
   }
 
   goBack() {
     if (this.props.navigator.getCurrentIndex() > 0) {
       this.props.navigator.pop();
     }
+  }
+
+  gotoSearch() {
+    this.props.navigator.push(Router.getRoute("search"));
   }
 
   render() {
@@ -36,7 +43,7 @@ export default class PageFrame extends Component {
           </View>
           <View style={styles.rightContainer}>
             {this.props.searchButton && 
-              <TouchableHighlight onPress={this.goBack} style={styles.search}>
+              <TouchableHighlight onPress={this.gotoSearch} style={styles.search}>
                 <Ionicons name="md-search" size={32} color="white" />
               </TouchableHighlight> }
             </View>

@@ -1,5 +1,15 @@
-export default class SearchContainer extends Component {
+import React, {Component} from "react";
+import {
+  View,
+  Text,
+  Image
+} from "react-native";
 
+import EventListView from '../components/EventListView';
+import SearchBar from 'react-native-searchbar';
+import events from "../static/content/events.js";
+
+export default class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,36 +20,23 @@ export default class SearchContainer extends Component {
   }
 
   _handleResults(results) {
-    console.log(results);
     this.setState({ results });
   }
 
   render() {
     return (
       <View>
-        <View style={{ marginTop: 110 }}>
-          {
-            this.state.results.map((result, i) => {
-              return (
-                <Text key={i}>
-                  {typeof result === 'object' && !(result instanceof Array) ? result.title : result.name}
-                </Text>
-              );
-            })
-          }
-          <TouchableOpacity onPress={() => this.searchBar.show()}>
-            <View style={{ backgroundColor: 'green', height: 100, marginTop: 50 }}/>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.searchBar.hide()}>
-            <View style={{ backgroundColor: 'red', height: 100 }}/>
-          </TouchableOpacity>
-        </View>
-        <SearchBar
-          ref={(ref) => this.searchBar = ref}
-          data={events}
-          handleResults={this._handleResults}
-          showOnLoad
-        />
+          <EventListView 
+            events={this.state.results} 
+          />
+      <SearchBar
+        ref={(ref) => this.searchBar = ref}
+        data={events}
+        hideBack={true}
+        handleResults={this._handleResults}
+        placeholder={"Search for events"}
+        showOnLoad
+      />
       </View>
     );
   }

@@ -20,7 +20,6 @@ export default class DiscoverCategory extends Component {
   }
 
   showCategory() {
-    console.log("showCategory " + this.props.id);
     this.props.navigator.push(Router.getRoute("discoverCategory", {
       categoryId: this.props.id,
       name: this.props.name

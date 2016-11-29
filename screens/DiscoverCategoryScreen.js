@@ -7,7 +7,6 @@ import {
 
 import PageFrame from "../components/PageFrame";
 import EventListView from "../components/EventListView";
-import SearchBar from 'react-native-searchbar';
 import events from "../static/content/events.js";
 
 var eventList = [];

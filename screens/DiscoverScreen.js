@@ -1,7 +1,8 @@
 import React from "react";
 import {
   View,
-  StyleSheet
+  StyleSheet,
+  Image
 } from "react-native";
 
 import DiscoverView from "../components/DiscoverView";
