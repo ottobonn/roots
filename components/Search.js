@@ -25,8 +25,9 @@ export default class Search extends Component {
 
   render() {
     return (
-      <View style={{ marginTop: 80 }}>
+      <View>
           <EventListView 
+            style={{ marginTop: 80 }}
             events={this.state.results} 
           />
       <SearchBar
