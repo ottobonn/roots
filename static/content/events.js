@@ -2,7 +2,7 @@ export default [
   {
     category: "nature",
     title: "Tree planting",
-    date: "2017-01-03T07:50:01.791Z",
+    date: "2017-01-03T12:50:01.791Z",
     description: "Help reset the clock on global warming by planting trees at Henry Coe Park. Bring your own trowels and plenty of water, as it will be a hot day!",
     location: "Henry Coe Park",
     image: require("../images/categories/nature/tree_planting.jpg"),
@@ -33,7 +33,7 @@ export default [
   {
     category: "nature",
     title: "Litter cleanup",
-    date: "2016-12-19T17:20:30.757Z",
+    date: "2016-12-19T22:20:30.757Z",
     description: "There has been a sharp uptick in the amount of garbage floating in Beargrass Creek, and there haven’t been many efforts to clean it. I live next to the creek and have seen it gunk up for the past year. It’s time to do something tangible about it.",
     location: "Beargrass Creek",
     image: require("../images/categories/nature/litter_cleanup.jpg"),
@@ -69,7 +69,7 @@ export default [
   {
     category: "nature",
     title: "Climate change exigency campaign",
-    date: "2017-01-12T06:20:10.937Z",
+    date: "2017-01-12T11:20:10.937Z",
     description: "Climate change is rampant. With the new administration in place, there’s no telling what could happen to environmental policy. After meeting at my workplace, we’re going to do a door-to-door walkthrough of the city and try and convince people to speak out on a particular Change.org petition that would get climate change good visibility in the local government.",
     location: "Fathertree Building",
     image: require("../images/categories/nature/climate_change.jpg"),
@@ -100,7 +100,7 @@ export default [
   {
     category: "nature",
     title: "Discourage the plastic bag!",
-    date: "2017-01-01T11:30:57.321Z",
+    date: "2017-01-01T16:30:57.321Z",
     description: "I partnered with our local Smartway, which agreed to pushing negative incentives (on top of the extra fee) on plastic bags. Volunteers that join me in this event will hold up signs outside the store that encourage customers to either bring their own cloth bags or not take a plastic bag.",
     location: "Cloudyvale Smartway",
     image: require("../images/categories/nature/bag.jpg"),
@@ -136,7 +136,7 @@ export default [
   {
     category: "nature",
     title: "Pound pet pals",
-    date: "2016-12-18T08:45:10.386Z",
+    date: "2016-12-18T13:45:10.386Z",
     description: "There are many domesticated animals at the pound that have not seen daylight in days. Help me get them their much-needed sunshine and exercise, and be their foster parents for one for a day.",
     location: "Sandonsky Pound",
     image: require("../images/categories/nature/dog.jpg"),
@@ -167,7 +167,7 @@ export default [
   {
     category: "health",
     title: "Blood drive",
-    date: "2017-01-13T07:00:19.358Z",
+    date: "2017-01-13T12:00:19.358Z",
     description: "The Good Samaritan Hospital is looking for blood donors for their recent upswing in leukemia patients, among other people that need blood. All blood types and all ages (above the legal limit) are welcome to donate blood.",
     location: "Good Samaritan Hospital",
     image: require("../images/categories/health/blood.jpg"),
@@ -198,7 +198,7 @@ export default [
   {
     category: "health",
     title: "Nurse assistantships",
-    date: "2016-12-31T08:00:00.709Z",
+    date: "2016-12-31T13:00:00.709Z",
     description: "Due to the recent flu outbreak, we are extremely shorthanded at the JMF. We have not been able to get people the care they need as fast as they should be getting it. We would love to have nurse assistants handle the paperwork that we file so that the nurses can attend to more patients. 10 minutes training required at the beginning of the event.",
     location: "JMF (Jasso Medical Foundation)",
     image: require("../images/categories/health/nurse.jpg"),
@@ -229,7 +229,7 @@ export default [
   {
     category: "health",
     title: "Door-to-door vaccination registry",
-    date: "2017-01-21T14:00:40.046Z",
+    date: "2017-01-21T19:00:40.046Z",
     description: "I have had it with people complaining about how hard it is to get registered for vaccines! I am bringing the forms and the pens to them. Help me cover more ground so that this city can be disease-free and happy!",
     location: "Novak Park",
     image: require("../images/categories/health/registry.jpg"),
@@ -260,7 +260,7 @@ export default [
   {
     category: "health",
     title: "Hospital playroom and bedside assistance",
-    date: "2017-01-04T12:30:02.081Z",
+    date: "2017-01-04T17:30:02.081Z",
     description: "The SMCTH’s pediatric oncology department is trying out new ways to help the mental health of the patients and their families. We are hoping to get volunteers that will be able to play with the children as well as tend to basic health needs. 20 minutes of training required.",
     location: "Sam Müller Child’s Trust Hospital",
     image: require("../images/categories/health/playroom.jpg"),
@@ -296,7 +296,7 @@ export default [
   {
     category: "health",
     title: "Fundraising for the local hospital",
-    date: "2017-01-02T09:30:17.469Z",
+    date: "2017-01-02T14:30:17.469Z",
     description: "I have been trying to fundraise for the JMF, since they seem to be underfunded. You can click on my link here to donate to them through a trust that I have set up.",
     location: "N/A",
     image: require("../images/categories/health/fundraiser.jpg"),
@@ -332,7 +332,7 @@ export default [
   {
     category: "government",
     title: "Help the Mark Sink campaign",
-    date: "2017-01-22T13:10:36.729Z",
+    date: "2017-01-22T18:10:36.729Z",
     description: "I am on the marketing team for Mark Sink, who is running for office in Bloopertina. You can find issues that Mark supports at marksinksuppo.rt. I have been working on posters that showcase his expertise in the arena. Come help if you are interested in supporting this wonderful candidate for local office!",
     location: "The Sink home, 36 Bloopertina Main Road",
     image: require("../images/categories/government/campaign.jpg"),
@@ -363,7 +363,7 @@ export default [
   {
     category: "government",
     title: "Peaceful protest",
-    date: "2016-12-29T15:00:29.217Z",
+    date: "2016-12-29T20:00:29.217Z",
     description: "I have seen the recent rise in hate crimes as an opportunity to speak out. The BLM movement is holding a march protest that will begin on Warren Street. Please make it out if you believe in this cause.",
     location: "Warren Street",
     image: require("../images/categories/government/protest.jpg"),
@@ -394,7 +394,7 @@ export default [
   {
     category: "government",
     title: "Poll-working, Santa Corina",
-    date: "2016-12-28T14:00:00.980Z",
+    date: "2016-12-28T19:00:00.980Z",
     description: "We need help to count the votes from the recent local election so as to decide on which props to pass! Come volunteer and help us out.",
     location: "City Hall, Breckinridge Court",
     image: require("../images/categories/government/poll_worker.jpg"),
@@ -430,7 +430,7 @@ export default [
   {
     category: "government",
     title: "Town Hall meeting on construction",
-    date: "2017-01-30T09:00:21.944Z",
+    date: "2017-01-30T14:00:21.944Z",
     description: "There has been a movement to renovate our mall. This will improve the local economy and foster community spirit, but the movement is facing lots of opposition. Help turn the tide at the meeting in Town Hall.",
     location: "Mitchell Meeting Room",
     image: require("../images/categories/government/reconstruction.jpg"),
@@ -471,7 +471,7 @@ export default [
   {
     category: "government",
     title: "Door-to-door voting registration",
-    date: "2017-01-14T15:15:46.943Z",
+    date: "2017-01-14T20:15:46.943Z",
     description: "I am tired of people complaining that voter registration is too cumbersome a process. I wanna get people to help me go door-to-door and register voters for the upcoming election. Meet at Walter Park and cover a 4 block radius.",
     location: "Walter Park",
     image: require("../images/categories/government/registration.jpg"),
@@ -507,7 +507,7 @@ export default [
   {
     category: "arts",
     title: "Art supply drive",
-    date: "2016-12-24T10:55:34.358Z",
+    date: "2016-12-24T15:55:34.358Z",
     description: "Get kids the supplies they need at the nearby Art House and help me distribute them to various schools in the area! Fully subsidized by the Young-Arts Initiative.",
     location: "Melvin’s Subterranean Art House",
     image: require("../images/categories/arts/drive.jpg"),
@@ -543,7 +543,7 @@ export default [
   {
     category: "arts",
     title: "Finger-painting mural tiles",
-    date: "2016-12-16T14:50:09.127Z",
+    date: "2016-12-16T19:50:09.127Z",
     description: "There’s going to be a new wall at the Cába Elementary School, and the school has come up with an idea to immortalize the children that experienced the construction of the wall. Each will get a 4x4 tile to finger paint, and they will all then be color-sorted into a mural. Come join and chaperone this once-in-a-lifetime event for the children!",
     location: "Cába Parkside",
     image: require("../images/categories/arts/finger.jpg"),
@@ -584,7 +584,7 @@ export default [
   {
     category: "arts",
     title: "Teach oil painting to middle-schoolers",
-    date: "2017-01-06T10:15:30.115Z",
+    date: "2017-01-06T15:15:30.115Z",
     description: "I am an artistically challenged teacher at the Villalobos Middle School, and I need some help teaching the children how to do basic artwork (how can I do that when some of the children are better than me already?). I would love some volunteers to help teach crash-course workshops in different art genres (i.e. charcoal, chalk/oil pastel, graphite, etc.).",
     location: "Villalobos Middle School, Room 314",
     image: require("../images/categories/arts/paint.jpg"),
@@ -615,7 +615,7 @@ export default [
   {
     category: "arts",
     title: "Classical Music Showcase",
-    date: "2016-12-26T12:40:09.436Z",
+    date: "2016-12-26T17:40:09.436Z",
     description: "There will be a Classical Music showcase at Small Elementary in order to generate music interest among the young students. We need help making food and setting up chairs and tables for the event, which will be accompanied by a dinner.",
     location: "Howard Small Elementary School Gymnasium",
     image: require("../images/categories/arts/cello.jpg"),
@@ -651,7 +651,7 @@ export default [
   {
     category: "arts",
     title: "Rock band competition",
-    date: "2016-12-29T13:30:34.210Z",
+    date: "2016-12-29T18:30:34.210Z",
     description: "There’s going to be a city rock music competition that will take place at the Nazarian Music Center. The Center is requesting help with ushers, food servers (food will be catered), and judges. *Judges will need to prove that they are qualified.* All help is welcome!",
     location: "Nazarian Music Center",
     image: require("../images/categories/arts/rock.jpg"),
@@ -682,7 +682,7 @@ export default [
   {
     category: "aid",
     title: "Homeless shelter dinner",
-    date: "2017-01-02T17:40:44.765Z",
+    date: "2017-01-02T22:40:44.765Z",
     description: "I am the cook at the Hambledon Homeless Shelter, and I need your help. Lately, I’ve had to leave earlier and earlier from the Shelter due to family needs, and I have not been able to keep the kitchen adequately clean. Any help you can provide - whether that be cleaning, cooking, getting supplies, or serving - would be much, much appreciated.",
     location: "Hambledon Homeless Shelter Room 3B",
     image: require("../images/categories/aid/dinner.jpg"),
@@ -723,7 +723,7 @@ export default [
   {
     category: "aid",
     title: "Book drive",
-    date: "2016-12-21T13:20:26.919Z",
+    date: "2016-12-21T18:20:26.919Z",
     description: "The Library needs your books! There’s been a lack of new books coming in lately. If there is a book you don’t need any longer, donate! Mottershead.lib has a list of our full catalog at the moment. If your book is not on that catalog, we will pay 25 cents to acquire it from you. If your book is already on the catalog, we will compare the copy we have to yours, and pay you 25 cents if we think that yours is in better condition.",
     location: "Mottershead Library",
     image: require("../images/categories/aid/drive.jpg"),
@@ -790,7 +790,7 @@ export default [
   {
     category: "aid",
     title: "Senior center readings",
-    date: "2016-12-15T15:50:50.040Z",
+    date: "2016-12-15T20:50:50.040Z",
     description: "Many elderly people at the Senior Center (including my 80-year-old grandmother) get bored by the activities like Bingo and the other nonsense they have there. Oftentimes, they want to read books of substance, but they can’t read them because their prescriptions don’t allow them to. I’m planning on reading them such a book so they can be a little less bored in their day. I’ll need helpers so that we are able to entertain the entire Center.",
     location: "Cotterill Valley “Better Together” Senior Center",
     image: require("../images/categories/aid/reading.jpg"),
@@ -826,7 +826,7 @@ export default [
   {
     category: "aid",
     title: "Low-income house painting",
-    date: "2017-01-11T10:30:38.116Z",
+    date: "2017-01-11T15:30:38.116Z",
     description: "With the permission of the owners of the houses on MacFarlane Road, I am going to paint their houses for them, which is a service these people can’t afford. I would love to get help from other altruistic members of the community such as you all.",
     location: "10-90 MacFarlane Road",
     image: require("../images/categories/aid/house.jpg"),
@@ -862,7 +862,7 @@ export default [
   {
     category: "education",
     title: "Public schooling nutrition awareness campaign",
-    date: "2016-12-18T11:30:29.597Z",
+    date: "2016-12-18T21:30:29.597Z",
     description: "We are inviting nutrition specialists to have an open discussion about Keegan nutrition with our school chefs, admin, and Student Government. We’d like to make steps in the right direction so that our students can lead healthy lives.",
     location: "Keegan Middle School",
     image: require("../images/categories/education/nutrition.jpg"),
@@ -893,7 +893,7 @@ export default [
   {
     category: "education",
     title: "Special Needs field trip",
-    date: "2017-01-22T09:55:42.693Z",
+    date: "2017-01-22T14:55:42.693Z",
     description: "We need all the help we can get for our first-ever field trip for the special needs kids at Pasternak. Most of these kids have some sort of attention deficiency disorders, so we will need patient chaperones who will be willing to put in a lot of patience and care. Sign up if you are interested in helping out, and we’ll send you a Google Form with all of the details and preferences of assignments.",
     location: "Pasternak Special Needs Academy",
     image: require("../images/categories/education/field_trip.jpg"),
@@ -960,7 +960,7 @@ export default [
   {
     category: "education",
     title: "Anti-bullying rally",
-    date: "2017-01-14T11:20:07.667Z",
+    date: "2017-01-14T16:20:07.667Z",
     description: "We’ve invited Asiz Ansari to talk about bullying at Romilly High, and need help with aspects of the event such as crowd control and ushering. Please volunteer to help this good cause.",
     location: "Romilly High School",
     image: require("../images/categories/education/rally.jpg"),
@@ -1001,7 +1001,7 @@ export default [
   {
     category: "education",
     title: "Pen pals",
-    date: "2017-01-15T10:00:51.588Z",
+    date: "2017-01-15T15:00:51.588Z",
     description: "We are looking for 18+ volunteers for kids to write to in our Pen Pals program at Davison. We are looking to foster intelligent communication and true mentorship. Hope you can help out!",
     location: "Davison Elementary School",
     image: require("../images/categories/education/pen_pals.jpg"),
