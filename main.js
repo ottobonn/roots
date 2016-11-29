@@ -1,32 +1,31 @@
 import Exponent from "exponent";
 import React from "react";
 import {
+  AppRegistry,
+  Platform,
+  StatusBar,
   StyleSheet,
   Text,
   View
 } from "react-native";
-import EventListView from "./components/EventListView";
 
-treeEvent = {
-  title: "Tree Planting",
-  image: require("./static/images/placeholder.jpg"),
-  date: "16 Nov 2016",
-  location: "Henry Coe Park"
-};
+import {
+  NavigationProvider,
+  StackNavigation,
+} from "@exponent/ex-navigation";
 
-var events = [];
-for (var i = 0; i < 10; i++) {
-  events.push(treeEvent);
-}
+import Router from "./navigation/Router";
 
 class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Testing the editor</Text>
-        <EventListView
-          events = {events}
-        />
+        <NavigationProvider router={Router}>
+          <StackNavigation id="root" initialRoute={Router.getRoute("rootNavigation")} />
+        </NavigationProvider>
+
+        {Platform.OS === "ios" && <StatusBar barStyle="default" />}
+        {Platform.OS === "android" && <View style={styles.statusBarUnderlay} />}
       </View>
     );
   }
@@ -36,9 +35,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
-    // alignItems: "center",
-    // justifyContent: "center",
-  },
+    marginTop: 24
+  }
 });
 
 Exponent.registerRootComponent(App);
