@@ -26,10 +26,11 @@ export default class Search extends Component {
   render() {
     return (
       <View>
+        <View style={{ marginTop: 70 }}>
           <EventListView 
-            style={{ marginTop: 80 }}
             events={this.state.results} 
           />
+        </View>
       <SearchBar
         ref={(ref) => this.searchBar = ref}
         data={events}
