@@ -5,8 +5,8 @@ import {
   Image
 } from "react-native";
 
-import EventListView from '../components/EventListView';
-import SearchBar from 'react-native-searchbar';
+import EventListView from "../components/EventListView";
+import SearchBar from "react-native-searchbar";
 import events from "../static/content/events.js";
 
 export default class Search extends Component {
@@ -27,18 +27,18 @@ export default class Search extends Component {
     return (
       <View>
         <View style={{ marginTop: 70 }}>
-          <EventListView 
-            events={this.state.results} 
+          <EventListView
+            events={this.state.results}
           />
         </View>
-      <SearchBar
-        ref={(ref) => this.searchBar = ref}
-        data={events}
-        hideBack={true}
-        handleResults={this._handleResults}
-        placeholder={"Search for events"}
-        showOnLoad
-      />
+        <SearchBar
+          ref={(ref) => this.searchBar = ref}
+          data={events}
+          hideBack={true}
+          handleResults={this._handleResults}
+          placeholder={"Search events and people"}
+          showOnLoad
+        />
       </View>
     );
   }
