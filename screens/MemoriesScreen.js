@@ -1,7 +1,10 @@
 import React from "react";
 import {
-  Text
+  View,
+  StyleSheet,
+  Image
 } from "react-native";
+import PageFrame from "../components/PageFrame";
 
 var memory = {
   eventName: "Tree planting",
@@ -20,15 +23,18 @@ for (var i = 0; i < 10; i++) {
 }
 
 export default class MemoriesScreen extends React.Component {
-  render() {
+  render(){
     return (
-      <Text>My memories</Text>
+      <View style={styles.container}>
+        <PageFrame title="Memories" backButton={false} searchButton={false}>
+        </PageFrame>
+      </View>
     );
   }
 }
 
-MemoriesScreen.route = {
-  navigationBar: {
-    title: "My memories",
-  }
-};
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+});
