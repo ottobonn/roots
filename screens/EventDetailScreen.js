@@ -8,14 +8,23 @@ import PageFrame from "../components/PageFrame";
 import EventDetailView from "../components/EventDetailView";
 
 export default class EventDetailScreen extends Component {
+  constructor() {
+    super();
+    this.state = {signedUp: false};
+    this.toggleSignup = this.toggleSignup.bind(this);
+  }
+
+  toggleSignup() {
+    this.setState({signedUp: !this.state.signedUp});
+  }
+
   render() {
-    // Placeholder empty function to suppress warnings 
-    var emptyFunc = function() {};
     return (
-      <PageFrame title={this.props.route.params.eventInfo.title}>
+      <PageFrame overlay={true}>
         <EventDetailView
           eventInfo = {this.props.route.params.eventInfo}
-          onSignUpChange = {emptyFunc}
+          onSignUpChange = {this.toggleSignup}
+          signedUp = {this.state.signedUp}
         />
       </PageFrame>
     );
