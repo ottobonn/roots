@@ -63,6 +63,7 @@ ChatHeads.propTypes = {
 
 const styles = StyleSheet.create({
   title: {
-    paddingLeft: 7
+    paddingLeft: 10,
+    color: "#4b4b4b"
   }
 });

@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   body: {
     flex: 1,
     padding: 10,
-    backgroundColor: "#f3efef"
+    backgroundColor: "#f3efef",
   },
   title: {
     position: "absolute",
@@ -166,7 +166,8 @@ const styles = StyleSheet.create({
     padding: 5
   },
   eventDetail: {
-    fontSize: 12
+    fontSize: 12,
+    color: "#4b4b4b"
   },
   meta: {
     flex: 1,
@@ -178,20 +179,22 @@ const styles = StyleSheet.create({
     fontSize: 13,
     textAlign: "center",
     paddingBottom: 10,
+    color: "#4b4b4b"
   },
   location: {
     flex: 1,
     fontSize: 14,
     textAlign: "center",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   organizerName: {
     paddingTop: 10,
     fontSize: 14,
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   organizerBio: {
-    fontSize: 12
+    fontSize: 12,
+    color: "#4b4b4b"
   },
   buttonBar: {
     elevation: 10,

@@ -12,9 +12,6 @@ export default class ChatHead extends Component {
     var image = this.props.image;
     // First-name basis
     var name = this.props.name.split(" ")[0];
-    if (this.props.organizer) {
-      name += "\n(organizer)";
-    }
     var imageStyles = [styles.image];
     if (this.props.organizer) {
       imageStyles.push(styles.organizerImage);
@@ -52,6 +49,8 @@ const styles = StyleSheet.create({
   },
   name: {
     flex: 1,
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: 12,
+    color: "#4b4b4b"
   }
 });
