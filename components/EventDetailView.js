@@ -6,6 +6,7 @@ import {
   Image,
   ScrollView
 } from "react-native";
+import dateFormat from "dateformat";
 import {Ionicons} from "@exponent/vector-icons";
 import Button from "react-native-button";
 import ChatHeads from "../components/ChatHeads";
@@ -24,44 +25,29 @@ export default class EventDetailView extends Component {
   }
 
   render() {
-    /* The footer holds either the signup button or the chat heads. */
-    var footer = null;
+    var signUpView = null;
     if (this.props.signedUp) {
-      footer = (
-        <View style={styles.chatHeadsBar}>
-          <ChatHeads style={styles.chatHeads} title="Who's going:" attendees={this.props.eventInfo.people} />
-        </View>
-      );
-    } else {
-      footer = (
-        <View style={styles.buttonBar}>
-          <Button
-            containerStyle={styles.buttonContainer}
-            style={styles.button}
-            onPress={this.toggleSignup}
-          >
-            Sign up
-          </Button>
-        </View>
-      );
-    }
-
-    var cancelView = null;
-    if (this.props.signedUp) {
-      cancelView = (
-        <View style={styles.cancelView}>
-          <Ionicons name="md-checkmark-circle-outline" style={styles.cancelViewText} />
-          <Text style={styles.cancelViewText}>{"I'm going"}</Text>
-          <Button
-            onPress={this.toggleSignup}
-          >
+      signUpView = (
+        <View style={styles.signUpView}>
+          <Ionicons name="md-checkmark-circle-outline" style={styles.signUpViewText} />
+          <Text style={styles.signUpViewText}>{"I'm going"}</Text>
+          <Button onPress={this.toggleSignup}>
             Cancel
           </Button>
         </View>
       );
+    } else {
+      signUpView = (
+        <Button
+          containerStyle={styles.buttonContainer}
+          style={styles.button}
+          onPress={this.toggleSignup}
+        >
+          Sign up
+        </Button>
+      );
     }
 
-    var dateFormat = require('dateformat');
     var dateDisplay = dateFormat(this.props.eventInfo.date, "mmmm dd, h:MM tt");
 
     return (
@@ -72,13 +58,13 @@ export default class EventDetailView extends Component {
             <FlexibleImage source={this.props.eventInfo.image} />
             <Text style={styles.title}>{this.props.eventInfo.title}</Text>
           </View>
+          {signUpView}
           <View style={styles.body}>
             {/* metadata*/}
             <View>
               <Text style={styles.location}>{this.props.eventInfo.location}</Text>
               <Text style={styles.date}>{dateDisplay}</Text>
             </View>
-            {cancelView}
             <View>
               {/* Event details */}
               <Text style={styles.eventDetail}>{this.props.eventInfo.description}</Text>
@@ -89,8 +75,10 @@ export default class EventDetailView extends Component {
               <Text style={styles.organizerBio}>{this.props.eventInfo.organizer.bio}</Text>
             </View>
           </View>
+          <View style={styles.chatHeadsBar}>
+            <ChatHeads style={styles.chatHeads} title="Who's going:" attendees={this.props.eventInfo.people} organizer={this.props.eventInfo.organizer} />
+          </View>
         </ScrollView>
-        {footer}
       </View>
     );
   }
@@ -141,8 +129,8 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 1,
-    padding: 10,
-    backgroundColor: "#f3efef",
+    padding: 25,
+    paddingTop: 0
   },
   title: {
     position: "absolute",
@@ -155,18 +143,19 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "#333c"
   },
-  cancelView: {
+  signUpView: {
     flex: 1,
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    padding: 10
   },
-  cancelViewText: {
+  signUpViewText: {
     fontSize: 20,
     padding: 5
   },
   eventDetail: {
-    fontSize: 12,
+    fontSize: 14,
     color: "#4b4b4b"
   },
   meta: {
@@ -191,29 +180,22 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     fontSize: 14,
     fontWeight: "bold",
+    textAlign: "center"
   },
   organizerBio: {
-    fontSize: 12,
+    fontSize: 14,
     color: "#4b4b4b"
   },
-  buttonBar: {
-    elevation: 10,
-    backgroundColor: "#4b4b4b"
-  },
   buttonContainer: {
-    margin: 10,
+    margin: 20,
     padding: 10,
     height: 45,
-    backgroundColor: "#499700"
+    backgroundColor: "#499700",
+    borderRadius: 5,
+    elevation: 5
   },
   button: {
     fontSize: 19,
     color: "white"
-  },
-  chatHeadsBar: {
-    backgroundColor: "white",
-    paddingTop: 5,
-    paddingBottom: 5,
-    elevation: 5
   }
 });
