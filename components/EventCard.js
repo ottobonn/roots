@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     // marginTop: -10,
     color: "white",
     backgroundColor: "#333c",
-    fontSize: 25,
+    fontSize: 19,
     padding: 10,
     textAlign: "center",
     /* Position at bottom and fill width */

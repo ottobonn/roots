@@ -73,9 +73,10 @@ export default class EventDetailView extends Component {
             <Text style={styles.title}>{this.props.eventInfo.title}</Text>
           </View>
           <View style={styles.body}>
-            <View style={styles.meta}>
-              <Text style={[styles.metaText, styles.date]}>{dateDisplay}</Text>
-              <Text style={[styles.metaText, styles.location]}>{this.props.eventInfo.location}</Text>
+            {/* metadata*/}
+            <View>
+              <Text style={styles.location}>{this.props.eventInfo.location}</Text>
+              <Text style={styles.date}>{dateDisplay}</Text>
             </View>
             {cancelView}
             <View>
@@ -84,8 +85,8 @@ export default class EventDetailView extends Component {
             </View>
             <View>
               {/* Organizer details */}
-              <Text style={styles.organizerName}>{this.props.eventInfo.organizer.name}</Text>
-              <Text>{this.props.eventInfo.organizer.bio}</Text>
+              <Text style={styles.organizerName}>{"About " + this.props.eventInfo.organizer.name}</Text>
+              <Text style={styles.organizerBio}>{this.props.eventInfo.organizer.bio}</Text>
             </View>
           </View>
         </ScrollView>
@@ -150,8 +151,8 @@ const styles = StyleSheet.create({
     right: 0,
     textAlign: "center",
     color: "white",
-    fontSize: 30,
-    padding: 5,
+    fontSize: 19,
+    padding: 10,
     backgroundColor: "#333c"
   },
   cancelView: {
@@ -165,26 +166,32 @@ const styles = StyleSheet.create({
     padding: 5
   },
   eventDetail: {
-    fontSize: 18
+    fontSize: 12
   },
   meta: {
     flex: 1,
     flexDirection: "row",
     padding: 5
   },
-  metaText: {
-    fontSize: 15
-  },
   date: {
-    flex: 1
+    flex: 1,
+    fontSize: 13,
+    textAlign: "center",
+    paddingBottom: 10,
   },
   location: {
     flex: 1,
-    textAlign: "right"
+    fontSize: 14,
+    textAlign: "center",
+    fontWeight: "bold"
   },
   organizerName: {
-    paddingTop: 20,
-    fontSize: 20
+    paddingTop: 10,
+    fontSize: 14,
+    fontWeight: "bold"
+  },
+  organizerBio: {
+    fontSize: 12
   },
   buttonBar: {
     elevation: 10,
@@ -194,10 +201,10 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 10,
     height: 45,
-    backgroundColor: "green"
+    backgroundColor: "#499700"
   },
   button: {
-    fontSize: 20,
+    fontSize: 19,
     color: "white"
   },
   chatHeadsBar: {

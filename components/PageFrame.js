@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   },
   leftContainer: {
     alignItems: "center",
-    flex: 1,
+    flex: 2,
     flexDirection: "row",
     justifyContent: "flex-start",
   },
