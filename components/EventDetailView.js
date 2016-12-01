@@ -6,62 +6,40 @@ import {
   Image,
   ScrollView
 } from "react-native";
+import dateFormat from "dateformat";
 import {Ionicons} from "@exponent/vector-icons";
 import Button from "react-native-button";
+import {connect} from "react-redux";
+
 import ChatHeads from "../components/ChatHeads";
 import FlexibleImage from "./FlexibleImage";
+import store from "../store";
 
-export default class EventDetailView extends Component {
-  constructor(props) {
-    super(props);
-    this.toggleSignup = this.toggleSignup.bind(this);
-    console.log(props);
-  }
-
-  toggleSignup() {
-    this.props.onSignUpChange(!this.props.signedUp);
-    console.log("toggle signup");
-  }
-
+class EventDetailView extends Component {
   render() {
-    /* The footer holds either the signup button or the chat heads. */
-    var footer = null;
+    var signUpView = null;
     if (this.props.signedUp) {
-      footer = (
-        <View style={styles.chatHeadsBar}>
-          <ChatHeads style={styles.chatHeads} title="Who's going:" attendees={this.props.eventInfo.people} />
-        </View>
-      );
-    } else {
-      footer = (
-        <View style={styles.buttonBar}>
-          <Button
-            containerStyle={styles.buttonContainer}
-            style={styles.button}
-            onPress={this.toggleSignup}
-          >
-            Sign up
-          </Button>
-        </View>
-      );
-    }
-
-    var cancelView = null;
-    if (this.props.signedUp) {
-      cancelView = (
-        <View style={styles.cancelView}>
-          <Ionicons name="md-checkmark-circle-outline" style={styles.cancelViewText} />
-          <Text style={styles.cancelViewText}>{"I'm going"}</Text>
-          <Button
-            onPress={this.toggleSignup}
-          >
+      signUpView = (
+        <View style={styles.signUpView}>
+          <Ionicons name="md-checkmark-circle-outline" style={styles.signUpViewText} />
+          <Text style={styles.signUpViewText}>{"I'm going"}</Text>
+          <Button onPress={this.props.cancelEvent}>
             Cancel
           </Button>
         </View>
       );
+    } else {
+      signUpView = (
+        <Button
+          containerStyle={styles.buttonContainer}
+          style={styles.button}
+          onPress={this.props.signupForEvent}
+        >
+          Sign up
+        </Button>
+      );
     }
 
-    var dateFormat = require('dateformat');
     var dateDisplay = dateFormat(this.props.eventInfo.date, "mmmm dd, h:MM tt");
 
     return (
@@ -72,24 +50,27 @@ export default class EventDetailView extends Component {
             <FlexibleImage source={this.props.eventInfo.image} />
             <Text style={styles.title}>{this.props.eventInfo.title}</Text>
           </View>
+          {signUpView}
           <View style={styles.body}>
-            <View style={styles.meta}>
-              <Text style={[styles.metaText, styles.date]}>{dateDisplay}</Text>
-              <Text style={[styles.metaText, styles.location]}>{this.props.eventInfo.location}</Text>
+            {/* metadata*/}
+            <View>
+              <Text style={styles.location}>{this.props.eventInfo.location}</Text>
+              <Text style={styles.date}>{dateDisplay}</Text>
             </View>
-            {cancelView}
             <View>
               {/* Event details */}
               <Text style={styles.eventDetail}>{this.props.eventInfo.description}</Text>
             </View>
             <View>
               {/* Organizer details */}
-              <Text style={styles.organizerName}>{this.props.eventInfo.organizer.name}</Text>
-              <Text>{this.props.eventInfo.organizer.bio}</Text>
+              <Text style={styles.organizerName}>{"About " + this.props.eventInfo.organizer.name}</Text>
+              <Text style={styles.organizerBio}>{this.props.eventInfo.organizer.bio}</Text>
             </View>
           </View>
+          <View style={styles.chatHeadsBar}>
+            <ChatHeads style={styles.chatHeads} title="Who's going:" attendees={this.props.eventInfo.people} organizer={this.props.eventInfo.organizer} />
+          </View>
         </ScrollView>
-        {footer}
       </View>
     );
   }
@@ -98,8 +79,6 @@ export default class EventDetailView extends Component {
 EventDetailView.propTypes = {
   /* True when the user is signed up for this event and false otherwise */
   signedUp: React.PropTypes.bool,
-  /* Called with new signup status when the user alters the signup */
-  onSignUpChange: React.PropTypes.func.isRequired,
   /* Event object */
   eventInfo: React.PropTypes.shape({
     /* Event id */
@@ -132,6 +111,25 @@ EventDetailView.propTypes = {
   }).isRequired,
 };
 
+const mapDispatchToProps = function(dispatch, ownProps) {
+  return {
+    signupForEvent: () => {
+      store.dispatch({
+        type: "ADD_EVENT",
+        event: ownProps.eventInfo
+      });
+    },
+    cancelEvent: () => {
+      store.dispatch({
+        type: "REMOVE_EVENT",
+        event: ownProps.eventInfo
+      });
+    }
+  };
+};
+
+export default connect(null, mapDispatchToProps)(EventDetailView);
+
 const styles = StyleSheet.create({
   header: {
     flexDirection: "column",
@@ -140,8 +138,8 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 1,
-    padding: 10,
-    backgroundColor: "#f3efef"
+    padding: 25,
+    paddingTop: 0
   },
   title: {
     position: "absolute",
@@ -150,60 +148,63 @@ const styles = StyleSheet.create({
     right: 0,
     textAlign: "center",
     color: "white",
-    fontSize: 30,
-    padding: 5,
+    fontSize: 19,
+    padding: 10,
     backgroundColor: "#333c"
   },
-  cancelView: {
+  signUpView: {
     flex: 1,
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    padding: 10
   },
-  cancelViewText: {
+  signUpViewText: {
     fontSize: 20,
     padding: 5
   },
   eventDetail: {
-    fontSize: 18
+    fontSize: 14,
+    color: "#4b4b4b"
   },
   meta: {
     flex: 1,
     flexDirection: "row",
     padding: 5
   },
-  metaText: {
-    fontSize: 15
-  },
   date: {
-    flex: 1
+    flex: 1,
+    fontSize: 13,
+    textAlign: "center",
+    paddingBottom: 10,
+    color: "#4b4b4b"
   },
   location: {
     flex: 1,
-    textAlign: "right"
+    fontSize: 14,
+    textAlign: "center",
+    fontWeight: "bold",
   },
   organizerName: {
-    paddingTop: 20,
-    fontSize: 20
+    paddingTop: 10,
+    fontSize: 14,
+    fontWeight: "bold",
+    textAlign: "center"
   },
-  buttonBar: {
-    elevation: 10,
-    backgroundColor: "#4b4b4b"
+  organizerBio: {
+    fontSize: 14,
+    color: "#4b4b4b"
   },
   buttonContainer: {
-    margin: 10,
+    margin: 20,
     padding: 10,
     height: 45,
-    backgroundColor: "green"
+    backgroundColor: "#499700",
+    borderRadius: 5,
+    elevation: 5
   },
   button: {
-    fontSize: 20,
+    fontSize: 19,
     color: "white"
-  },
-  chatHeadsBar: {
-    backgroundColor: "white",
-    paddingTop: 5,
-    paddingBottom: 5,
-    elevation: 5
   }
 });

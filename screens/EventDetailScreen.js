@@ -3,21 +3,34 @@ import {
   View,
   Text
 } from "react-native";
+import {connect} from "react-redux";
 
 import PageFrame from "../components/PageFrame";
 import EventDetailView from "../components/EventDetailView";
 
-export default class EventDetailScreen extends Component {
+class EventDetailScreen extends Component {
   render() {
-    // Placeholder empty function to suppress warnings 
-    var emptyFunc = function() {};
+    var currentEvent = this.props.route.params.eventInfo;
+    var foundEvent = this.props.signedUpEvents.find((eventInfo) => {
+      return eventInfo.id === currentEvent.id;
+    });
+    var signedUp = !!foundEvent; // Coerce to boolean
+
     return (
-      <PageFrame title={this.props.route.params.eventInfo.title}>
+      <PageFrame title={currentEvent.title}>
         <EventDetailView
-          eventInfo = {this.props.route.params.eventInfo}
-          onSignUpChange = {emptyFunc}
+          eventInfo = {currentEvent}
+          signedUp = {signedUp}
         />
       </PageFrame>
     );
   }
 };
+
+const mapStateToProps = function(store) {
+  return {
+    signedUpEvents: store.events
+  };
+};
+
+export default connect(mapStateToProps)(EventDetailScreen);

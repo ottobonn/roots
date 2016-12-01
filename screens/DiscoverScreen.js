@@ -1,7 +1,8 @@
 import React from "react";
 import {
   View,
-  StyleSheet
+  StyleSheet,
+  Image
 } from "react-native";
 
 import DiscoverView from "../components/DiscoverView";
@@ -28,7 +29,7 @@ export default class DiscoverScreen extends React.Component {
   render(){
     return (
       <View style={styles.container}>
-        <PageFrame title="Discover" backButton={false}>
+        <PageFrame title="Discover" backButton={false} searchButton={true}>
           <DiscoverView categories={categories} />
         </PageFrame>
       </View>
