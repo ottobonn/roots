@@ -1,24 +1,30 @@
 import React from "react";
 import {
+  Text,
   View,
   StyleSheet,
   Image
 } from "react-native";
 import PageFrame from "../components/PageFrame";
+import MemoriesView from "../components/MemoriesView"
+import ChatHead from "../components/ChatHead"
 
-var memory = {
-  eventName: "Tree planting",
-  eventDate: Date(),
-  image: require("../static/content/images/memories/01.jpg")
-};
+function randomDate(start, end) {
+  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}
 
 var userData = {
-  name: "Sara",
-  image: require("../static/content/images/people/users/01_sara_douglas.jpg"),
+  name: "Travis",
+  image: require("../static/images/travis.jpg"),
   memories: []
 };
 
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i < 5; i++) {
+  var memory = {
+	eventName: "Tree planting",
+	eventDate: randomDate(new Date(2016, 0, 10), new Date(2016, 11, 10)).toISOString(),
+	image: require("../static/images/memories/01.jpg"),
+  };
   userData.memories.push(memory);
 }
 
@@ -27,6 +33,11 @@ export default class MemoriesScreen extends React.Component {
     return (
       <View style={styles.container}>
         <PageFrame title="Memories" backButton={false} searchButton={false}>
+          <View style={styles.content}>
+            <Image style={styles.image} source={userData.image}/>
+            <Text style={styles.userName}>{userData.name}</Text>
+          </View>
+          <MemoriesView userData={userData}> </MemoriesView>
         </PageFrame>
       </View>
     );
@@ -34,7 +45,23 @@ export default class MemoriesScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  userName: {
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 19,
+    paddingBottom: 10,
+  },
   container: {
     flex: 1
+  },
+  content: {
+    paddingTop: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
   },
 });
