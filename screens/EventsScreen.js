@@ -3,16 +3,15 @@ import {
   Text
 } from "react-native";
 
+import PageFrame from "../components/PageFrame";
+import EventListView from "../components/EventListView";
+
 export default class EventsScreen extends React.Component {
   render() {
     return (
-      <Text>My events</Text>
+      <PageFrame title="Upcoming events" backButton={false} searchButton={true}>
+        <EventListView events={[]} />
+      </PageFrame>
     );
   }
 }
-
-EventsScreen.route = {
-  navigationBar: {
-    title: "My events",
-  }
-};
