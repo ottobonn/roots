@@ -58,14 +58,14 @@ export default class MemoriesView extends Component {
 
     var yearKeys = Object.keys(memoryMap);
     yearKeys.sort(sortIntDescending);
-    var monthsData = [];
+    var monthObjects = [];
     yearKeys.forEach((yearKey) => {
       var yearData = memoryMap[yearKey];
       var monthKeys = Object.keys(yearData);
       monthKeys.sort(sortIntDescending);
       monthKeys.forEach((monthKey) => {
         var memories = yearData[monthKey];
-        monthsData.push({
+        monthObjects.push({
           year: yearKey,
           month: monthKey,
           memories
@@ -80,7 +80,7 @@ export default class MemoriesView extends Component {
           <Text style={styles.userName}>{this.props.userData.name}</Text>
         </View>
         {
-          monthsData.map((monthObject) => {
+          monthObjects.map((monthObject) => {
             return this.renderMonth(monthObject);
           })
         }
