@@ -8,7 +8,9 @@ import {
 } from "react-native";
 import dateFormat from "dateformat";
 import {Ionicons} from "@exponent/vector-icons";
+import dateFormat from "dateformat";
 import Button from "react-native-button";
+
 import ChatHeads from "../components/ChatHeads";
 import FlexibleImage from "./FlexibleImage";
 
