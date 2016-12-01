@@ -11,25 +11,68 @@ import dateFormat from "dateformat";
 import MemoriesRowView from "./MemoriesRowView";
 import FlexibleImage from "./FlexibleImage";
 
+const addMemory = function(memoryMap, memory) {
+  var date = new Date(memory.eventDate);
+  var year = date.getFullYear();
+  var month = date.getMonth();
+  if (!memoryMap[year]) {
+    memoryMap[year] = {};
+  }
+  if (!memoryMap[year][month]) {
+    memoryMap[year][month] = [];
+  }
+  memoryMap[year][month].push(memory);
+};
+
+const sortIntDescending = function(a, b) {
+  return b - a;
+};
+
 export default class MemoriesView extends Component {
-  renderMonth(monthIndex, monthData) {
-    var date = new Date();
-    date.setMonth(monthIndex);
-    var monthName = dateFormat(date, "mmmm");
-    return (
-      <MemoriesRowView title={monthName} memories={monthData} style={styles.row} key={monthName} />
-    );
+  renderMonth(monthObject) {
+    if (monthObject.memories.length > 0) {
+      var date = new Date();
+      date.setYear(monthObject.year);
+      date.setMonth(monthObject.month);
+      var title = dateFormat(date, "mmmm yyyy");
+      return (
+        <MemoriesRowView
+          title={title}
+          memories={monthObject.memories}
+          style={styles.row}
+          key={title}
+        />
+      );
+    } else {
+      return null;
+    }
   }
 
   render() {
-    var months = [[],[],[],[],[],[],[],[],[],[],[],[]];
     var memories = [].concat(this.props.userData.memories);
-    memories.sort((memA, memB) => {
-      return new Date(memB.eventDate) - new Date(memA.eventDate);
-    });
+
+    var memoryMap = {};
     memories.forEach((memory) => {
-      months[(new Date(memory.eventDate)).getMonth()].push(memory);
+      addMemory(memoryMap, memory);
     });
+
+    var yearKeys = Object.keys(memoryMap);
+    yearKeys.sort(sortIntDescending);
+    var monthsData = [];
+    yearKeys.forEach((yearKey) => {
+      var yearData = memoryMap[yearKey];
+      var monthKeys = Object.keys(yearData);
+      monthKeys.sort(sortIntDescending);
+      monthKeys.forEach((monthKey) => {
+        var memories = yearData[monthKey];
+        monthsData.push({
+          year: yearKey,
+          month: monthKey,
+          memories
+        });
+      });
+    });
+
     return (
       <ScrollView style={{flex: 1}}>
         <View style={styles.userInfo}>
@@ -37,10 +80,8 @@ export default class MemoriesView extends Component {
           <Text style={styles.userName}>{this.props.userData.name}</Text>
         </View>
         {
-          months.map((monthData, monthIndex) => {
-            if (monthData.length > 0) {
-              return this.renderMonth(monthIndex, monthData);
-            }
+          monthsData.map((monthObject) => {
+            return this.renderMonth(monthObject);
           })
         }
       </ScrollView>
