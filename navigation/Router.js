@@ -8,6 +8,7 @@ import EventsScreen from "../screens/EventsScreen";
 import EventDetailScreen from "../screens/EventDetailScreen";
 import MemoriesScreen from "../screens/MemoriesScreen";
 import SearchScreen from "../screens/SearchScreen";
+import MemoryDetailScreen from "../screens/MemoryDetailScreen";
 
 import RootNavigation from "./RootNavigation";
 
@@ -18,5 +19,6 @@ export default createRouter(() => ({
   eventDetails: () => EventDetailScreen,
   memories: () => MemoriesScreen,
   rootNavigation: () => RootNavigation,
-  search: () => SearchScreen
+  search: () => SearchScreen,
+  memoryDetails: () => MemoryDetailScreen
 }));

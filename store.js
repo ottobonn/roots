@@ -36,6 +36,7 @@ for (var i = 0; i < 50; i++) {
   var memory = {
   	eventName: "Tree planting",
   	eventDate: randomDate(new Date(2016, 0, 10), new Date(2016, 11, 10)).toISOString(),
+    eventLocation: "Henry Coe Park",
   	image: require("./static/images/memories/01.jpg"),
   };
   userData.memories.push(memory);

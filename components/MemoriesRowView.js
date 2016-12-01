@@ -3,11 +3,40 @@ import {
   StyleSheet,
   View,
   Text,
-  ScrollView
+  ScrollView,
+  TouchableHighlight
 } from "react-native";
+import {withNavigation} from "@exponent/ex-navigation";
+
+import Router from "../navigation/Router";
 import FlexibleImage from "./FlexibleImage";
 
+@withNavigation
 export default class MemoriesRowView extends Component {
+  constructor(props) {
+    super(props);
+    this.showMemoryDetails = this.showMemoryDetails.bind(this);
+  }
+
+  showMemoryDetails(memory) {
+    this.props.navigator.push(Router.getRoute("memoryDetails", {
+      memory
+    }));
+  }
+
+  renderMemory(memory, key) {
+    return (
+      <TouchableHighlight
+        key={key}
+        onPress={() => this.showMemoryDetails(memory)}
+      >
+        <View style={styles.imageContainer}>
+          <FlexibleImage source={memory.image} />
+        </View>
+      </TouchableHighlight>
+    );
+  }
+
   render() {
     var memories = this.props.memories;
     return (
@@ -16,11 +45,7 @@ export default class MemoriesRowView extends Component {
         <ScrollView horizontal={true} style={styles.scrollView}>
           {
             this.props.memories.map((memory, index) => {
-              return (
-                <View style={styles.imageContainer} key={index}>
-                  <FlexibleImage source={memory.image} />
-                </View>
-              );
+              return this.renderMemory(memory, index);
             })
           }
         </ScrollView>
