@@ -1,12 +1,12 @@
 import React, {Component} from "react";
 import {
   View,
-  Text
+  Text,
+  TouchableOpacity,
 } from "react-native";
 
 import PageFrame from "../components/PageFrame";
 import EventListView from "../components/EventListView";
-
 import events from "../static/content/events.js";
 
 var eventList = [];

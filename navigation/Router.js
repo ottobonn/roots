@@ -3,10 +3,11 @@ import {
 } from "@exponent/ex-navigation";
 
 import DiscoverScreen from "../screens/DiscoverScreen";
+import DiscoverCategoryScreen from "../screens/DiscoverCategoryScreen";
 import EventsScreen from "../screens/EventsScreen";
 import EventDetailScreen from "../screens/EventDetailScreen";
 import MemoriesScreen from "../screens/MemoriesScreen";
-import DiscoverCategoryScreen from "../screens/DiscoverCategoryScreen";
+import SearchScreen from "../screens/SearchScreen";
 
 import RootNavigation from "./RootNavigation";
 
@@ -16,5 +17,6 @@ export default createRouter(() => ({
   events: () => EventsScreen,
   eventDetails: () => EventDetailScreen,
   memories: () => MemoriesScreen,
-  rootNavigation: () => RootNavigation
+  rootNavigation: () => RootNavigation,
+  search: () => SearchScreen
 }));

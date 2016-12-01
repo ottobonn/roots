@@ -33,7 +33,11 @@ export default class ChatHeads extends Component {
     });
     var organizer = this.props.organizer;
     // Prepend organizer
-    elements.unshift(<ChatHead name={organizer.name} image={organizer.image} key={"organizer"} organizer={true} />);
+    if (organizer) {
+      elements.unshift(
+        <ChatHead name={organizer.name} image={organizer.image} key={"organizer"} organizer={true} />
+      );
+    }
     // Configure title
     var titleText = this.props.title ?
       <Text style={styles.title}>{this.props.title}</Text>
@@ -63,6 +67,7 @@ ChatHeads.propTypes = {
 
 const styles = StyleSheet.create({
   title: {
-    paddingLeft: 7
+    paddingLeft: 10,
+    color: "#4b4b4b"
   }
 });

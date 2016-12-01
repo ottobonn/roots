@@ -35,7 +35,6 @@ export default class EventCard extends Component {
     if (this.props.eventInfo.people) {
       chatHeads = (
         <ChatHeads
-          title="Who's going:"
           attendees={this.props.eventInfo.people}
           organizer={this.props.eventInfo.organizer}
         />
@@ -54,11 +53,11 @@ export default class EventCard extends Component {
             </View>
 
             <View style={styles.eventDetail}>
-              <Text style={[styles.detailText, styles.date]}>
-                {dateDisplay}
-              </Text>
               <Text style={[styles.detailText, styles.location]}>
                 {this.props.eventInfo.location}
+              </Text>
+              <Text style={[styles.detailText, styles.date]}>
+                {dateDisplay}
               </Text>
             </View>
           </View>
@@ -117,7 +116,7 @@ const styles = StyleSheet.create({
     // marginTop: -10,
     color: "white",
     backgroundColor: "#333c",
-    fontSize: 25,
+    fontSize: 19,
     padding: 10,
     textAlign: "center",
     /* Position at bottom and fill width */
@@ -128,25 +127,19 @@ const styles = StyleSheet.create({
   },
   eventDetail: {
     flex: 1,
-    flexDirection: "row",
     backgroundColor: "white",
-    marginBottom: -1
   },
   date: {
     flex: 1,
-    textAlign: "left"
+    textAlign: "center",
+    fontSize: 13,
+    color: "#4b4b4b"
   },
   location: {
     flex: 1,
-    textAlign: "right"
+    textAlign: "center",
+    fontSize: 14,
+    paddingTop: 5,
+    fontWeight: "bold",
   },
-  detailText: {
-    // for location and date
-    margin: 10,
-    fontSize: 15
-  },
-  chatHeadsLabel: {
-    paddingLeft: 10,
-    fontSize: 10
-  }
 });
