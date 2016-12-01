@@ -1,6 +1,7 @@
 import React from "react";
 import {
-  Text
+  Text,
+  StyleSheet
 } from "react-native";
 import {connect} from "react-redux";
 
@@ -10,9 +11,12 @@ import store from "../store";
 
 class EventsScreen extends React.Component {
   render() {
+    var list = <EventListView events={this.props.events} />;
+    var emptyMessage = <Text style={styles.emptyMessage}>You have no upcoming events.</Text>;
+
     return (
       <PageFrame title="Upcoming events" backButton={false} searchButton={true}>
-        <EventListView events={this.props.events} />
+        {this.props.events.length > 0 ? list : emptyMessage}
       </PageFrame>
     );
   }
@@ -23,5 +27,13 @@ const mapStoreToProps = function(store) {
     events: store.events
   };
 };
+
+const styles = StyleSheet.create({
+  emptyMessage: {
+    flex: 1,
+    textAlign: "center",
+    textAlignVertical: "center"
+  }
+});
 
 export default connect(mapStoreToProps)(EventsScreen);
