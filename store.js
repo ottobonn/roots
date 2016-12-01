@@ -3,53 +3,27 @@ import {
   combineReducers
 } from "redux";
 
-var defaultState = [
-  {
-    category: "nature",
-    title: "Tree planting",
-    date: "2017-01-03T12:50:01.791Z",
-    description: "Help reset the clock on global warming by planting trees at Henry Coe Park. Bring your own trowels and plenty of water, as it will be a hot day!",
-    location: "Henry Coe Park",
-    image: require("./static/images/categories/nature/tree_planting.jpg"),
-    organizer: {
-      name: "Fenna Abraham",
-      bio: "I’ve been a ranger at Henry Coe Park for the past 3 years. In that time, I’ve seen many trees die, but none ever planted, hence the motivation for reconstructing the park. I’m a mother of three and proud of it.",
-      image: require("./static/images/people/organizers/fenna_abraham.jpg")
-    },
-    id: 0,
-    people: [
-      {
-        name: "Sara Douglas",
-        id: 1,
-        image: require("./static/images/people/users/01_sara_douglas.jpg"),
-      },
-      {
-        name: "Joann Brown",
-        id: 5,
-        image: require("./static/images/people/users/05_joann_brown.jpg"),
-      },
-      {
-        name: "Marshall Ferguson",
-        id: 9,
-        image: require("./static/images/people/users/09_marshall_ferguson.jpg"),
-      },
-    ]
-  }
-];
+const findEventById = function(events, id) {
+  return events.find((event) => {
+    return event.id === id;
+  });
+};
 
-const eventsReducer = function(state = defaultState, action) {
+const eventsReducer = function(eventsState = [], action) {
+  var newState = [].concat(eventsState);
   if (action.type === "ADD_EVENT") {
-    state.concat([action.event]);
+    newState.push(action.event);
   } else if (action.type === "REMOVE_EVENT") {
-    // TODO
+    var index = findEventById(eventsState, action.event.id);
+    if (index !== undefined) {
+      newState.splice(index, 1);
+    }
   }
-  return state;
+  return newState;
 };
 
 const userReducer = function(state, action) {
-  return {
-    name: "Travis"
-  };
+  return {};
 };
 
 const reducers = combineReducers({

@@ -8,22 +8,30 @@ import {
 } from "react-native";
 import dateFormat from "dateformat";
 import {Ionicons} from "@exponent/vector-icons";
-import dateFormat from "dateformat";
 import Button from "react-native-button";
 
 import ChatHeads from "../components/ChatHeads";
 import FlexibleImage from "./FlexibleImage";
+import store from "../store";
 
 export default class EventDetailView extends Component {
   constructor(props) {
     super(props);
     this.toggleSignup = this.toggleSignup.bind(this);
-    console.log(props);
   }
 
   toggleSignup() {
-    this.props.onSignUpChange(!this.props.signedUp);
-    console.log("toggle signup");
+    if (!this.props.signedUp) {
+      store.dispatch({
+        type: "ADD_EVENT",
+        event: this.props.eventInfo
+      });
+    } else {
+      store.dispatch({
+        type: "REMOVE_EVENT",
+        event: this.props.eventInfo
+      });
+    }
   }
 
   render() {
@@ -89,8 +97,6 @@ export default class EventDetailView extends Component {
 EventDetailView.propTypes = {
   /* True when the user is signed up for this event and false otherwise */
   signedUp: React.PropTypes.bool,
-  /* Called with new signup status when the user alters the signup */
-  onSignUpChange: React.PropTypes.func.isRequired,
   /* Event object */
   eventInfo: React.PropTypes.shape({
     /* Event id */

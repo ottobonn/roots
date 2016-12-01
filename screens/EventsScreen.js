@@ -18,10 +18,10 @@ class EventsScreen extends React.Component {
   }
 }
 
-const mapStateToProps = function(store) {
+const mapStoreToProps = function(store) {
   return {
     events: store.events
   };
 };
 
-export default connect(mapStateToProps)(EventsScreen);
+export default connect(mapStoreToProps)(EventsScreen);
