@@ -14,7 +14,7 @@ import {
 } from "@exponent/ex-navigation";
 import {Provider} from "react-redux";
 
-import { 
+import {
   Components,
   Font,
 } from 'exponent';
@@ -27,9 +27,11 @@ function cacheFonts(fonts) {
 }
 
 class App extends React.Component {
-
-  state = {
-    appIsReady: false,
+  constructor(props) {
+    super(props);
+    this.state = {
+      appIsReady: false
+    };
   }
 
   componentWillMount() {
@@ -40,7 +42,7 @@ class App extends React.Component {
     if (!this.state.appIsReady) {
       return <Components.AppLoading />;
     }
-    
+
     return (
       <Provider store={store}>
         <View style={styles.container}>
@@ -57,9 +59,8 @@ class App extends React.Component {
 
   async _loadAssetsAsync() {
     const fontAssets = cacheFonts([
-        {OxygenRegular: require('./assets/fonts/Oxygen-Regular.ttf')},
+      {OxygenRegular: require('./assets/fonts/Oxygen-Regular.ttf')},
     ]);
-
     this.setState({appIsReady: true});
   }
 }
