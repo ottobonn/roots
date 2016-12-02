@@ -14,10 +14,32 @@ import {
   StackNavigation,
 } from "@exponent/ex-navigation";
 
+import { 
+  Components,
+  Font,
+} from 'exponent';
+
 import Router from "./navigation/Router";
 
+function cacheFonts(fonts) {
+  return fonts.map(font => Exponent.Font.loadAsync(font));
+}
+
 class App extends React.Component {
+
+  state = {
+    appIsReady: false,
+  }
+
+  componentWillMount() {
+    this._loadAssetsAsync();
+  }
+
   render() {
+    if (!this.state.appIsReady) {
+      return <Components.AppLoading />;
+    }
+    
     return (
       <View style={styles.container}>
         <NavigationProvider router={Router}>
@@ -28,6 +50,14 @@ class App extends React.Component {
         {Platform.OS === "android" && <View style={styles.statusBarUnderlay} />}
       </View>
     );
+  }
+
+  async _loadAssetsAsync() {
+    const fontAssets = cacheFonts([
+        {OxygenRegular: require('./assets/fonts/Oxygen-Regular.ttf')},
+    ]);
+
+    this.setState({appIsReady: true});
   }
 }
 

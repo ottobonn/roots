@@ -8,6 +8,8 @@ import {
 import {Ionicons} from "@exponent/vector-icons";
 import {withNavigation} from "@exponent/ex-navigation";
 
+import GlobalStyles from "../styles";
+import TitleText from "./TitleText";
 import Router from "../navigation/Router";
 
 @withNavigation
@@ -39,7 +41,7 @@ export default class PageFrame extends Component {
               <TouchableHighlight onPress={this.goBack} style={styles.backButton}>
                 <Ionicons name="md-arrow-round-back" size={32} color="white" />
               </TouchableHighlight> }
-            <Text style={styles.title}>{this.props.title}</Text>
+            <TitleText style={styles.title}>{this.props.title}</TitleText>
           </View>
           <View style={styles.rightContainer}>
             {this.props.searchButton && 

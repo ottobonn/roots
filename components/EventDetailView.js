@@ -11,6 +11,9 @@ import {Ionicons} from "@exponent/vector-icons";
 import Button from "react-native-button";
 import ChatHeads from "../components/ChatHeads";
 import FlexibleImage from "./FlexibleImage";
+import GlobalStyles from "../styles";
+import BodyText from "./BodyText";
+import TitleText from "./TitleText";
 
 export default class EventDetailView extends Component {
   constructor(props) {
@@ -30,8 +33,8 @@ export default class EventDetailView extends Component {
       signUpView = (
         <View style={styles.signUpView}>
           <Ionicons name="md-checkmark-circle-outline" style={styles.signUpViewText} />
-          <Text style={styles.signUpViewText}>{"I'm going"}</Text>
-          <Button onPress={this.toggleSignup}>
+          <BodyText style={styles.signUpViewText}>{"I'm going"}</BodyText>
+          <Button onPress={this.toggleSignup} style={GlobalStyles.bodyFont}>
             Cancel
           </Button>
         </View>
@@ -40,7 +43,7 @@ export default class EventDetailView extends Component {
       signUpView = (
         <Button
           containerStyle={styles.buttonContainer}
-          style={styles.button}
+          style={[GlobalStyles.bodyFont, styles.button]}
           onPress={this.toggleSignup}
         >
           Sign up
@@ -56,23 +59,23 @@ export default class EventDetailView extends Component {
           <View style={styles.header}>
             {/* Header */}
             <FlexibleImage source={this.props.eventInfo.image} />
-            <Text style={styles.title}>{this.props.eventInfo.title}</Text>
+            <TitleText style={styles.title}>{this.props.eventInfo.title}</TitleText>
           </View>
           {signUpView}
           <View style={styles.body}>
             {/* metadata*/}
             <View>
-              <Text style={styles.location}>{this.props.eventInfo.location}</Text>
-              <Text style={styles.date}>{dateDisplay}</Text>
+              <BodyText style={styles.location}>{this.props.eventInfo.location}</BodyText>
+              <BodyText style={styles.date}>{dateDisplay}</BodyText>
             </View>
             <View>
               {/* Event details */}
-              <Text style={styles.eventDetail}>{this.props.eventInfo.description}</Text>
+              <BodyText style={styles.eventDetail}>{this.props.eventInfo.description}</BodyText>
             </View>
             <View>
               {/* Organizer details */}
-              <Text style={styles.organizerName}>{"About " + this.props.eventInfo.organizer.name}</Text>
-              <Text style={styles.organizerBio}>{this.props.eventInfo.organizer.bio}</Text>
+              <BodyText style={styles.organizerName}>{"About " + this.props.eventInfo.organizer.name}</BodyText>
+              <BodyText style={styles.organizerBio}>{this.props.eventInfo.organizer.bio}</BodyText>
             </View>
           </View>
           <View style={styles.chatHeadsBar}>
