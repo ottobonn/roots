@@ -13,5 +13,5 @@ export default class TitleText extends Component {
         {this.props.children}
       </Text>
     );
-	}
+  }
 }

@@ -13,5 +13,5 @@ export default class BodyText extends Component {
         {this.props.children}
       </Text>
     );
-	}
+  }
 }

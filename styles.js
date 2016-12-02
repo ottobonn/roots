@@ -5,6 +5,6 @@ export default StyleSheet.create({
     fontFamily: "OxygenRegular"
   },
   bodyFont: {
-  	fontFamily: "OxygenRegular"
+    fontFamily: "OxygenRegular"
   }
 });
