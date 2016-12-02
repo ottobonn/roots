@@ -6,6 +6,7 @@ import {
   Image
 } from "react-native";
 import Colors from "../constants/Colors";
+import BodyText from "./BodyText";
 
 export default class ChatHead extends Component {
   render() {
@@ -22,9 +23,9 @@ export default class ChatHead extends Component {
           style={imageStyles}
           source={image}
         />
-        <Text style={styles.name}>
+        <BodyText style={styles.name}>
           {name}
-        </Text>
+        </BodyText>
       </View>
     );
   }

@@ -6,6 +6,7 @@ import {
   ScrollView
 } from "react-native";
 import ChatHead from "./ChatHead";
+import BodyText from "./BodyText";
 
 /*
 Example usage:
@@ -40,7 +41,7 @@ export default class ChatHeads extends Component {
     }
     // Configure title
     var titleText = this.props.title ?
-      <Text style={styles.title}>{this.props.title}</Text>
+      <BodyText style={styles.title}>{this.props.title}</BodyText>
       : null;
     return (
       <View>

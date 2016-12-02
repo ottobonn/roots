@@ -14,11 +14,35 @@ import {
 } from "@exponent/ex-navigation";
 import {Provider} from "react-redux";
 
+import {
+  Components,
+  Font,
+} from 'exponent';
+
 import Router from "./navigation/Router";
 import store from "./store";
 
+function cacheFonts(fonts) {
+  return fonts.map(font => Exponent.Font.loadAsync(font));
+}
+
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      appIsReady: false
+    };
+  }
+
+  componentWillMount() {
+    this._loadAssetsAsync();
+  }
+
   render() {
+    if (!this.state.appIsReady) {
+      return <Components.AppLoading />;
+    }
+
     return (
       <Provider store={store}>
         <View style={styles.container}>
@@ -31,6 +55,13 @@ class App extends React.Component {
         </View>
       </Provider>
     );
+  }
+
+  async _loadAssetsAsync() {
+    const fontAssets = cacheFonts([
+      {OxygenRegular: require('./assets/fonts/Oxygen-Regular.ttf')},
+    ]);
+    this.setState({appIsReady: true});
   }
 }
 

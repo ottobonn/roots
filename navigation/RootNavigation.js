@@ -11,6 +11,7 @@ import {
 } from "@exponent/ex-navigation";
 import {Ionicons} from "@exponent/vector-icons";
 import Colors from "../constants/Colors.js";
+import BodyText from "../components/BodyText";
 
 export default class RootNavigation extends React.Component {
   render() {
@@ -57,9 +58,9 @@ export default class RootNavigation extends React.Component {
           size={32}
           color={isSelected ? Colors.tabSelected : Colors.tabDefault}
         />
-      <Text style={textStyle} numberOfLines={1}>
+      <BodyText style={textStyle} numberOfLines={1}>
           {tabTitle}
-        </Text>
+        </BodyText>
       </View>
     );
   }

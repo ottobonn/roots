@@ -11,6 +11,7 @@ import GlobalStyles from "../styles";
 import Router from "../navigation/Router";
 import {withNavigation} from "@exponent/ex-navigation";
 import FlexibleImage from "./FlexibleImage";
+import TitleText from "./TitleText";
 
 @withNavigation
 export default class DiscoverCategory extends Component {
@@ -31,9 +32,9 @@ export default class DiscoverCategory extends Component {
       <TouchableHighlight style={{flex: 1}} onPress={this.showCategory}>
         <View style={{flex: 1}}>
           <FlexibleImage source={this.props.image} />
-          <Text style={[GlobalStyles.titleFont, styles.name]}>
+          <TitleText style={styles.name}>
             {this.props.name}
-          </Text>
+          </TitleText>
         </View>
       </TouchableHighlight>
     );
