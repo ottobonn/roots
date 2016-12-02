@@ -7,11 +7,11 @@ import {
 import GlobalStyles from "../styles";
 
 export default class TitleText extends Component {
-	render() {
-		return (
-		    <Text style={[GlobalStyles.titleFont, this.props.style]}>
-		        {this.props.children}
-		    </Text>
-	    );
-  	}
+  render() {
+    return (
+      <Text style={[GlobalStyles.titleFont, this.props.style]}>
+        {this.props.children}
+      </Text>
+    );
+	}
 }
