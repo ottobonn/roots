@@ -8,11 +8,11 @@ import {
   Text,
   View
 } from "react-native";
-
 import {
   NavigationProvider,
   StackNavigation,
 } from "@exponent/ex-navigation";
+import {Provider} from "react-redux";
 
 import { 
   Components,
@@ -20,6 +20,7 @@ import {
 } from 'exponent';
 
 import Router from "./navigation/Router";
+import store from "./store";
 
 function cacheFonts(fonts) {
   return fonts.map(font => Exponent.Font.loadAsync(font));
@@ -41,14 +42,16 @@ class App extends React.Component {
     }
     
     return (
-      <View style={styles.container}>
-        <NavigationProvider router={Router}>
-          <StackNavigation id="root" initialRoute={Router.getRoute("rootNavigation")} />
-        </NavigationProvider>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <NavigationProvider router={Router}>
+            <StackNavigation id="root" initialRoute={Router.getRoute("rootNavigation")} />
+          </NavigationProvider>
 
-        {Platform.OS === "ios" && <StatusBar barStyle="default" />}
-        {Platform.OS === "android" && <View style={styles.statusBarUnderlay} />}
-      </View>
+          {Platform.OS === "ios" && <StatusBar barStyle="default" />}
+          {Platform.OS === "android" && <View style={styles.statusBarUnderlay} />}
+        </View>
+      </Provider>
     );
   }
 
