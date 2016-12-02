@@ -9,6 +9,8 @@ import {
 
 import {withNavigation} from "@exponent/ex-navigation";
 
+import BodyText from "./BodyText";
+import TitleText from "./TitleText";
 import ChatHeads from "../components/ChatHeads";
 import GlobalStyles from "../styles";
 import Router from "../navigation/Router";
@@ -47,18 +49,18 @@ export default class EventCard extends Component {
           <View style={{flex: 1}}>
             <View style={styles.cardHeader}>
               <FlexibleImage source={this.props.eventInfo.image} />
-              <Text style={[GlobalStyles.titleFont, styles.title]}>
+              <TitleText style={styles.title}>
                 {this.props.eventInfo.title}
-              </Text>
+              </TitleText>
             </View>
 
             <View style={styles.eventDetail}>
-              <Text style={[styles.detailText, styles.location]}>
+              <BodyText style={styles.location}>
                 {this.props.eventInfo.location}
-              </Text>
-              <Text style={[styles.detailText, styles.date]}>
+              </BodyText>
+              <BodyText style={styles.date}>
                 {dateDisplay}
-              </Text>
+              </BodyText>
             </View>
           </View>
         </TouchableHighlight>
@@ -138,7 +140,7 @@ const styles = StyleSheet.create({
   location: {
     flex: 1,
     textAlign: "center",
-    fontSize: 14,
+    fontSize: 13,
     paddingTop: 5,
     fontWeight: "bold",
   },
