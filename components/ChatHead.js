@@ -21,21 +21,21 @@ export default class ChatHead extends Component {
 
   showMemories() {
     this.props.navigator.push(Router.getRoute("otherMemories", {
-      image: this.props.image,
-      name: this.props.name,
+      userInfo: this.props.userInfo
     }));
   }
 
   render() {
-    var image = this.props.image;
+    var image = this.props.userInfo.image;
     // First-name basis
-    var name = this.props.name.split(" ")[0];
+    var name = this.props.userInfo.name.split(" ")[0];
     var imageStyles = [styles.image];
     if (this.props.organizer) {
       imageStyles.push(styles.organizerImage);
     }
+    var onPressAction = this.props.disablePress ? null : this.showMemories;
     return (
-      <TouchableHighlight style={{flex: 1}} onPress={this.showMemories}>
+      <TouchableHighlight style={{flex: 1}} onPress={onPressAction}>
         <View style={styles.chatHead}>
           <Image
             style={imageStyles}
@@ -48,8 +48,20 @@ export default class ChatHead extends Component {
       </TouchableHighlight>
     );
   }
-
 }
+
+ChatHead.propTypes = {
+  userInfo: React.PropTypes.shape({
+    image: React.PropTypes.any.isRequired,
+    name: React.PropTypes.string.isRequired,
+    memories: React.PropTypes.arrayOf(React.PropTypes.shape({
+      image: React.PropTypes.number.isRequired,
+      eventLocation: React.PropTypes.string.isRequired,
+      eventDate: React.PropTypes.string.isRequired
+    }))
+  }),
+  disablePress: React.PropTypes.bool
+};
 
 const styles = StyleSheet.create({
   chatHead: {

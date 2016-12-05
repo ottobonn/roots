@@ -10,6 +10,7 @@ import dateFormat from "dateformat";
 
 import MemoriesRowView from "./MemoriesRowView";
 import FlexibleImage from "./FlexibleImage";
+import ChatHead from "./ChatHead";
 
 const addMemory = function(memoryMap, memory) {
   var date = new Date(memory.eventDate);
@@ -49,7 +50,7 @@ export default class MemoriesView extends Component {
   }
 
   render() {
-    var memories = [].concat(this.props.userData.memories);
+    var memories = [].concat(this.props.userInfo.memories);
 
     var memoryMap = {};
     memories.forEach((memory) => {
@@ -76,8 +77,8 @@ export default class MemoriesView extends Component {
     return (
       <ScrollView style={{flex: 1}}>
         <View style={styles.userInfo}>
-          <Image style={styles.userImage} source={this.props.userData.image} />
-          <Text style={styles.userName}>{this.props.userData.name}</Text>
+          <Image style={styles.userImage} source={this.props.userInfo.image} />
+          <Text style={styles.userName}>{this.props.userInfo.name}</Text>
         </View>
         {
           monthObjects.map((monthObject) => {
@@ -87,6 +88,10 @@ export default class MemoriesView extends Component {
       </ScrollView>
     );
   }
+};
+
+MemoriesView.propTypes = {
+  userInfo: ChatHead.propTypes.userInfo.isRequired
 };
 
 const styles = StyleSheet.create({

@@ -12,6 +12,7 @@ import {withNavigation} from "@exponent/ex-navigation";
 import BodyText from "./BodyText";
 import TitleText from "./TitleText";
 import ChatHeads from "../components/ChatHeads";
+import ChatHead from "../components/ChatHead";
 import GlobalStyles from "../styles";
 import Router from "../navigation/Router";
 import FlexibleImage from "./FlexibleImage";
@@ -118,11 +119,7 @@ EventCard.propTypes = {
     /* The human-formatted location string to be displayed for the event */
     location: React.PropTypes.string.isRequired,
     /* The attendees of the event */
-    people: React.PropTypes.arrayOf(React.PropTypes.shape({
-      name: React.PropTypes.string.isRequired,
-      /* `image` should be an image as returned by require("image-uri") */
-      image: React.PropTypes.number.isRequired
-    })).isRequired
+    people: React.PropTypes.arrayOf(ChatHead.propTypes.userInfo).isRequired
   }).isRequired,
 };
 
