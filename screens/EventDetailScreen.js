@@ -17,7 +17,7 @@ class EventDetailScreen extends Component {
     var signedUp = !!foundEvent; // Coerce to boolean
 
     return (
-      <PageFrame title={currentEvent.title}>
+      <PageFrame overlay={true}>
         <EventDetailView
           eventInfo = {currentEvent}
           signedUp = {signedUp}

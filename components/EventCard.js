@@ -31,15 +31,44 @@ export default class EventCard extends Component {
 
   render() {
     var dateFormat = require('dateformat');
-    var dateDisplay = dateFormat(this.props.eventInfo.date, "mmmm dd");
 
     var chatHeads = null;
-    if (this.props.eventInfo.people) {
+    if (this.props.eventInfo.people && this.props.showPeople) {
       chatHeads = (
-        <ChatHeads
-          attendees={this.props.eventInfo.people}
-          organizer={this.props.eventInfo.organizer}
-        />
+        <View style={styles.chatHeads}>
+          <ChatHeads
+            attendees={this.props.eventInfo.people}
+            organizer={this.props.eventInfo.organizer}
+          />
+        </View>
+      );
+    }
+
+    var detailsView = null;
+    if (this.props.showPeople) {
+      var dateDisplay = dateFormat(this.props.eventInfo.date, "mmmm dd");
+      detailsView = (
+        <View style={styles.eventDetail}>
+          <BodyText style={styles.location} bold={true}>
+            {this.props.eventInfo.location}
+          </BodyText>
+          <BodyText style={styles.date}>
+            {dateDisplay}
+          </BodyText>
+         </View>
+      );
+    } else {
+      var date = dateFormat(this.props.eventInfo.date, "dd");
+      var monthYearTime = dateFormat(this.props.eventInfo.date, "mmmm | h:MM tt");
+      detailsView = (
+        <View style={styles.eventDetailUpcoming}>
+          <BodyText style={styles.dateUpcoming} light={true}>
+            {date}
+          </BodyText>
+          <BodyText style={styles.dateUpcomingMonth}>
+          {monthYearTime}
+          </BodyText>
+        </View>
       );
     }
 
@@ -53,15 +82,7 @@ export default class EventCard extends Component {
                 {this.props.eventInfo.title}
               </TitleText>
             </View>
-
-            <View style={styles.eventDetail}>
-              <BodyText style={styles.location}>
-                {this.props.eventInfo.location}
-              </BodyText>
-              <BodyText style={styles.date}>
-                {dateDisplay}
-              </BodyText>
-            </View>
+            {detailsView}
           </View>
         </TouchableHighlight>
         {chatHeads}
@@ -71,6 +92,8 @@ export default class EventCard extends Component {
 }
 
 EventCard.propTypes = {
+  /* Boolean indicating whether or not to show chatheads */
+  showPeople: React.PropTypes.bool,
   /* Event object */
   eventInfo: React.PropTypes.shape({
     /* Event id */
@@ -114,6 +137,9 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 200
   },
+  chatHeads: {
+    paddingTop: 8
+  },
   title: {
     // marginTop: -10,
     color: "white",
@@ -131,10 +157,26 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
   },
-  date: {
+  eventDetailUpcoming: {
+    paddingTop: 7,
     flex: 1,
+    backgroundColor: "white",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  date: {
     textAlign: "center",
     fontSize: 13,
+    color: "#4b4b4b"
+  },
+  dateUpcoming: {
+    fontSize: 30,
+    paddingRight: 6,
+    color: "#191919",
+  },
+  dateUpcomingMonth: {
+    fontSize: 16,
     color: "#4b4b4b"
   },
   location: {
@@ -142,6 +184,5 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 13,
     paddingTop: 5,
-    fontWeight: "bold",
   },
 });

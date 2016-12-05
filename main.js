@@ -60,6 +60,8 @@ class App extends React.Component {
   async _loadAssetsAsync() {
     const fontAssets = cacheFonts([
       {OxygenRegular: require('./assets/fonts/Oxygen-Regular.ttf')},
+      {OxygenBold: require('./assets/fonts/Oxygen-Bold.ttf')},
+      {OxygenLight: require('./assets/fonts/Oxygen-Light.ttf')},
     ]);
     this.setState({appIsReady: true});
   }

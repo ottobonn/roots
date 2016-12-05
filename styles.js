@@ -6,5 +6,11 @@ export default StyleSheet.create({
   },
   bodyFont: {
     fontFamily: "OxygenRegular"
+  },
+  boldFont: {
+  	fontFamily: "OxygenBold"
+  },
+  lightFont: {
+  	fontFamily: "OxygenLight"
   }
 });

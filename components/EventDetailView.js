@@ -4,13 +4,15 @@ import {
   View,
   Text,
   Image,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from "react-native";
 import dateFormat from "dateformat";
 import {Ionicons} from "@exponent/vector-icons";
 import Button from "react-native-button";
 import {connect} from "react-redux";
 
+import ChatHead from "../components/ChatHead";
 import ChatHeads from "../components/ChatHeads";
 import FlexibleImage from "./FlexibleImage";
 import GlobalStyles from "../styles";
@@ -23,23 +25,25 @@ class EventDetailView extends Component {
     var signUpView = null;
     if (this.props.signedUp) {
       signUpView = (
-        <View style={styles.signUpView}>
-          <Ionicons name="md-checkmark-circle-outline" style={styles.signUpViewText} />
-          <BodyText style={styles.signUpViewText}>{"I'm going"}</BodyText>
-          <Button onPress={this.props.cancelEvent} style={GlobalStyles.bodyFont}>
-            Cancel
-          </Button>
+        <View>
+          <View style={styles.signUpView}>
+            <Ionicons name="md-checkmark-circle-outline" style={styles.signUpViewText, styles.signUpViewIcon} />
+            <BodyText style={styles.signUpViewText}>{"I'm going"}</BodyText>
+          </View>
+          <View style={styles.cancel}>
+            <TouchableOpacity onPress={this.props.cancelEvent} style={styles.cancelButton}>
+              <BodyText style={styles.cancelText}> Cancel </BodyText>
+            </TouchableOpacity>
+          </View>
         </View>
       );
     } else {
       signUpView = (
-        <Button
-          containerStyle={styles.buttonContainer}
-          style={[GlobalStyles.bodyFont, styles.button]}
-          onPress={this.props.signupForEvent}
-        >
-          Sign up
-        </Button>
+        <View>
+          <TouchableOpacity onPress={this.props.signupForEvent} style={styles.buttonContainer}>
+            <BodyText style={styles.button}> Sign up </BodyText>
+          </TouchableOpacity>
+        </View>
       );
     }
 
@@ -57,7 +61,7 @@ class EventDetailView extends Component {
           <View style={styles.body}>
             {/* metadata*/}
             <View>
-              <BodyText style={styles.location}>{this.props.eventInfo.location}</BodyText>
+              <BodyText style={styles.location} bold={true}>{this.props.eventInfo.location}</BodyText>
               <BodyText style={styles.date}>{dateDisplay}</BodyText>
             </View>
             <View>
@@ -66,8 +70,11 @@ class EventDetailView extends Component {
             </View>
             <View>
               {/* Organizer details */}
-              <BodyText style={styles.organizerName}>{"About " + this.props.eventInfo.organizer.name}</BodyText>
-              <BodyText style={styles.organizerBio}>{this.props.eventInfo.organizer.bio}</BodyText>
+              <BodyText style={styles.organizerName} bold={true}>{"About " + this.props.eventInfo.organizer.name}</BodyText>
+              <View style={styles.organizerSection}>
+                <ChatHead name={this.props.eventInfo.organizer.name} image={this.props.eventInfo.organizer.image} style={styles.organizerPic}/>
+                <BodyText style={[styles.eventDetail, styles.organizerBio]}>{this.props.eventInfo.organizer.bio}</BodyText>
+              </View>
             </View>
           </View>
           <View style={styles.chatHeadsBar}>
@@ -160,11 +167,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    padding: 10
+    paddingTop: 10
+  },
+  cancel: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   signUpViewText: {
-    fontSize: 20,
-    padding: 5
+    fontSize: 18,
+    padding: 5,
+  },
+  signUpViewIcon: {
+    fontSize: 16,
   },
   eventDetail: {
     fontSize: 14,
@@ -186,17 +202,23 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 14,
     textAlign: "center",
-    fontWeight: "bold",
+    paddingTop: 15
   },
   organizerName: {
     paddingTop: 10,
+    paddingBottom: 10,
     fontSize: 14,
-    fontWeight: "bold",
     textAlign: "center"
   },
+  organizerSection: {
+    flex: 1,
+    flexDirection: "row",
+  },
+  organizerPic: {
+    flex: 1,
+  },
   organizerBio: {
-    fontSize: 14,
-    color: "#4b4b4b"
+    flex: 3,
   },
   buttonContainer: {
     margin: 20,
@@ -204,10 +226,24 @@ const styles = StyleSheet.create({
     height: 45,
     backgroundColor: "#499700",
     borderRadius: 5,
-    elevation: 5
+    elevation: 5,
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   button: {
-    fontSize: 19,
-    color: "white"
+    fontSize: 17,
+    color: "white",
+  },
+  cancelText: {
+    color: "red",
+    fontSize: 11,
+  },
+  cancelButton: {
+    marginTop: -3,
+    paddingBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
   }
 });
