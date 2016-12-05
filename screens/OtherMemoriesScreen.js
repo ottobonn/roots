@@ -17,7 +17,7 @@ class OtherMemoriesScreen extends React.Component {
       image: this.props.image,
       name: this.props.name,
       memories: this.props.memories,
-    }
+    };
     return (
       <PageFrame title="Memories" backButton={true} searchButton={false}>
         <MemoriesView userData={otherUserData} />
