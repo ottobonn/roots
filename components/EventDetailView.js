@@ -12,6 +12,7 @@ import {Ionicons} from "@exponent/vector-icons";
 import Button from "react-native-button";
 import {connect} from "react-redux";
 
+import ChatHead from "../components/ChatHead";
 import ChatHeads from "../components/ChatHeads";
 import FlexibleImage from "./FlexibleImage";
 import GlobalStyles from "../styles";
@@ -60,7 +61,7 @@ class EventDetailView extends Component {
           <View style={styles.body}>
             {/* metadata*/}
             <View>
-              <BodyText style={styles.location}>{this.props.eventInfo.location}</BodyText>
+              <BodyText style={styles.location} bold={true}>{this.props.eventInfo.location}</BodyText>
               <BodyText style={styles.date}>{dateDisplay}</BodyText>
             </View>
             <View>
@@ -69,8 +70,11 @@ class EventDetailView extends Component {
             </View>
             <View>
               {/* Organizer details */}
-              <BodyText style={styles.organizerName}>{"About " + this.props.eventInfo.organizer.name}</BodyText>
-              <BodyText style={styles.eventDetail}>{this.props.eventInfo.organizer.bio}</BodyText>
+              <BodyText style={styles.organizerName} bold={true}>{"About " + this.props.eventInfo.organizer.name}</BodyText>
+              <View style={styles.organizerSection}>
+                <ChatHead name={this.props.eventInfo.organizer.name} image={this.props.eventInfo.organizer.image} style={styles.organizerPic}/>
+                <BodyText style={[styles.eventDetail, styles.organizerBio]}>{this.props.eventInfo.organizer.bio}</BodyText>
+              </View>
             </View>
           </View>
           <View style={styles.chatHeadsBar}>
@@ -198,15 +202,23 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 14,
     textAlign: "center",
-    fontWeight: "bold",
     paddingTop: 15
   },
   organizerName: {
     paddingTop: 10,
     paddingBottom: 10,
     fontSize: 14,
-    fontWeight: "bold",
     textAlign: "center"
+  },
+  organizerSection: {
+    flex: 1,
+    flexDirection: "row",
+  },
+  organizerPic: {
+    flex: 1,
+  },
+  organizerBio: {
+    flex: 3,
   },
   buttonContainer: {
     margin: 20,

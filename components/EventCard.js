@@ -49,7 +49,7 @@ export default class EventCard extends Component {
       var dateDisplay = dateFormat(this.props.eventInfo.date, "mmmm dd");
       detailsView = (
         <View style={styles.eventDetail}>
-          <BodyText style={styles.location}>
+          <BodyText style={styles.location} bold={true}>
             {this.props.eventInfo.location}
           </BodyText>
           <BodyText style={styles.date}>
@@ -62,7 +62,7 @@ export default class EventCard extends Component {
       var monthYearTime = dateFormat(this.props.eventInfo.date, "mmmm | h:MM tt");
       detailsView = (
         <View style={styles.eventDetailUpcoming}>
-          <BodyText style={styles.dateUpcoming}>
+          <BodyText style={styles.dateUpcoming} light={true}>
             {date}
           </BodyText>
           <BodyText style={styles.dateUpcomingMonth}>
@@ -184,6 +184,5 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 13,
     paddingTop: 5,
-    fontWeight: "bold",
   },
 });
