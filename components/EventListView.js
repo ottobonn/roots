@@ -3,65 +3,36 @@ import {
   StyleSheet,
   View,
   Text,
-  ListView
+  ScrollView
 } from "react-native";
 import EventCard from "./EventCard";
 import Router from "../navigation/Router";
 import {withNavigation} from "@exponent/ex-navigation";
 
-function sortEvents(eventArray) {
-  eventArray.sort(function(a,b){
-    // Turn your strings into dates, and then subtract them
-    // to get a value that is either negative, positive, or zero.
-    return new Date(a.date) - new Date(b.date);
-  });
-  return eventArray;
-}
+const eventDateComparator = function(eventA, eventB) {
+  return new Date(eventA.date) - new Date(eventB.date);
+};
 
 @withNavigation
 export default class EventListView extends Component {
-  // Initialize the hardcoded data
-  constructor(props) {
-    super(props);
-    console.log("event list view rendering");
-    console.log(this.props.events);
-    // Sort events by date
-    if (this.props.sortByDate) {
-      var eventArray = sortEvents(this.props.events);
-    } else{
-      var eventArray = this.props.events;
-    }
-    this.ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1.title !== r2.title
-    });
-    this.state = {
-      dataSource: this.ds.cloneWithRows(eventArray)
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.events !== this.props.events) {
-      var eventArray = sortEvents(nextProps.events);
-      this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(eventArray)
-      })
-    }
-  }
-
   render() {
+    var eventArray = [].concat(this.props.events);
+    if (this.props.sortByDate) {
+      eventArray.sort(eventDateComparator);
+    }
     return (
       <View>
-        <ListView
-          dataSource={this.state.dataSource}
-          enableEmptySections={true}
-          renderRow={
-            (rowData) =>
+        <ScrollView>
+          {eventArray.map((eventInfo) => {
+            return (
               <EventCard
-                eventInfo={rowData}
+                eventInfo={eventInfo}
                 showPeople={this.props.showPeople}
+                key={eventInfo.id}
               />
-          }
-        />
+            );
+          })}
+        </ScrollView>
       </View>
     );
   }
@@ -72,7 +43,7 @@ EventListView.propTypes = {
   showPeople: React.PropTypes.bool,
   /* Boolean, whether or not to sort by date */
   sortByDate: React.PropTypes.bool,
-  /* Array of eventInfo objects */ 
+  /* Array of eventInfo objects */
   events: React.PropTypes.arrayOf(React.PropTypes.shape({
     /* Event id */
     id: React.PropTypes.number.isRequired,
@@ -101,6 +72,5 @@ EventListView.propTypes = {
       /* `image` should be an image as returned by require("image-uri") */
       image: React.PropTypes.number.isRequired
     })).isRequired
-  })).isRequired,
+  })).isRequired
 };
-
