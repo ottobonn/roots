@@ -3,12 +3,30 @@ import {
   StyleSheet,
   View,
   Text,
-  Image
+  Image,
+  TouchableHighlight
 } from "react-native";
 import Colors from "../constants/Colors";
 import BodyText from "./BodyText";
+import {withNavigation} from "@exponent/ex-navigation";
+import Router from "../navigation/Router";
 
+@withNavigation
 export default class ChatHead extends Component {
+
+  constructor(props) {
+    super(props);
+    this.showMemories = this.showMemories.bind(this);
+  }
+
+  showMemories() {
+    this.props.navigator.push(Router.getRoute("otherMemories", {
+      categoryId: this.props.id,
+      image: this.props.image,
+      name: this.props.name,
+    }));
+  }
+
   render() {
     var image = this.props.image;
     // First-name basis
@@ -18,15 +36,17 @@ export default class ChatHead extends Component {
       imageStyles.push(styles.organizerImage);
     }
     return (
-      <View style={styles.chatHead}>
-        <Image
-          style={imageStyles}
-          source={image}
-        />
-        <BodyText style={styles.name}>
-          {name}
-        </BodyText>
-      </View>
+      <TouchableHighlight style={{flex: 1}} onPress={this.showMemories}>
+        <View style={styles.chatHead}>
+          <Image
+            style={imageStyles}
+            source={image}
+          />
+          <BodyText style={styles.name}>
+            {name}
+          </BodyText>
+        </View>
+      </TouchableHighlight>
     );
   }
 
