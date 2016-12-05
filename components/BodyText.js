@@ -7,11 +7,11 @@ import {
 import GlobalStyles from "../styles";
 
 export default class BodyText extends Component {
-	render() {
-		return (
-		    <Text style={[GlobalStyles.bodyFont, this.props.style]}>
-		        {this.props.children}
-		    </Text>
-	    );
-  	}
+  render() {
+    return (
+      <Text style={[GlobalStyles.bodyFont, this.props.style]}>
+        {this.props.children}
+      </Text>
+    );
+  }
 }

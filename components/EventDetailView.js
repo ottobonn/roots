@@ -10,24 +10,16 @@ import {
 import dateFormat from "dateformat";
 import {Ionicons} from "@exponent/vector-icons";
 import Button from "react-native-button";
+import {connect} from "react-redux";
+
 import ChatHeads from "../components/ChatHeads";
 import FlexibleImage from "./FlexibleImage";
 import GlobalStyles from "../styles";
 import BodyText from "./BodyText";
 import TitleText from "./TitleText";
+import store from "../store";
 
-export default class EventDetailView extends Component {
-  constructor(props) {
-    super(props);
-    this.toggleSignup = this.toggleSignup.bind(this);
-    console.log(props);
-  }
-
-  toggleSignup() {
-    this.props.onSignUpChange(!this.props.signedUp);
-    console.log("toggle signup");
-  }
-
+class EventDetailView extends Component {
   render() {
     var signUpView = null;
     if (this.props.signedUp) {
@@ -38,7 +30,7 @@ export default class EventDetailView extends Component {
             <BodyText style={styles.signUpViewText}>{"I'm going"}</BodyText>
           </View>
           <View style={styles.cancel}>
-            <TouchableOpacity onPress={this.toggleSignup} style={styles.cancelButton}>
+            <TouchableOpacity onPress={this.props.cancelEvent} style={styles.cancelButton}>
               <BodyText style={styles.cancelText}> Cancel </BodyText>
             </TouchableOpacity>
           </View>
@@ -47,7 +39,7 @@ export default class EventDetailView extends Component {
     } else {
       signUpView = (
         <View>
-          <TouchableOpacity onPress={this.toggleSignup} style={styles.buttonContainer}>
+          <TouchableOpacity onPress={this.props.signupForEvent} style={styles.buttonContainer}>
             <BodyText style={styles.button}> Sign up </BodyText>
           </TouchableOpacity>
         </View>
@@ -93,8 +85,6 @@ export default class EventDetailView extends Component {
 EventDetailView.propTypes = {
   /* True when the user is signed up for this event and false otherwise */
   signedUp: React.PropTypes.bool,
-  /* Called with new signup status when the user alters the signup */
-  onSignUpChange: React.PropTypes.func.isRequired,
   /* Event object */
   eventInfo: React.PropTypes.shape({
     /* Event id */
@@ -126,6 +116,25 @@ EventDetailView.propTypes = {
     })).isRequired
   }).isRequired,
 };
+
+const mapDispatchToProps = function(dispatch, ownProps) {
+  return {
+    signupForEvent: () => {
+      store.dispatch({
+        type: "ADD_EVENT",
+        event: ownProps.eventInfo
+      });
+    },
+    cancelEvent: () => {
+      store.dispatch({
+        type: "REMOVE_EVENT",
+        event: ownProps.eventInfo
+      });
+    }
+  };
+};
+
+export default connect(null, mapDispatchToProps)(EventDetailView);
 
 const styles = StyleSheet.create({
   header: {

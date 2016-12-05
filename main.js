@@ -8,27 +8,30 @@ import {
   Text,
   View
 } from "react-native";
-
 import {
   NavigationProvider,
   StackNavigation,
 } from "@exponent/ex-navigation";
+import {Provider} from "react-redux";
 
-import { 
+import {
   Components,
   Font,
 } from 'exponent';
 
 import Router from "./navigation/Router";
+import store from "./store";
 
 function cacheFonts(fonts) {
   return fonts.map(font => Exponent.Font.loadAsync(font));
 }
 
 class App extends React.Component {
-
-  state = {
-    appIsReady: false,
+  constructor(props) {
+    super(props);
+    this.state = {
+      appIsReady: false
+    };
   }
 
   componentWillMount() {
@@ -39,24 +42,25 @@ class App extends React.Component {
     if (!this.state.appIsReady) {
       return <Components.AppLoading />;
     }
-    
-    return (
-      <View style={styles.container}>
-        <NavigationProvider router={Router}>
-          <StackNavigation id="root" initialRoute={Router.getRoute("rootNavigation")} />
-        </NavigationProvider>
 
-        {Platform.OS === "ios" && <StatusBar barStyle="default" />}
-        {Platform.OS === "android" && <View style={styles.statusBarUnderlay} />}
-      </View>
+    return (
+      <Provider store={store}>
+        <View style={styles.container}>
+          <NavigationProvider router={Router}>
+            <StackNavigation id="root" initialRoute={Router.getRoute("rootNavigation")} />
+          </NavigationProvider>
+
+          {Platform.OS === "ios" && <StatusBar barStyle="default" />}
+          {Platform.OS === "android" && <View style={styles.statusBarUnderlay} />}
+        </View>
+      </Provider>
     );
   }
 
   async _loadAssetsAsync() {
     const fontAssets = cacheFonts([
-        {OxygenRegular: require('./assets/fonts/Oxygen-Regular.ttf')},
+      {OxygenRegular: require('./assets/fonts/Oxygen-Regular.ttf')},
     ]);
-
     this.setState({appIsReady: true});
   }
 }

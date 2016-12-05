@@ -3,30 +3,34 @@ import {
   View,
   Text
 } from "react-native";
+import {connect} from "react-redux";
 
 import PageFrame from "../components/PageFrame";
 import EventDetailView from "../components/EventDetailView";
 
-export default class EventDetailScreen extends Component {
-  constructor() {
-    super();
-    this.state = {signedUp: false};
-    this.toggleSignup = this.toggleSignup.bind(this);
-  }
-
-  toggleSignup() {
-    this.setState({signedUp: !this.state.signedUp});
-  }
-
+class EventDetailScreen extends Component {
   render() {
+    var currentEvent = this.props.route.params.eventInfo;
+    var foundEvent = this.props.signedUpEvents.find((eventInfo) => {
+      return eventInfo.id === currentEvent.id;
+    });
+    var signedUp = !!foundEvent; // Coerce to boolean
+
     return (
       <PageFrame overlay={true}>
         <EventDetailView
-          eventInfo = {this.props.route.params.eventInfo}
-          onSignUpChange = {this.toggleSignup}
-          signedUp = {this.state.signedUp}
+          eventInfo = {currentEvent}
+          signedUp = {signedUp}
         />
       </PageFrame>
     );
   }
 };
+
+const mapStateToProps = function(store) {
+  return {
+    signedUpEvents: store.events
+  };
+};
+
+export default connect(mapStateToProps)(EventDetailScreen);

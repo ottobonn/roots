@@ -1,18 +1,39 @@
 import React from "react";
 import {
-  Text
+  Text,
+  StyleSheet
 } from "react-native";
+import {connect} from "react-redux";
 
-export default class EventsScreen extends React.Component {
+import PageFrame from "../components/PageFrame";
+import EventListView from "../components/EventListView";
+import store from "../store";
+
+class EventsScreen extends React.Component {
   render() {
+    var list = <EventListView events={this.props.events} />;
+    var emptyMessage = <Text style={styles.emptyMessage}>You have no upcoming events.</Text>;
+
     return (
-      <Text>My events</Text>
+      <PageFrame title="Upcoming events" backButton={false} searchButton={true}>
+        {this.props.events.length > 0 ? list : emptyMessage}
+      </PageFrame>
     );
   }
 }
 
-EventsScreen.route = {
-  navigationBar: {
-    title: "My events",
-  }
+const mapStoreToProps = function(store) {
+  return {
+    events: store.events
+  };
 };
+
+const styles = StyleSheet.create({
+  emptyMessage: {
+    flex: 1,
+    textAlign: "center",
+    textAlignVertical: "center"
+  }
+});
+
+export default connect(mapStoreToProps)(EventsScreen);

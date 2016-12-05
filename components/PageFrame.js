@@ -37,14 +37,14 @@ export default class PageFrame extends Component {
       <View style={{flex: 1}}>
         <View style={[styles.titleBar, overlayStyle]}>
           <View style={styles.leftContainer}>
-            {backButton && 
+            {backButton &&
               <TouchableHighlight onPress={this.goBack} style={styles.backButton}>
                 <Ionicons name="md-arrow-round-back" size={32} color="white" />
               </TouchableHighlight> }
-            <TitleText style={styles.title}>{this.props.title}</TitleText>
+            <TitleText style={styles.title} textLines={1}>{this.props.title}</TitleText>
           </View>
           <View style={styles.rightContainer}>
-            {this.props.searchButton && 
+            {this.props.searchButton &&
               <TouchableHighlight onPress={this.gotoSearch} style={styles.search}>
                 <Ionicons name="md-search" size={32} color="white" />
               </TouchableHighlight> }
@@ -106,6 +106,6 @@ const styles = StyleSheet.create({
     padding: 10
   },
   search: {
-    paddingRight: 20, 
+    paddingRight: 20,
   }
 });
