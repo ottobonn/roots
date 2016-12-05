@@ -4,7 +4,7 @@ import {
   View,
   Text,
   Image,
-  TouchableHighlight
+  TouchableOpacity
 } from "react-native";
 import Colors from "../constants/Colors";
 import BodyText from "./BodyText";
@@ -35,7 +35,7 @@ export default class ChatHead extends Component {
     }
     var onPressAction = this.props.disablePress ? null : this.showMemories;
     return (
-      <TouchableHighlight style={{flex: 1}} onPress={onPressAction}>
+      <TouchableOpacity style={{flex: 1}} onPress={onPressAction}>
         <View style={styles.chatHead}>
           <Image
             style={imageStyles}
@@ -45,7 +45,7 @@ export default class ChatHead extends Component {
             {name}
           </BodyText>
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
     );
   }
 }
@@ -55,7 +55,7 @@ ChatHead.propTypes = {
     image: React.PropTypes.any.isRequired,
     name: React.PropTypes.string.isRequired,
     memories: React.PropTypes.arrayOf(React.PropTypes.shape({
-      image: React.PropTypes.number.isRequired,
+      image: React.PropTypes.any.isRequired,
       eventLocation: React.PropTypes.string.isRequired,
       eventDate: React.PropTypes.string.isRequired
     }))

@@ -33,7 +33,7 @@ MemoryDetailView.propTypes = {
   /* The memory object to display */
   memory: React.PropTypes.shape({
     /* The image for the memory, as returned by require("image-name") */
-    image: React.PropTypes.number.isRequired,
+    image: React.PropTypes.any.isRequired,
     /* The date of the event, as an ISO string */
     eventDate: React.PropTypes.string.isRequired,
     /* The location of the event, in human-readable form */

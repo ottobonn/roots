@@ -18,7 +18,7 @@ const eventsReducer = function(eventsState = [], action) {
     if (index !== -1) {
       newState.splice(index, 1);
     }
-  }
+  } 
   return newState;
 };
 
@@ -32,17 +32,21 @@ const userData = {
   memories: []
 };
 
-for (var i = 0; i < 50; i++) {
-  var memory = {
-  	eventName: "Tree planting",
-  	eventDate: randomDate(new Date(2016, 0, 10), new Date(2016, 11, 10)).toISOString(),
-    eventLocation: "Henry Coe Park",
-  	image: require("./static/images/memories/01.jpg"),
-  };
-  userData.memories.push(memory);
-}
+// for (var i = 0; i < 50; i++) {
+//   var memory = {
+//   	eventName: "Tree planting",
+//   	eventDate: randomDate(new Date(2016, 0, 10), new Date(2016, 11, 10)).toISOString(),
+//     eventLocation: "Henry Coe Park",
+//   	image: require("./static/images/memories/01.jpg"),
+//   };
+//   userData.memories.push(memory);
+// }
 
-const userReducer = function(state, action) {
+const userReducer = function(userState = [], action) {
+  var newState = [].concat(userState);
+  if (action.type == "ADD_PHOTO") {
+    userData.memories.push(action.event);
+  }
   return userData;
 };
 

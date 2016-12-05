@@ -11,6 +11,8 @@ import {
 import {Ionicons} from "@exponent/vector-icons";
 import {withNavigation} from "@exponent/ex-navigation";
 import Exponent from 'exponent';
+import store from "../store";
+import {connect} from "react-redux";
 
 import BodyText from "./BodyText";
 import TitleText from "./TitleText";
@@ -21,7 +23,7 @@ import Router from "../navigation/Router";
 import FlexibleImage from "./FlexibleImage";
 
 @withNavigation
-export default class EventCard extends Component {
+class EventCard extends Component {
   constructor(props) {
     super(props);
     this.showDetails = this.showDetails.bind(this);
@@ -37,7 +39,15 @@ export default class EventCard extends Component {
     let result = await Exponent.ImagePicker.launchImageLibraryAsync();
     console.log(result);
     if (!result.cancelled){
-      // Add image: result.uri to user memories
+      store.dispatch({
+        type: "ADD_PHOTO",
+        event: {
+          eventName: this.props.eventInfo.title,
+          eventDate: this.props.eventInfo.date,
+          eventLocation: this.props.eventInfo.location,
+          image: {uri: result.uri},
+        },
+      });
     }
   }
 
@@ -143,6 +153,25 @@ EventCard.propTypes = {
     people: React.PropTypes.arrayOf(ChatHead.propTypes.userInfo).isRequired
   }).isRequired,
 };
+
+const mapDispatchToProps = function(dispatch, ownProps) {
+  return {
+    addMemory: () => {
+      console.log("adding memory");
+      store.dispatch({
+        type: "ADD_PHOTO",
+        memory: {
+          eventName: ownProps.eventInfo.title,
+          eventDate: ownProps.eventInfo.date,
+          eventLocation: ownProps.eventInfo.location,
+          image: require("./static/images/memories/01.jpg"),
+        },
+      });
+    },
+  };
+};
+
+export default connect(null, mapDispatchToProps)(EventCard);
 
 const styles = StyleSheet.create({
   card: {
