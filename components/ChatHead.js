@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     borderRadius: 25
   },
   organizerImage: {
-    borderWidth: 5,
+    borderWidth: 3,
     borderColor: Colors.accent
   },
   name: {

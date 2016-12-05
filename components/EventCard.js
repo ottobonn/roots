@@ -36,10 +36,12 @@ export default class EventCard extends Component {
     var chatHeads = null;
     if (this.props.eventInfo.people) {
       chatHeads = (
-        <ChatHeads
-          attendees={this.props.eventInfo.people}
-          organizer={this.props.eventInfo.organizer}
-        />
+        <View style={styles.chatHeads}>
+          <ChatHeads
+            attendees={this.props.eventInfo.people}
+            organizer={this.props.eventInfo.organizer}
+          />
+        </View>
       );
     }
 
@@ -113,6 +115,9 @@ const styles = StyleSheet.create({
   cardHeader: {
     flex: 1,
     height: 200
+  },
+  chatHeads: {
+    paddingTop: 8
   },
   title: {
     // marginTop: -10,
