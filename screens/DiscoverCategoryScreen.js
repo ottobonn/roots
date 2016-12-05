@@ -31,6 +31,7 @@ export default class DiscoverCategoryScreen extends Component {
       <PageFrame title={this.props.route.params.name}>
         <EventListView
           events = {eventList}
+          showPeople={true}
         />
       </PageFrame>
     );

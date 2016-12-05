@@ -26,7 +26,11 @@ export default class EventListView extends Component {
     console.log("event list view rendering");
     console.log(this.props.events);
     // Sort events by date
-    var eventArray = sortEvents(this.props.events);
+    if (this.props.sortByDate) {
+      var eventArray = sortEvents(this.props.events);
+    } else{
+      var eventArray = this.props.events;
+    }
     this.ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1.title !== r2.title
     });
@@ -54,6 +58,7 @@ export default class EventListView extends Component {
             (rowData) =>
               <EventCard
                 eventInfo={rowData}
+                showPeople={this.props.showPeople}
               />
           }
         />
@@ -63,6 +68,10 @@ export default class EventListView extends Component {
 }
 
 EventListView.propTypes = {
+  /* Boolean indicating whether or not to show chatheads */
+  showPeople: React.PropTypes.bool,
+  /* Boolean, whether or not to sort by date */
+  sortByDate: React.PropTypes.bool,
   /* Array of eventInfo objects */ 
   events: React.PropTypes.arrayOf(React.PropTypes.shape({
     /* Event id */
