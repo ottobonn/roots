@@ -14,7 +14,6 @@ import ChatHead from "../components/ChatHead";
 class OtherMemoriesScreen extends React.Component {
   render(){
     var otherUserData = {
-      categoryId: this.props.categoryId,
       image: this.props.image,
       name: this.props.name,
       memories: this.props.memories,

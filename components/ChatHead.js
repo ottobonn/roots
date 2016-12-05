@@ -21,7 +21,6 @@ export default class ChatHead extends Component {
 
   showMemories() {
     this.props.navigator.push(Router.getRoute("otherMemories", {
-      categoryId: this.props.id,
       image: this.props.image,
       name: this.props.name,
     }));

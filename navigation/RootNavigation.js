@@ -39,7 +39,7 @@ export default class RootNavigation extends React.Component {
             id="settings"
             selectedStyle={styles.selectedTab}
             renderIcon={isSelected => this.renderTab("md-contacts", "Memories", isSelected)}>
-            <StackNavigation initialRoute="memories" />
+            <StackNavigation initialRoute="memories"/>
           </TabNavigationItem>
         </TabNavigation>
       </View>
