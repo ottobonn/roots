@@ -4,7 +4,7 @@ import {
 } from "redux";
 
 const findEventById = function(events, id) {
-  return events.find((event) => {
+  return events.findIndex((event) => {
     return event.id === id;
   });
 };
@@ -15,7 +15,7 @@ const eventsReducer = function(eventsState = [], action) {
     newState.push(action.event);
   } else if (action.type === "REMOVE_EVENT") {
     var index = findEventById(eventsState, action.event.id);
-    if (index !== undefined) {
+    if (index !== -1) {
       newState.splice(index, 1);
     }
   }
