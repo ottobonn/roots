@@ -29,6 +29,7 @@ export default class Search extends Component {
         <View style={{ marginTop: 70 }}>
           <EventListView
             events={this.state.results}
+            showPeople={true}
           />
         </View>
         <SearchBar

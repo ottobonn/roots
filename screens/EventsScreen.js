@@ -11,11 +11,11 @@ import store from "../store";
 
 class EventsScreen extends React.Component {
   render() {
-    var list = <EventListView events={this.props.events} />;
+    var list = <EventListView events={this.props.events} sortByDate={true} />;
     var emptyMessage = <Text style={styles.emptyMessage}>You have no upcoming events.</Text>;
 
     return (
-      <PageFrame title="Upcoming events" backButton={false} searchButton={true}>
+      <PageFrame title="Upcoming events" backButton={false}>
         {this.props.events.length > 0 ? list : emptyMessage}
       </PageFrame>
     );
