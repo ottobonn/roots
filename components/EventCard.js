@@ -4,10 +4,13 @@ import {
   View,
   Text,
   Image,
-  TouchableHighlight
+  TouchableHighlight,
+  TouchableOpacity,
 } from "react-native";
 
+import {Ionicons} from "@exponent/vector-icons";
 import {withNavigation} from "@exponent/ex-navigation";
+import Exponent from 'exponent';
 
 import BodyText from "./BodyText";
 import TitleText from "./TitleText";
@@ -28,6 +31,14 @@ export default class EventCard extends Component {
     this.props.navigator.push(Router.getRoute("eventDetails", {
       eventInfo: this.props.eventInfo
     }));
+  }
+
+  _pickImage = async() => {
+    let result = await Exponent.ImagePicker.launchImageLibraryAsync();
+    console.log(result);
+    if (!result.cancelled){
+      // Add image: result.uri to user memories
+    }
   }
 
   render() {
@@ -73,6 +84,15 @@ export default class EventCard extends Component {
       );
     }
 
+    var cameraButton = null;
+    if (!this.props.showPeople) {
+      cameraButton = (
+        <TouchableOpacity style={styles.eventCam} onPress={this._pickImage}>
+          <Ionicons name="md-add-circle" size={50} color="#970E37" />
+        </TouchableOpacity>
+      );
+    }
+
     return (
       <View style={styles.card}>
         <TouchableHighlight style={{flex: 1}} onPress={this.showDetails}>
@@ -84,6 +104,7 @@ export default class EventCard extends Component {
               </TitleText>
             </View>
             {detailsView}
+            {cameraButton}
           </View>
         </TouchableHighlight>
         {chatHeads}
@@ -171,15 +192,24 @@ const styles = StyleSheet.create({
     fontSize: 30,
     paddingRight: 6,
     color: "#191919",
+    paddingBottom: 8,
   },
   dateUpcomingMonth: {
     fontSize: 16,
-    color: "#4b4b4b"
+    color: "#4b4b4b",
+    paddingBottom: 8,
   },
   location: {
     flex: 1,
     textAlign: "center",
     fontSize: 13,
     paddingTop: 5,
+  },
+  eventCam: {
+    alignItems: "flex-end",
+    paddingRight: 20,
+    paddingBottom: 8,
+    marginTop: -60,
+    elevation: 5,
   },
 });
