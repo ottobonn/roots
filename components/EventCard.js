@@ -174,10 +174,12 @@ const styles = StyleSheet.create({
     fontSize: 30,
     paddingRight: 6,
     color: "#191919",
+    paddingBottom: 7,
   },
   dateUpcomingMonth: {
     fontSize: 16,
-    color: "#4b4b4b"
+    color: "#4b4b4b",
+    paddingBottom: 7
   },
   location: {
     flex: 1,
