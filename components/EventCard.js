@@ -10,6 +10,7 @@ import {
 
 import {Ionicons} from "@exponent/vector-icons";
 import {withNavigation} from "@exponent/ex-navigation";
+import Exponent from 'exponent';
 
 import BodyText from "./BodyText";
 import TitleText from "./TitleText";
@@ -29,6 +30,14 @@ export default class EventCard extends Component {
     this.props.navigator.push(Router.getRoute("eventDetails", {
       eventInfo: this.props.eventInfo
     }));
+  }
+
+  _pickImage = async() => {
+    let result = await Exponent.ImagePicker.launchImageLibraryAsync();
+    console.log(result);
+    if (!result.cancelled){
+      // Add image: result.uri to user memories
+    }
   }
 
   render() {
@@ -77,7 +86,7 @@ export default class EventCard extends Component {
     var cameraButton = null;
     if (!this.props.showPeople) {
       cameraButton = (
-        <TouchableOpacity style={styles.eventCam}>
+        <TouchableOpacity style={styles.eventCam} onPress={this._pickImage}>
           <Ionicons name="md-add-circle" size={50} color="#970E37" />
         </TouchableOpacity>
       );
