@@ -21,6 +21,7 @@ import GlobalStyles from "../styles";
 import Router from "../navigation/Router";
 import FlexibleImage from "./FlexibleImage";
 import Colors from "../constants/Colors";
+import toast from "../util/toast";
 
 @withNavigation
 class EventCard extends Component {
@@ -158,6 +159,7 @@ const mapDispatchToProps = function(dispatch, ownProps) {
           image: {uri: imageURI}
         }
       });
+      toast(`Shared photo to Memories`);
     }
   };
 };
