@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import dateFormat from "dateformat";
 
+import BodyText from "./BodyText";
 import MemoriesRowView from "./MemoriesRowView";
 import FlexibleImage from "./FlexibleImage";
 import ChatHead from "./ChatHead";
@@ -78,7 +79,7 @@ export default class MemoriesView extends Component {
       <ScrollView style={{flex: 1}}>
         <View style={styles.userInfo}>
           <Image style={styles.userImage} source={this.props.userInfo.image} />
-          <Text style={styles.userName}>{this.props.userInfo.name}</Text>
+          <BodyText style={styles.userName} bold={true}>{this.props.userInfo.name}</BodyText>
         </View>
         {
           monthObjects.map((monthObject) => {
@@ -103,7 +104,6 @@ const styles = StyleSheet.create({
   },
   userName: {
     textAlign: "center",
-    fontWeight: "bold",
     fontSize: 19
   },
   userImage: {
@@ -112,6 +112,6 @@ const styles = StyleSheet.create({
     borderRadius: 50
   },
   row: {
-    marginTop: 20
+    padding: 20,
   }
 });

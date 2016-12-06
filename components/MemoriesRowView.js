@@ -7,8 +7,9 @@ import {
   TouchableHighlight
 } from "react-native";
 import {withNavigation} from "@exponent/ex-navigation";
-
 import Router from "../navigation/Router";
+
+import BodyText from "./BodyText";
 import FlexibleImage from "./FlexibleImage";
 
 @withNavigation
@@ -41,7 +42,7 @@ export default class MemoriesRowView extends Component {
     var memories = this.props.memories;
     return (
       <View style={[{flex: 1}, this.props.style]}>
-        <Text style={styles.title}>{this.props.title}</Text>
+        <BodyText style={styles.title}>{this.props.title}</BodyText>
         <ScrollView horizontal={true} style={styles.scrollView}>
           {
             this.props.memories.map((memory, index) => {
@@ -56,7 +57,7 @@ export default class MemoriesRowView extends Component {
 
 const styles = StyleSheet.create({
   title: {
-    fontWeight: "bold"
+    paddingBottom: 10,
   },
   scrollView: {
     flex: 1,
