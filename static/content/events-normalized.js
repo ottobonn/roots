@@ -315,7 +315,7 @@ export default [
   {
     "category": "arts",
     "title": "Finger-painting mural tiles",
-    "date": "2016-12-16T19:50:09.127Z",
+    "date": "2016-12-10T05:00:00.000Z",
     "description": "There’s going to be a new wall at the Cába Elementary School, and the school has come up with an idea to immortalize the children that experienced the construction of the wall. Each will get a 4x4 tile to finger paint, and they will all then be color-sorted into a mural. Come join and chaperone this once-in-a-lifetime event for the children!",
     "location": "Cába Parkside",
     "image": require("../images/categories/arts/finger.jpg"),
