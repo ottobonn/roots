@@ -83,11 +83,13 @@ export default class MemoriesView extends Component {
             <Image style={styles.userImage} source={this.props.userInfo.image} />
             <BodyText style={styles.userName} bold={true}>{this.props.userInfo.name}</BodyText>
           </View>
-          {
-            monthObjects.map((monthObject) => {
-              return this.renderMonth(monthObject);
-            })
-          }
+          <View style={styles.content}>
+            {
+              monthObjects.map((monthObject) => {
+                return this.renderMonth(monthObject);
+              })
+            }
+          </View>
         </ScrollView>
       </View>
     );
@@ -99,11 +101,17 @@ MemoriesView.propTypes = {
 };
 
 const styles = StyleSheet.create({
+  content: {
+    paddingBottom: 60 /* Clearance for floating chat button */
+  },
   userInfo: {
     paddingTop: 15,
     justifyContent: "center",
     alignItems: "center",
-    paddingBottom: 10
+    paddingBottom: 10,
+    backgroundColor: "#eee",
+    borderBottomWidth: 0.5,
+    borderColor: "#ccc"
   },
   userName: {
     textAlign: "center",

@@ -15,7 +15,7 @@ export default class ChatView extends React.Component {
         {
           _id: 1,
           text: "Hi, Travis!",
-          createdAt: new Date(Date.UTC(2016, 11, 30, 17, 20, 0)),
+          createdAt: new Date(),
           user: {
             name: this.props.userInfo.name
           },
