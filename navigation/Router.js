@@ -10,6 +10,7 @@ import MemoriesScreen from "../screens/MemoriesScreen";
 import OtherMemoriesScreen from "../screens/OtherMemoriesScreen";
 import SearchScreen from "../screens/SearchScreen";
 import MemoryDetailScreen from "../screens/MemoryDetailScreen";
+import ChatScreen from "../screens/ChatScreen";
 
 import RootNavigation from "./RootNavigation";
 
@@ -22,5 +23,6 @@ export default createRouter(() => ({
   otherMemories: () => OtherMemoriesScreen,
   rootNavigation: () => RootNavigation,
   search: () => SearchScreen,
-  memoryDetails: () => MemoryDetailScreen
+  memoryDetails: () => MemoryDetailScreen,
+  chat: () => ChatScreen
 }));
