@@ -3,7 +3,7 @@ import {
   Text,
   View,
   StyleSheet,
-  Image
+  Image,
 } from "react-native";
 import {connect} from "react-redux";
 
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: "center",
     textAlignVertical: "center"
-  }
+  },
 });
 
 export default connect(mapStoreToProps)(MemoriesScreen);
