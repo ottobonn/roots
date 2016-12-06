@@ -4,13 +4,12 @@ import {
   View,
   Text,
   Image,
-  TouchableHighlight,
-  TouchableOpacity,
+  TouchableHighlight
 } from "react-native";
 
-import {Ionicons} from "@exponent/vector-icons";
+import {MaterialIcons} from "@exponent/vector-icons";
 import {withNavigation} from "@exponent/ex-navigation";
-import Exponent from 'exponent';
+import Exponent from "exponent";
 import store from "../store";
 import {connect} from "react-redux";
 
@@ -21,6 +20,7 @@ import ChatHead from "../components/ChatHead";
 import GlobalStyles from "../styles";
 import Router from "../navigation/Router";
 import FlexibleImage from "./FlexibleImage";
+import Colors from "../constants/Colors";
 
 @withNavigation
 class EventCard extends Component {
@@ -89,9 +89,9 @@ class EventCard extends Component {
     var cameraButton = null;
     if (!this.props.showPeople) {
       cameraButton = (
-        <TouchableOpacity style={styles.eventCam} onPress={this.pickImage}>
-          <Ionicons name="md-add-circle" size={50} color="#970E37" />
-        </TouchableOpacity>
+        <TouchableHighlight style={styles.fab} onPress={this.pickImage}>
+          <MaterialIcons name="add-a-photo" size={25} color="white" />
+        </TouchableHighlight>
       );
     }
 
@@ -164,6 +164,8 @@ const mapDispatchToProps = function(dispatch, ownProps) {
 
 export default connect(null, mapDispatchToProps)(EventCard);
 
+const headerHeight = 200;
+
 const styles = StyleSheet.create({
   card: {
     flex: 1,
@@ -173,7 +175,7 @@ const styles = StyleSheet.create({
   },
   cardHeader: {
     flex: 1,
-    height: 200
+    height: headerHeight
   },
   chatHeads: {
     paddingTop: 8
@@ -224,11 +226,16 @@ const styles = StyleSheet.create({
     fontSize: 13,
     paddingTop: 5,
   },
-  eventCam: {
-    alignItems: "flex-end",
-    paddingRight: 20,
-    paddingBottom: 8,
-    marginTop: -60,
-    elevation: 5,
-  },
+  fab: {
+    position: "absolute",
+    right: 10,
+    top: headerHeight - 25,
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+    backgroundColor: Colors.fab,
+    justifyContent: "center",
+    alignItems: "center",
+    elevation: 5
+  }
 });
