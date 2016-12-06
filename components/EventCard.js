@@ -27,6 +27,7 @@ class EventCard extends Component {
   constructor(props) {
     super(props);
     this.showDetails = this.showDetails.bind(this);
+    this.pickImage = this.pickImage.bind(this);
   }
 
   showDetails() {
@@ -35,19 +36,10 @@ class EventCard extends Component {
     }));
   }
 
-  _pickImage = async() => {
+  async pickImage() {
     let result = await Exponent.ImagePicker.launchImageLibraryAsync();
-    console.log(result);
     if (!result.cancelled){
-      store.dispatch({
-        type: "ADD_PHOTO",
-        event: {
-          eventName: this.props.eventInfo.title,
-          eventDate: this.props.eventInfo.date,
-          eventLocation: this.props.eventInfo.location,
-          image: {uri: result.uri},
-        },
-      });
+      this.props.addMemory(result.uri);
     }
   }
 
@@ -97,7 +89,7 @@ class EventCard extends Component {
     var cameraButton = null;
     if (!this.props.showPeople) {
       cameraButton = (
-        <TouchableOpacity style={styles.eventCam} onPress={this._pickImage}>
+        <TouchableOpacity style={styles.eventCam} onPress={this.pickImage}>
           <Ionicons name="md-add-circle" size={50} color="#970E37" />
         </TouchableOpacity>
       );
@@ -156,18 +148,17 @@ EventCard.propTypes = {
 
 const mapDispatchToProps = function(dispatch, ownProps) {
   return {
-    addMemory: () => {
-      console.log("adding memory");
+    addMemory: (imageURI) => {
       store.dispatch({
         type: "ADD_PHOTO",
-        memory: {
+        event: {
           eventName: ownProps.eventInfo.title,
           eventDate: ownProps.eventInfo.date,
           eventLocation: ownProps.eventInfo.location,
-          image: require("./static/images/memories/01.jpg"),
-        },
+          image: {uri: imageURI}
+        }
       });
-    },
+    }
   };
 };
 
@@ -188,7 +179,6 @@ const styles = StyleSheet.create({
     paddingTop: 8
   },
   title: {
-    // marginTop: -10,
     color: "white",
     backgroundColor: "#333c",
     fontSize: 19,
