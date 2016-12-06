@@ -13,7 +13,11 @@ export default class FlexibleImage extends Component {
         var {_, _, imageWidth, imageHeight} = event.nativeEvent.layout;
       }} >
         <Image
-          style={[styles.image, {width: imageWidth, height: imageHeight}]}
+          style={[styles.image, {
+            width: imageWidth,
+            height: imageHeight,
+            resizeMode: this.props.resizeMode
+          }]}
           source={this.props.source}
         >
           {this.props.children}

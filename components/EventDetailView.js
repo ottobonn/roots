@@ -72,7 +72,7 @@ class EventDetailView extends Component {
               {/* Organizer details */}
               <BodyText style={styles.organizerName} bold={true}>{"About " + this.props.eventInfo.organizer.name}</BodyText>
               <View style={styles.organizerSection}>
-                <ChatHead name={this.props.eventInfo.organizer.name} image={this.props.eventInfo.organizer.image} style={styles.organizerPic}/>
+                <ChatHead userInfo={this.props.eventInfo.organizer} style={styles.organizerPic} disablePress={true}/>
                 <BodyText style={[styles.eventDetail, styles.organizerBio]}>{this.props.eventInfo.organizer.bio}</BodyText>
               </View>
             </View>
@@ -118,7 +118,7 @@ EventDetailView.propTypes = {
       /* `image` should be an image as returned by require("image-uri") */
       image: React.PropTypes.number.isRequired
     })).isRequired
-  }).isRequired,
+  }).isRequired
 };
 
 const mapDispatchToProps = function(dispatch, ownProps) {

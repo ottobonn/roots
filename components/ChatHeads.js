@@ -30,13 +30,13 @@ export default class ChatHeads extends Component {
   render() {
     // Add attendees
     var elements = this.props.attendees.map((person, i) => {
-      return (<ChatHead name={person.name} image={person.image} key={i} />);
+      return (<ChatHead userInfo={person} key={i} />);
     });
     var organizer = this.props.organizer;
     // Prepend organizer
     if (organizer) {
       elements.unshift(
-        <ChatHead name={organizer.name} image={organizer.image} key={"organizer"} organizer={true} />
+        <ChatHead userInfo={organizer} key={"organizer"} organizer={true} disablePress={true} />
       );
     }
     // Configure title
@@ -56,14 +56,8 @@ export default class ChatHeads extends Component {
 
 ChatHeads.propTypes = {
   title: React.PropTypes.string,
-  organizer: React.PropTypes.shape({
-    name: React.PropTypes.string.isRequired,
-    image: React.PropTypes.number.isRequired
-  }),
-  attendees: React.PropTypes.arrayOf(React.PropTypes.shape({
-    name: React.PropTypes.string.isRequired,
-    image: React.PropTypes.number.isRequired
-  }))
+  organizer: ChatHead.propTypes.userInfo,
+  attendees: React.PropTypes.arrayOf(ChatHead.propTypes.userInfo)
 };
 
 const styles = StyleSheet.create({

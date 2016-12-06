@@ -1,18 +1,40 @@
 import React from "react";
 import {
-  Text
+  Text,
+  View,
+  StyleSheet,
+  Image,
 } from "react-native";
+import {connect} from "react-redux";
 
-export default class MemoriesScreen extends React.Component {
-  render() {
+import PageFrame from "../components/PageFrame";
+import MemoriesView from "../components/MemoriesView";
+import ChatHead from "../components/ChatHead";
+import store from "../store";
+
+class MemoriesScreen extends React.Component {
+  render(){
+    console.log(this.props.userData);
     return (
-      <Text>My memories</Text>
+      <PageFrame title="Memories" backButton={false}>
+        <MemoriesView userInfo={this.props.userData} />
+      </PageFrame>
     );
   }
 }
 
-MemoriesScreen.route = {
-  navigationBar: {
-    title: "My memories",
-  }
+const mapStoreToProps = function(store) {
+  return {
+    userData: store.user
+  };
 };
+
+const styles = StyleSheet.create({
+  emptyMessage: {
+    flex: 1,
+    textAlign: "center",
+    textAlignVertical: "center"
+  },
+});
+
+export default connect(mapStoreToProps)(MemoriesScreen);

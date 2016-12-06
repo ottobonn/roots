@@ -2,6 +2,7 @@ import {
   createStore,
   combineReducers
 } from "redux";
+var cloneDeep = require("lodash.clonedeep");
 
 const findEventById = function(events, id) {
   return events.findIndex((event) => {
@@ -22,8 +23,22 @@ const eventsReducer = function(eventsState = [], action) {
   return newState;
 };
 
-const userReducer = function(state, action) {
-  return {};
+const randomDate = function(start, end) {
+  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+};
+
+const userData = {
+  name: "Travis",
+  image: require("./static/images/travis.jpg"),
+  memories: []
+};
+
+const userReducer = function(userState = userData, action) {
+  var newUser = cloneDeep(userState);
+  if (action.type == "ADD_PHOTO") {
+    newUser.memories.push(action.event);
+  }
+  return newUser;
 };
 
 const reducers = combineReducers({

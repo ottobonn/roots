@@ -7,26 +7,40 @@ import {
   TouchableHighlight
 } from "react-native";
 
+import {MaterialIcons} from "@exponent/vector-icons";
 import {withNavigation} from "@exponent/ex-navigation";
+import Exponent from "exponent";
+import store from "../store";
+import {connect} from "react-redux";
 
 import BodyText from "./BodyText";
 import TitleText from "./TitleText";
 import ChatHeads from "../components/ChatHeads";
+import ChatHead from "../components/ChatHead";
 import GlobalStyles from "../styles";
 import Router from "../navigation/Router";
 import FlexibleImage from "./FlexibleImage";
+import Colors from "../constants/Colors";
 
 @withNavigation
-export default class EventCard extends Component {
+class EventCard extends Component {
   constructor(props) {
     super(props);
     this.showDetails = this.showDetails.bind(this);
+    this.pickImage = this.pickImage.bind(this);
   }
 
   showDetails() {
     this.props.navigator.push(Router.getRoute("eventDetails", {
       eventInfo: this.props.eventInfo
     }));
+  }
+
+  async pickImage() {
+    let result = await Exponent.ImagePicker.launchImageLibraryAsync();
+    if (!result.cancelled){
+      this.props.addMemory(result.uri);
+    }
   }
 
   render() {
@@ -72,6 +86,15 @@ export default class EventCard extends Component {
       );
     }
 
+    var cameraButton = null;
+    if (!this.props.showPeople) {
+      cameraButton = (
+        <TouchableHighlight style={styles.fab} onPress={this.pickImage}>
+          <MaterialIcons name="add-a-photo" size={25} color="white" />
+        </TouchableHighlight>
+      );
+    }
+
     return (
       <View style={styles.card}>
         <TouchableHighlight style={{flex: 1}} onPress={this.showDetails}>
@@ -83,6 +106,7 @@ export default class EventCard extends Component {
               </TitleText>
             </View>
             {detailsView}
+            {cameraButton}
           </View>
         </TouchableHighlight>
         {chatHeads}
@@ -118,13 +142,29 @@ EventCard.propTypes = {
     /* The human-formatted location string to be displayed for the event */
     location: React.PropTypes.string.isRequired,
     /* The attendees of the event */
-    people: React.PropTypes.arrayOf(React.PropTypes.shape({
-      name: React.PropTypes.string.isRequired,
-      /* `image` should be an image as returned by require("image-uri") */
-      image: React.PropTypes.number.isRequired
-    })).isRequired
+    people: React.PropTypes.arrayOf(ChatHead.propTypes.userInfo).isRequired
   }).isRequired,
 };
+
+const mapDispatchToProps = function(dispatch, ownProps) {
+  return {
+    addMemory: (imageURI) => {
+      store.dispatch({
+        type: "ADD_PHOTO",
+        event: {
+          eventName: ownProps.eventInfo.title,
+          eventDate: ownProps.eventInfo.date,
+          eventLocation: ownProps.eventInfo.location,
+          image: {uri: imageURI}
+        }
+      });
+    }
+  };
+};
+
+export default connect(null, mapDispatchToProps)(EventCard);
+
+const headerHeight = 200;
 
 const styles = StyleSheet.create({
   card: {
@@ -135,13 +175,12 @@ const styles = StyleSheet.create({
   },
   cardHeader: {
     flex: 1,
-    height: 200
+    height: headerHeight
   },
   chatHeads: {
     paddingTop: 8
   },
   title: {
-    // marginTop: -10,
     color: "white",
     backgroundColor: "#333c",
     fontSize: 19,
@@ -174,10 +213,12 @@ const styles = StyleSheet.create({
     fontSize: 30,
     paddingRight: 6,
     color: "#191919",
+    paddingBottom: 8,
   },
   dateUpcomingMonth: {
     fontSize: 16,
-    color: "#4b4b4b"
+    color: "#4b4b4b",
+    paddingBottom: 8,
   },
   location: {
     flex: 1,
@@ -185,4 +226,16 @@ const styles = StyleSheet.create({
     fontSize: 13,
     paddingTop: 5,
   },
+  fab: {
+    position: "absolute",
+    right: 15,
+    top: headerHeight - 25,
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+    backgroundColor: Colors.fab,
+    justifyContent: "center",
+    alignItems: "center",
+    elevation: 5
+  }
 });
