@@ -4,7 +4,7 @@ import {
   View,
   Text,
   Image,
-  ScrollView
+  ScrollView,
 } from "react-native";
 import dateFormat from "dateformat";
 
@@ -12,6 +12,7 @@ import BodyText from "./BodyText";
 import MemoriesRowView from "./MemoriesRowView";
 import FlexibleImage from "./FlexibleImage";
 import ChatHead from "./ChatHead";
+
 
 const addMemory = function(memoryMap, memory) {
   var date = new Date(memory.eventDate);
@@ -76,17 +77,19 @@ export default class MemoriesView extends Component {
     });
 
     return (
-      <ScrollView style={{flex: 1}}>
-        <View style={styles.userInfo}>
-          <Image style={styles.userImage} source={this.props.userInfo.image} />
-          <BodyText style={styles.userName} bold={true}>{this.props.userInfo.name}</BodyText>
-        </View>
-        {
-          monthObjects.map((monthObject) => {
-            return this.renderMonth(monthObject);
-          })
-        }
-      </ScrollView>
+      <View style={{flex: 1}}>
+        <ScrollView>
+          <View style={styles.userInfo}>
+            <Image style={styles.userImage} source={this.props.userInfo.image} />
+            <BodyText style={styles.userName} bold={true}>{this.props.userInfo.name}</BodyText>
+          </View>
+          {
+            monthObjects.map((monthObject) => {
+              return this.renderMonth(monthObject);
+            })
+          }
+        </ScrollView>
+      </View>
     );
   }
 };
@@ -113,5 +116,5 @@ const styles = StyleSheet.create({
   },
   row: {
     padding: 20,
-  }
+  },
 });
