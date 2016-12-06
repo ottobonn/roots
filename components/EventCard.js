@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
   },
   fab: {
     position: "absolute",
-    right: 10,
+    right: 15,
     top: headerHeight - 25,
     height: 50,
     width: 50,
