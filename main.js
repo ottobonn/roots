@@ -21,6 +21,7 @@ import {
 
 import Router from "./navigation/Router";
 import store from "./store";
+import Onboarding from "./components/Onboarding";
 
 function cacheFonts(fonts) {
   return fonts.map(font => Exponent.Font.loadAsync(font));
@@ -30,7 +31,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      appIsReady: false
+      appIsReady: false,
+      onboardingComplete: false,
     };
   }
 
@@ -38,23 +40,34 @@ class App extends React.Component {
     this._loadAssetsAsync();
   }
 
+  handleDone = () => {
+    console.log("done)");
+    this.setState({onboardingComplete: true});
+  }
+
   render() {
     if (!this.state.appIsReady) {
       return <Components.AppLoading />;
+    } else if (this.state.onboardingComplete) {
+      return (
+        <Provider store={store}>
+          <View style={styles.container}>
+            <NavigationProvider router={Router}>
+              <StackNavigation id="root" initialRoute={Router.getRoute("rootNavigation")} />
+            </NavigationProvider>
+
+            {Platform.OS === "ios" && <StatusBar barStyle="default" />}
+            {Platform.OS === "android" && <View style={styles.statusBarUnderlay} />}
+          </View>
+        </Provider>
+      );
+    } else {
+      return (
+        <Onboarding 
+          onDoneBtnClick={this.handleDone}
+        />
+      );
     }
-
-    return (
-      <Provider store={store}>
-        <View style={styles.container}>
-          <NavigationProvider router={Router}>
-            <StackNavigation id="root" initialRoute={Router.getRoute("rootNavigation")} />
-          </NavigationProvider>
-
-          {Platform.OS === "ios" && <StatusBar barStyle="default" />}
-          {Platform.OS === "android" && <View style={styles.statusBarUnderlay} />}
-        </View>
-      </Provider>
-    );
   }
 
   async _loadAssetsAsync() {
