@@ -19,6 +19,7 @@ import GlobalStyles from "../styles";
 import BodyText from "./BodyText";
 import TitleText from "./TitleText";
 import store from "../store";
+import toast from "../util/toast";
 
 class EventDetailView extends Component {
   render() {
@@ -122,14 +123,17 @@ EventDetailView.propTypes = {
 };
 
 const mapDispatchToProps = function(dispatch, ownProps) {
+  const toastOffset = 50;
   return {
     signupForEvent: () => {
+      toast(`Added "${ownProps.eventInfo.title}" to Upcoming`);
       store.dispatch({
         type: "ADD_EVENT",
         event: ownProps.eventInfo
       });
     },
     cancelEvent: () => {
+      toast(`Removed "${ownProps.eventInfo.title}" from Upcoming`);
       store.dispatch({
         type: "REMOVE_EVENT",
         event: ownProps.eventInfo
