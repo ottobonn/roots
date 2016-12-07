@@ -58,7 +58,7 @@ EventListView.propTypes = {
       /* The biography or description of the organizer */
       bio: React.PropTypes.string.isRequired,
       /* `image` should be an image as returned by require("image-uri") */
-      image: React.PropTypes.any
+      image: React.PropTypes.number.isRequired
     }).isRequired,
     /* `image` should be an image as returned by require("image-uri") */
     image: React.PropTypes.number.isRequired,
