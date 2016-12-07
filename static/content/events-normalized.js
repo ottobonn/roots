@@ -580,7 +580,7 @@ export default [
     "organizer": {
       "name": "Fred Maddox",
       "bio": "I’ve been a 3rd-grade teacher at Davison Elementary for the past 3 years. It’s been a very rewarding experience. I usually volunteer at the church on weekends.",
-      "image": "require(\"../images/people/organizers/fred_maddox.jpg\")"
+      "image": require("../images/people/organizers/fred_maddox.jpg")
     },
     "id": 29,
     "people": [
