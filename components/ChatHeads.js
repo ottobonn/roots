@@ -36,7 +36,7 @@ export default class ChatHeads extends Component {
     // Prepend organizer
     if (organizer) {
       elements.unshift(
-        <ChatHead userInfo={organizer} key={"organizer"} organizer={true} disablePress={true} />
+        <ChatHead userInfo={organizer} key={"organizer"} organizer={true} />
       );
     }
     // Configure title
