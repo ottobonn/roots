@@ -12,6 +12,7 @@ import {Ionicons} from "@exponent/vector-icons";
 import Button from "react-native-button";
 import {connect} from "react-redux";
 
+import CameraButton from "../components/CameraButton";
 import ChatHead from "../components/ChatHead";
 import ChatHeads from "../components/ChatHeads";
 import FlexibleImage from "./FlexibleImage";
@@ -50,6 +51,16 @@ class EventDetailView extends Component {
 
     var dateDisplay = dateFormat(this.props.eventInfo.date, "mmmm dd, h:MM tt");
 
+    var cameraButton = null;
+    // TODO change to "signed up"
+    if (this.props.signedUp) {
+      cameraButton = (
+        <View style={styles.fab}>
+          <CameraButton eventInfo={this.props.eventInfo} diameter={cameraButtonDiameter} />
+        </View>
+      );
+    }
+
     return (
       <View style={{flex: 1}}>
         <ScrollView style={{flex: 1}}>
@@ -60,6 +71,7 @@ class EventDetailView extends Component {
           </View>
           {signUpView}
           <View style={styles.body}>
+           {cameraButton}
             {/* metadata*/}
             <View>
               <BodyText style={styles.location} bold={true}>{this.props.eventInfo.location}</BodyText>
@@ -143,6 +155,8 @@ const mapDispatchToProps = function(dispatch, ownProps) {
 };
 
 export default connect(null, mapDispatchToProps)(EventDetailView);
+
+const cameraButtonDiameter = 60;
 
 const styles = StyleSheet.create({
   header: {
@@ -249,5 +263,11 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 10,
     paddingRight: 10,
+  },
+  fab: {
+    position: "absolute",
+    right: 25,
+    top: -80,
+
   }
 });

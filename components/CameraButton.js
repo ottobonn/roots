@@ -27,7 +27,10 @@ class CameraButton extends React.Component {
   }
 
   async takePhoto() {
-    // TODO use the camera
+    let result = await Exponent.ImagePicker.launchCameraAsync();
+    if (!result.cancelled) {
+      this.props.addMemory(result.uri);
+    }
   }
 
   onSelect(selection) {
