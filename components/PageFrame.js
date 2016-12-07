@@ -88,19 +88,20 @@ const styles = StyleSheet.create({
   title: {
     color: "white",
     fontSize: 20,
-    paddingLeft: 10
+    paddingLeft: 10,
+    flex: 1
   },
   leftContainer: {
+    flex: 4,
     alignItems: "center",
-    flex: 2,
     flexDirection: "row",
-    justifyContent: "flex-start",
+    justifyContent: "flex-start"
   },
   rightContainer: {
     flex: 1,
     flexDirection: "row",
     justifyContent: "flex-end",
-    alignItems: "center",
+    alignItems: "center"
   },
   backButton: {
     padding: 10
