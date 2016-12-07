@@ -6,12 +6,8 @@ import {
   Image,
   TouchableHighlight
 } from "react-native";
-
-import {MaterialIcons} from "@exponent/vector-icons";
 import {withNavigation} from "@exponent/ex-navigation";
-import Exponent from "exponent";
-import store from "../store";
-import {connect} from "react-redux";
+import dateFormat from "dateformat";
 
 import BodyText from "./BodyText";
 import TitleText from "./TitleText";
@@ -20,15 +16,14 @@ import ChatHead from "../components/ChatHead";
 import GlobalStyles from "../styles";
 import Router from "../navigation/Router";
 import FlexibleImage from "./FlexibleImage";
+import CameraButton from "./CameraButton";
 import Colors from "../constants/Colors";
-import toast from "../util/toast";
 
 @withNavigation
-class EventCard extends Component {
+export default class EventCard extends Component {
   constructor(props) {
     super(props);
     this.showDetails = this.showDetails.bind(this);
-    this.pickImage = this.pickImage.bind(this);
   }
 
   showDetails() {
@@ -37,16 +32,7 @@ class EventCard extends Component {
     }));
   }
 
-  async pickImage() {
-    let result = await Exponent.ImagePicker.launchImageLibraryAsync();
-    if (!result.cancelled){
-      this.props.addMemory(result.uri);
-    }
-  }
-
   render() {
-    var dateFormat = require('dateformat');
-
     var chatHeads = null;
     if (this.props.eventInfo.people && this.props.showPeople) {
       chatHeads = (
@@ -90,9 +76,9 @@ class EventCard extends Component {
     var cameraButton = null;
     if (!this.props.showPeople) {
       cameraButton = (
-        <TouchableHighlight style={styles.fab} onPress={this.pickImage}>
-          <MaterialIcons name="add-a-photo" size={25} color="white" />
-        </TouchableHighlight>
+        <View style={styles.fab}>
+          <CameraButton eventInfo={this.props.eventInfo} diameter={cameraButtonDiameter} />
+        </View>
       );
     }
 
@@ -147,26 +133,8 @@ EventCard.propTypes = {
   }).isRequired,
 };
 
-const mapDispatchToProps = function(dispatch, ownProps) {
-  return {
-    addMemory: (imageURI) => {
-      store.dispatch({
-        type: "ADD_PHOTO",
-        event: {
-          eventName: ownProps.eventInfo.title,
-          eventDate: ownProps.eventInfo.date,
-          eventLocation: ownProps.eventInfo.location,
-          image: {uri: imageURI}
-        }
-      });
-      toast(`Shared photo to Memories`);
-    }
-  };
-};
-
-export default connect(null, mapDispatchToProps)(EventCard);
-
 const headerHeight = 200;
+const cameraButtonDiameter = 60;
 
 const styles = StyleSheet.create({
   card: {
@@ -231,13 +199,6 @@ const styles = StyleSheet.create({
   fab: {
     position: "absolute",
     right: 15,
-    top: headerHeight - 25,
-    height: 50,
-    width: 50,
-    borderRadius: 25,
-    backgroundColor: Colors.fab,
-    justifyContent: "center",
-    alignItems: "center",
-    elevation: 5
+    top: headerHeight - cameraButtonDiameter / 2
   }
 });
