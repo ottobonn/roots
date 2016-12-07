@@ -84,7 +84,7 @@ class EventDetailView extends Component {
               {/* Organizer details */}
               <BodyText style={styles.organizerName} bold={true}>{"About " + this.props.eventInfo.organizer.name}</BodyText>
               <View style={styles.organizerSection}>
-                <ChatHead userInfo={this.props.eventInfo.organizer} style={styles.organizerPic} disablePress={true}/>
+                <ChatHead userInfo={this.props.eventInfo.organizer} style={styles.organizerPic} />
                 <BodyText style={[styles.eventDetail, styles.organizerBio]}>{this.props.eventInfo.organizer.bio}</BodyText>
               </View>
             </View>
