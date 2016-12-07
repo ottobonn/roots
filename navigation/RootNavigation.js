@@ -7,39 +7,60 @@ import {
 import {
   StackNavigation,
   TabNavigation,
-  TabNavigationItem,
+  TabNavigationItem
 } from "@exponent/ex-navigation";
 import {Ionicons} from "@exponent/vector-icons";
+
 import Colors from "../constants/Colors.js";
 import BodyText from "../components/BodyText";
 
 export default class RootNavigation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onPress = this.onPress.bind(this);
+  }
+
+  onPress(switchTab) {
+    switchTab();
+    requestIdleCallback(() => {
+      this.props.navigation.performAction(({stacks}) => {
+        stacks("discover").popToTop();
+      });
+    });
+  }
+
   render() {
     return (
       <View style={styles.tabBar}>
         <TabNavigation
           tabBarHeight={56}
-          initialTab="home"
+          initialTab="discover"
         >
           <TabNavigationItem
-            id="home"
+            id="discover"
             selectedStyle={styles.selectedTab}
-            renderIcon={isSelected => this.renderTab("md-globe", "Discover", isSelected)}>
-            <StackNavigation initialRoute="discover" />
+            renderIcon={isSelected => this.renderTab("md-globe", "Discover", isSelected)}
+            onPress={this.onPress}
+          >
+            <StackNavigation id="discover" navigatorUID="discover" initialRoute="discover" />
           </TabNavigationItem>
 
           <TabNavigationItem
-            id="links"
+            id="upcoming"
             selectedStyle={styles.selectedTab}
-            renderIcon={isSelected => this.renderTab("md-calendar", "Upcoming", isSelected)}>
-            <StackNavigation initialRoute="events" />
+            renderIcon={isSelected => this.renderTab("md-calendar", "Upcoming", isSelected)}
+            onPress={this.onPress}
+          >
+            <StackNavigation id="upcoming" initialRoute="events" />
           </TabNavigationItem>
 
           <TabNavigationItem
-            id="settings"
+            id="memories"
             selectedStyle={styles.selectedTab}
-            renderIcon={isSelected => this.renderTab("md-contacts", "Memories", isSelected)}>
-            <StackNavigation initialRoute="memories" />
+            renderIcon={isSelected => this.renderTab("md-contacts", "Memories", isSelected)}
+            onPress={this.onPress}
+          >
+            <StackNavigation id="memories" initialRoute="memories" />
           </TabNavigationItem>
         </TabNavigation>
       </View>
