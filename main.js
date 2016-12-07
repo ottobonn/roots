@@ -13,11 +13,11 @@ import {
   StackNavigation,
 } from "@exponent/ex-navigation";
 import {Provider} from "react-redux";
-
 import {
   Components,
   Font,
 } from 'exponent';
+import {MenuContext} from "react-native-popup-menu";
 
 import Router from "./navigation/Router";
 import store from "./store";
@@ -45,14 +45,16 @@ class App extends React.Component {
 
     return (
       <Provider store={store}>
-        <View style={styles.container}>
-          <NavigationProvider router={Router}>
-            <StackNavigation id="root" initialRoute={Router.getRoute("rootNavigation")} />
-          </NavigationProvider>
+        <MenuContext style={{flex: 1}}>
+          <View style={styles.container}>
+            <NavigationProvider router={Router}>
+              <StackNavigation id="root" initialRoute={Router.getRoute("rootNavigation")} />
+            </NavigationProvider>
 
-          {Platform.OS === "ios" && <StatusBar barStyle="default" />}
-          {Platform.OS === "android" && <View style={styles.statusBarUnderlay} />}
-        </View>
+            {Platform.OS === "ios" && <StatusBar barStyle="default" />}
+            {Platform.OS === "android" && <View style={styles.statusBarUnderlay} />}
+          </View>
+        </MenuContext>
       </Provider>
     );
   }
