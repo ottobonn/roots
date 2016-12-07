@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import dateFormat from "dateformat";
 
+import TitleText from "./TitleText";
 import BodyText from "./BodyText";
 import MemoriesRowView from "./MemoriesRowView";
 import FlexibleImage from "./FlexibleImage";
@@ -81,7 +82,12 @@ export default class MemoriesView extends Component {
         <ScrollView>
           <View style={styles.userInfo}>
             <Image style={styles.userImage} source={this.props.userInfo.image} />
-            <BodyText style={styles.userName} bold={true}>{this.props.userInfo.name}</BodyText>
+            <TitleText style={styles.userName} bold={true}>{this.props.userInfo.name}</TitleText>
+            {this.props.userInfo.bio &&
+              <View>
+                <BodyText style={styles.bio}>{this.props.userInfo.bio}</BodyText>
+              </View>
+            }
           </View>
           <View style={styles.content}>
             {
@@ -105,6 +111,7 @@ const styles = StyleSheet.create({
     paddingBottom: 60 /* Clearance for floating chat button */
   },
   userInfo: {
+    padding: 20,
     paddingTop: 15,
     justifyContent: "center",
     alignItems: "center",
@@ -116,6 +123,10 @@ const styles = StyleSheet.create({
   userName: {
     textAlign: "center",
     fontSize: 19
+  },
+  bio: {
+    fontSize: 12,
+    marginTop: 20
   },
   userImage: {
     width: 100,
