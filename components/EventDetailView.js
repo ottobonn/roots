@@ -52,7 +52,6 @@ class EventDetailView extends Component {
     var dateDisplay = dateFormat(this.props.eventInfo.date, "mmmm dd, h:MM tt");
 
     var cameraButton = null;
-    // TODO change to "signed up"
     if (this.props.signedUp) {
       cameraButton = (
         <View style={styles.fab}>
@@ -64,6 +63,7 @@ class EventDetailView extends Component {
     return (
       <View style={{flex: 1}}>
         <ScrollView style={{flex: 1}}>
+          {cameraButton}
           <View style={styles.header}>
             {/* Header */}
             <FlexibleImage source={this.props.eventInfo.image} />
@@ -71,7 +71,6 @@ class EventDetailView extends Component {
           </View>
           {signUpView}
           <View style={styles.body}>
-           {cameraButton}
             {/* metadata*/}
             <View>
               <BodyText style={styles.location} bold={true}>{this.props.eventInfo.location}</BodyText>
@@ -157,11 +156,12 @@ const mapDispatchToProps = function(dispatch, ownProps) {
 export default connect(null, mapDispatchToProps)(EventDetailView);
 
 const cameraButtonDiameter = 60;
+const headerHeight = 300;
 
 const styles = StyleSheet.create({
   header: {
     flexDirection: "column",
-    height: 300,
+    height: headerHeight,
     backgroundColor: "black"
   },
   body: {
@@ -267,7 +267,6 @@ const styles = StyleSheet.create({
   fab: {
     position: "absolute",
     right: 25,
-    top: -80,
-
+    top: headerHeight - cameraButtonDiameter / 2,
   }
 });
