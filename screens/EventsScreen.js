@@ -7,12 +7,12 @@ import {connect} from "react-redux";
 
 import PageFrame from "../components/PageFrame";
 import EventListView from "../components/EventListView";
-import store from "../store";
+import BodyText from "../components/BodyText";
 
 class EventsScreen extends React.Component {
   render() {
     var list = <EventListView events={this.props.events} sortByDate={true} />;
-    var emptyMessage = <Text style={styles.emptyMessage}>You have no upcoming events.</Text>;
+    var emptyMessage = <BodyText style={styles.emptyMessage}>You have no upcoming events.</BodyText>;
 
     return (
       <PageFrame title="Upcoming events" backButton={false}>
