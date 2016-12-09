@@ -35,8 +35,15 @@ const userData = {
 
 const userReducer = function(userState = userData, action) {
   var newUser = cloneDeep(userState);
-  if (action.type == "ADD_PHOTO") {
+  if (action.type === "ADD_PHOTO") {
     newUser.memories.push(action.event);
+  } else if (action.type === "REMOVE_PHOTO") {
+    var index = newUser.memories.findIndex((memory) => {
+      return memory.image.uri === action.event.image.uri;
+    });
+    if (index !== -1) {
+      newUser.memories.splice(index, 1);
+    }
   }
   return newUser;
 };

@@ -91,7 +91,8 @@ const mapDispatchToProps = function(dispatch, ownProps) {
           eventName: ownProps.eventInfo.title,
           eventDate: ownProps.eventInfo.date,
           eventLocation: ownProps.eventInfo.location,
-          image: {uri: imageURI}
+          image: {uri: imageURI},
+          enableDelete: true
         }
       });
       toast("Shared photo to Memories");
