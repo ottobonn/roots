@@ -1,5 +1,5 @@
 {
-  "name": "roots",
+  "name": "Roots",
   "description": "Roots Hi-Fi Prototype for CS147, Fall 2016",
   "slug": "roots",
   "sdkVersion": "11.0.0",
@@ -17,5 +17,11 @@
   },
   "packagerOpts": {
     "assetExts": ["ttf", "mp4"]
-  }
+  },
+  "android": {
+    "package": "com.travisgeis.roots",
+    "versionCode": 1,
+  },
+  "androidHideExponentNotificationInShellApp": true,
+  "androidStatusBarColor": "#000000"
 }
