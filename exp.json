@@ -1,19 +1,19 @@
 {
   "name": "roots",
-  "description": "An empty new project",
+  "description": "Roots Hi-Fi Prototype for CS147, Fall 2016",
   "slug": "roots",
   "sdkVersion": "11.0.0",
   "version": "1.0.0",
   "orientation": "portrait",
-  "primaryColor": "#cccccc",
-  "iconUrl": "https://s3.amazonaws.com/exp-brand-assets/ExponentEmptyManifest_192.png",
+  "primaryColor": "#4c960e",
+  "iconUrl": "https://raw.githubusercontent.com/ottobonn/roots/master/static/logo.png?raw=true",
   "notification": {
-    "iconUrl": "https://s3.amazonaws.com/exp-us-standard/placeholder-push-icon-blue-circle.png",
+    "iconUrl": "https://raw.githubusercontent.com/ottobonn/roots/master/static/logo.png?raw=true",
     "color": "#000000"
   },
   "loading": {
-    "iconUrl": "https://s3.amazonaws.com/exp-brand-assets/ExponentEmptyManifest_192.png",
-    "hideExponentText": false
+    "iconUrl": "https://raw.githubusercontent.com/ottobonn/roots/master/static/logo.png?raw=true",
+    "hideExponentText": true
   },
   "packagerOpts": {
     "assetExts": ["ttf", "mp4"]
